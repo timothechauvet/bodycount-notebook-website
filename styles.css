@@ -733,6 +733,31 @@ i[data-lucide], .lucide {
   color: #171717;
 }
 
+.field-box.abstract {
+  background: #ffffff;
+  border: 1px dashed #cfc5a0;
+  color: #7a7a70;
+  font-size: 0.76rem;
+  font-weight: 500;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.spread-id-box {
+  display: inline-block;
+  font-family: monospace;
+  font-weight: 800;
+  color: #66665e;
+  margin-left: 4px;
+}
+
+.field-placeholder {
+  color: #8c8c82;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+}
+
 /* Roles / Positions Bar */
 .roles-selector-box {
   background: #fff;
@@ -745,7 +770,7 @@ i[data-lucide], .lucide {
 .roles-items-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
   margin-top: 4px;
 }
@@ -753,16 +778,23 @@ i[data-lucide], .lucide {
 .role-pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.76rem;
+  gap: 5px;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 4px 9px;
   border-radius: 4px;
   background: #f4edd0;
   border: 1px solid #ddd1a8;
+  color: #333330;
 }
 
-.role-pill.checked {
+.role-pill i {
+  width: 13px;
+  height: 13px;
+  stroke: #77776d;
+}
+
+.role-pill.accent {
   background: #171717;
   color: var(--color-primary);
   border-color: #171717;
@@ -816,6 +848,19 @@ i[data-lucide], .lucide {
   font-weight: 900;
   color: var(--color-danger);
   letter-spacing: 0.05em;
+}
+
+.spread-blueprint-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #dcd1ab;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #77776c;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /* --------------------------------------------------------------------------
@@ -985,7 +1030,7 @@ i[data-lucide], .lucide {
 }
 
 /* --------------------------------------------------------------------------
-   12. Minimal FAQ Accordion
+   12. Minimal FAQ Accordion (Quick & Eased Animations)
    -------------------------------------------------------------------------- */
 .faq-section {
   padding: 48px 0;
@@ -997,17 +1042,35 @@ i[data-lucide], .lucide {
   margin: 20px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .faq-row {
   background: #1c1c1c;
-  border: 1px solid #2c2c2c;
+  border: 1px solid #2b2b2b;
   border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.18s ease,
+              background-color 0.18s ease,
+              box-shadow 0.18s ease;
+  will-change: transform;
+}
+
+.faq-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 200, 0, 0.45);
+  background: #212121;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.faq-row:has(details[open]) {
+  border-color: rgba(245, 200, 0, 0.5);
+  background: #202020;
 }
 
 .faq-row summary {
-  padding: 14px 16px;
+  padding: 14px 18px;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.94rem;
@@ -1017,31 +1080,73 @@ i[data-lucide], .lucide {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  user-select: none;
+  transition: color 0.18s ease;
 }
 
 .faq-row summary::-webkit-details-marker {
   display: none;
 }
 
-.faq-row summary i {
-  transition: transform 0.2s ease;
+.faq-row summary:active {
+  transform: scale(0.995);
+}
+
+.faq-row details[open] summary {
   color: var(--color-primary);
-  width: 16px;
-  height: 16px;
+}
+
+.faq-row summary i {
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              stroke 0.18s ease;
+  color: var(--color-primary);
+  width: 17px;
+  height: 17px;
 }
 
 .faq-row details[open] summary i {
   transform: rotate(180deg);
 }
 
+/* Modern progressive animation support */
+.faq-row details::details-content {
+  opacity: 0;
+  block-size: 0;
+  overflow-y: clip;
+  transition: content-visibility 0.22s allow-discrete,
+              opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              block-size 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-row details[open]::details-content {
+  opacity: 1;
+  block-size: auto;
+}
+
+/* Fallback / universal keyframe reveal */
+.faq-row details[open] .faq-answer {
+  animation: faq-expand 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes faq-expand {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .faq-answer {
-  padding: 0 16px 14px;
+  padding: 0 18px 16px;
   font-size: 0.88rem;
   color: #bfbfb0;
-  line-height: 1.45;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 8px;
+  line-height: 1.48;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
 }
 
 /* --------------------------------------------------------------------------
