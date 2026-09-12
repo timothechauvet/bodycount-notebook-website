@@ -125,36 +125,6 @@
   }
 
   /**
-   * Two-Page Spread View Mode Switcher (Both / Recto / Verso)
-   */
-  function initSpreadTabs() {
-    const tabButtons = document.querySelectorAll('.spread-tab-btn');
-    const spreadContainer = document.getElementById('notebookDoubleSpread');
-
-    if (!tabButtons.length || !spreadContainer) return;
-
-    tabButtons.forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const view = this.getAttribute('data-view');
-
-        tabButtons.forEach((b) => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        this.classList.add('active');
-        this.setAttribute('aria-selected', 'true');
-
-        spreadContainer.classList.remove('view-recto', 'view-verso');
-        if (view === 'recto') {
-          spreadContainer.classList.add('view-recto');
-        } else if (view === 'verso') {
-          spreadContainer.classList.add('view-verso');
-        }
-      });
-    });
-  }
-
-  /**
    * Smooth Entry Jump Navigation
    */
   function initEntryJumpChips() {
@@ -189,7 +159,6 @@
     initLucideIcons();
     initOutboundTracking();
     initStickyMobileCta();
-    initSpreadTabs();
     initEntryJumpChips();
   }
 

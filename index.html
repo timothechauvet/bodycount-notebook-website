@@ -105,29 +105,31 @@
 </head>
 
 <body>
-  <!-- Top Urgency Announcement Banner -->
-  <aside class="announcement-bar" role="region" aria-label="Urgency Banner">
-    <i data-lucide="flame" aria-hidden="true"></i>
-    <span><strong>#1 Gay Dating &amp; Gag Gift Favorite</strong> &bull; Ships in 100% Discreet Amazon Packaging</span>
-  </aside>
+  <!-- Sticky Top Stack (Announcement Bar & Site Navigation) -->
+  <div class="sticky-top-stack">
+    <aside class="announcement-bar" role="region" aria-label="Urgency Banner">
+      <i data-lucide="flame" aria-hidden="true"></i>
+      <span><strong>#1 Gay Dating &amp; Gag Gift Favorite</strong> &bull; Ships in 100% Discreet Amazon Packaging</span>
+    </aside>
 
-  <!-- Site Navigation -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#hero" class="brand-logo" aria-label="My Body Count Tracker Home">
-        <img src="./assets/logo.png" alt="B" class="brand-logo-img" width="32" height="32">
-        <span>BODY COUNT TRACKER</span>
-      </a>
-      <a href="https://www.amazon.com/dp/B0GWC43WN4" 
-         class="header-cta-desktop" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         data-track-amazon="true">
-        <span>Order on Amazon</span>
-        <i data-lucide="external-link" aria-hidden="true"></i>
-      </a>
-    </div>
-  </header>
+    <!-- Site Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#hero" class="brand-logo" aria-label="My Body Count Tracker Home">
+          <img src="./assets/logo.png" alt="B" class="brand-logo-img" width="32" height="32">
+          <span>BODY COUNT TRACKER</span>
+        </a>
+        <a href="https://www.amazon.com/dp/B0GWC43WN4" 
+           class="header-cta-desktop" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           data-track-amazon="true">
+          <span>Order on Amazon</span>
+          <i data-lucide="external-link" aria-hidden="true"></i>
+        </a>
+      </div>
+    </header>
+  </div>
 
   <main>
     <!-- ====================================================================
@@ -212,52 +214,95 @@
     </section>
 
     <!-- ====================================================================
-         2. THE CORE PROBLEM: REGULAR NOTEBOOK VS. BODY COUNT TRACKER
+         2. THE CORE PROBLEM: NOTES APP VS. NOTEBOOK VS. TRACKER
          ==================================================================== -->
-    <section class="problem-section" aria-label="Comparison with a Regular Notebook">
+    <section class="problem-section" aria-label="Comparison: Notes App vs Lined Notebook vs Body Count Tracker">
       <div class="container">
-        <span class="section-tag">The Blank Page Problem</span>
-        <h2 class="section-heading">WHY REGULAR NOTEBOOKS FAIL</h2>
+        <h2 class="section-heading">WHY PHONES AND PLAIN NOTEBOOKS FAIL</h2>
 
         <div class="problem-contrast-box">
           <p>
-            A regular lined notebook gives you blank-page dread: manually ruling margins, inventing rating systems, and writing awkward diary essays at 3 AM.
+            Leaving your bedroom history in your phone notes or contacts is an iCloud leak waiting to happen. Standard lined notebooks leave you staring at paralyzing blank pages at 3 AM.
           </p>
           <p>
-            My Body Count Tracker is pre-formatted specifically for queer hookup culture with dedicated check-boxes, roles, kink logs, and corner scratch tabs.
+            My Body Count Tracker is the 100% offline, pre-formatted physical vault purpose-built for queer dating.
           </p>
         </div>
 
-        <!-- Clean 2-Column Comparison -->
+        <!-- High-Contrast 3-Option Comparison Grid -->
         <div class="comparison-grid">
-          <!-- Regular Lined Notebook -->
+
+          <!-- Option 1: Phone Notes App & Contacts -->
           <div class="comp-card bad">
+            <span class="comp-badge-bad">
+              <i data-lucide="alert-triangle" aria-hidden="true"></i>
+              <span>Digital Hazard</span>
+            </span>
             <div class="comp-card-title">
-              <i data-lucide="x-circle" aria-hidden="true"></i>
+              <i data-lucide="smartphone" aria-hidden="true"></i>
+              <span>Phone Notes &amp; Contacts</span>
+            </div>
+            <ul class="comp-list bad">
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>iCloud &amp; Device Leaks:</strong> Syncs to family iPads, work MacBooks, or AirDrop accidents. Zero real privacy.</span>
+              </li>
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>The Awkward Contact Trap:</strong> Saving hookup names in your address book flashes on Apple CarPlay &amp; caller ID in front of coworkers.</span>
+              </li>
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>Zero Hookup Structure:</strong> Just an unorganized messy text blob buried next to grocery lists, passwords, and to-do notes.</span>
+              </li>
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>Public Screen Peeking:</strong> Opening your Notes app on the subway or around friends risks someone reading your entire roster.</span>
+              </li>
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>3 AM Screen Fatigue:</strong> Staring at glowing blue light after sex keeps your brain wired instead of letting you sleep.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Option 2: Standard Lined Notebook -->
+          <div class="comp-card bad">
+            <span class="comp-badge-bad">
+              <i data-lucide="file-x" aria-hidden="true"></i>
+              <span>Blank Page Dread</span>
+            </span>
+            <div class="comp-card-title">
+              <i data-lucide="book-x" aria-hidden="true"></i>
               <span>Standard Lined Notebook</span>
             </div>
             <ul class="comp-list bad">
               <li>
                 <i data-lucide="x" aria-hidden="true"></i>
-                <span><strong>Blank Page Dread:</strong> Zero prompts. You have to invent formats from scratch.</span>
+                <span><strong>Paralyzing Blank Pages:</strong> Zero prompts. You have to invent formats, draw tables, and make up rating scales from scratch.</span>
               </li>
               <li>
                 <i data-lucide="x" aria-hidden="true"></i>
-                <span><strong>Takes 15 Minutes:</strong> Exhausting longhand writing when you just want to sleep.</span>
+                <span><strong>Takes 15+ Minutes:</strong> Exhausting longhand essay writing when you just want to log the facts and pass out.</span>
               </li>
               <li>
                 <i data-lucide="x" aria-hidden="true"></i>
-                <span><strong>Zero Hookup Context:</strong> No tags for Top/Vers/Bottom, kinks, or substances.</span>
+                <span><strong>Zero Queer Taxonomy:</strong> No pre-printed checkboxes for Top, Vers, Bottom, Side, In the closet, kinks, or gear.</span>
               </li>
               <li>
                 <i data-lucide="x" aria-hidden="true"></i>
-                <span><strong>No Milestones:</strong> No Love-o-Meter, no meet counters, no tactile corner scratch.</span>
+                <span><strong>No Milestones or Gamification:</strong> No 1–4 Flame Love-o-Meter, no meet counter tally, no milestone checkpoints.</span>
+              </li>
+              <li>
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span><strong>Quickly Abandoned:</strong> Writing longhand journal essays feels like homework, so 90% get dropped after 3 entries.</span>
               </li>
             </ul>
           </div>
 
-          <!-- My Body Count Tracker -->
+          <!-- Option 3: My Body Count Tracker (THE WINNER - Bigger, Nicer, Gold Glow) -->
           <div class="comp-card good">
+            <span class="comp-badge-winner">★ Purpose-Built Winner</span>
             <div class="comp-card-title">
               <i data-lucide="check-circle-2" aria-hidden="true"></i>
               <span>My Body Count Tracker</span>
@@ -265,22 +310,37 @@
             <ul class="comp-list good">
               <li>
                 <i data-lucide="check" aria-hidden="true"></i>
-                <span><strong>60-Second Logging:</strong> Fast, satisfying pre-printed checkboxes and fields.</span>
+                <span><strong>100% Offline Bedroom Vault:</strong> Zero iCloud sync, zero digital leaks, zero embarrassing CarPlay caller ID notifications. Total bedside secrecy.</span>
               </li>
               <li>
                 <i data-lucide="check" aria-hidden="true"></i>
-                <span><strong>Queer-Specific Roles:</strong> Dedicated Top, Vers, Bottom, Side, In the closet &amp; Weirdo tags.</span>
+                <span><strong>Lightning 60-Second Logging:</strong> Pre-printed checkboxes, tick-boxes, and structured slots—record everything in 60 seconds flat with zero effort.</span>
               </li>
               <li>
                 <i data-lucide="check" aria-hidden="true"></i>
-                <span><strong>Full Context:</strong> Toys &amp; gear, kinks, substances, location, and STI testing checks.</span>
+                <span><strong>Complete Queer Taxonomy:</strong> Dedicated tags for Top, Vers, Bottom, Side, In the closet, Weirdo, toys, gear, kinks, and substances.</span>
               </li>
               <li>
                 <i data-lucide="check" aria-hidden="true"></i>
-                <span><strong>Built-In Gamification:</strong> 1–4 Flame Love-o-Meter &amp; tactile Tear-Off / Corner Scratch tracker.</span>
+                <span><strong>Built-In Gamification &amp; Milestones:</strong> 1–4 Flame Love-o-Meter, Meet Counter (1st, 2nd, 3rd+), and Milestone reflections every 10 logs.</span>
+              </li>
+              <li>
+                <i data-lucide="check" aria-hidden="true"></i>
+                <span><strong>Two-Page Dual Workflow:</strong> Page 1 for rapid 60-second logging on the perforated strip; Page 2 for morning reflection and vibe checkers.</span>
               </li>
             </ul>
+            <div class="comp-winner-footer">
+              <a href="https://www.amazon.com/dp/B0GWC43WN4" 
+                 class="comp-cta-btn" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 data-track-amazon="true">
+                <span>Claim Yours on Amazon</span>
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -290,27 +350,10 @@
          ==================================================================== -->
     <section id="features" class="spread-showcase-section" aria-label="Inside Every Spread">
       <div class="container">
-        <span class="section-tag">Authentic Interior Blueprint</span>
         <h2 class="section-heading">INSIDE EVERY ENCOUNTER SPREAD</h2>
         <p style="text-align: center; color: #a8a89f; font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
           Every single detail you actually care to record. Two full pages per encounter, printed on heavy no-bleed archival cream paper.
         </p>
-
-        <!-- View Mode Switcher -->
-        <div class="spread-tabs-bar" role="tablist" aria-label="Notebook Spread View Mode">
-          <button type="button" class="spread-tab-btn active" data-view="both" role="tab" aria-selected="true">
-            <i data-lucide="book-open" aria-hidden="true"></i>
-            <span>Both Pages (Open Spread)</span>
-          </button>
-          <button type="button" class="spread-tab-btn" data-view="recto" role="tab" aria-selected="false">
-            <i data-lucide="scissors" aria-hidden="true"></i>
-            <span>Page 1 (Recto): Tear-Off Strip</span>
-          </button>
-          <button type="button" class="spread-tab-btn" data-view="verso" role="tab" aria-selected="false">
-            <i data-lucide="pen-tool" aria-hidden="true"></i>
-            <span>Page 2 (Verso): Diary Log</span>
-          </button>
-        </div>
 
         <!-- Open Book Double Spread Container -->
         <div id="notebookDoubleSpread" class="notebook-double-spread">
@@ -383,19 +426,6 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #50">
-                  <div class="recap-header">Recap #50</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#50</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
               </div>
 
               <!-- Entry #51 -->
@@ -430,17 +460,6 @@
                     </div>
                   </div>
                 </div>
-                <aside class="condensed-metadata-edge">
-                  <div class="recap-header">Recap #51</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#51</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Top</span></div>
-                    <div class="recap-item"><span>MEET</span><span>2nd</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
               </div>
 
               <!-- Entries #52 to #58 (Continuing Sequence) -->
@@ -463,14 +482,6 @@
                     <div class="reflection-prompt-block"><span class="reflection-label">Reasons (not) to meet again</span><div class="ruled-notebook-area">[ Lined reflection lines ]</div></div>
                   </div>
                 </div>
-                <aside class="condensed-metadata-edge">
-                  <div class="recap-header">Recap #52</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#52</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Bottom</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
               </div>
 
               <!-- Entry #53 to #58 in sequence -->
@@ -490,10 +501,6 @@
                     <div class="reflection-prompt-block"><span class="reflection-label">Reflection Prompts (4 Ruled Areas)</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Green/red flags &bull; Meet again reasons ]</div></div>
                   </div>
                 </div>
-                <aside class="condensed-metadata-edge">
-                  <div class="recap-header">Recap #53</div>
-                  <div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#53</span></div><div class="recap-item"><span>ROLE</span><span>Side</span></div></div>
-                </aside>
               </div>
 
               <div id="verso-54" class="entry-card-verso">
@@ -505,7 +512,6 @@
                   </div>
                   <div class="verso-prompts-grid"><div class="reflection-prompt-block"><span class="reflection-label">4 Wide Multi-line Text Areas</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Flags &bull; Reasons to meet ]</div></div></div>
                 </div>
-                <aside class="condensed-metadata-edge"><div class="recap-header">Recap #54</div><div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#54</span></div></div></aside>
               </div>
 
               <div id="verso-55" class="entry-card-verso">
@@ -514,7 +520,6 @@
                   <div class="verso-vibe-bar"><span class="reflection-label">Vibe Check</span><div class="vibe-checkers-row"><span class="vibe-check-chip"><span class="emoji-face">😍</span></span><span class="vibe-check-chip"><span class="emoji-face">😊</span></span><span class="vibe-check-chip"><span class="emoji-face">🙁</span></span><span class="vibe-check-chip"><span class="emoji-face">😠</span></span></div></div>
                   <div class="verso-prompts-grid"><div class="reflection-prompt-block"><span class="reflection-label">4 Wide Multi-line Text Areas</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Flags &bull; Reasons to meet ]</div></div></div>
                 </div>
-                <aside class="condensed-metadata-edge"><div class="recap-header">Recap #55</div><div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#55</span></div></div></aside>
               </div>
 
               <div id="verso-56" class="entry-card-verso">
@@ -523,7 +528,6 @@
                   <div class="verso-vibe-bar"><span class="reflection-label">Vibe Check</span><div class="vibe-checkers-row"><span class="vibe-check-chip"><span class="emoji-face">😍</span></span><span class="vibe-check-chip"><span class="emoji-face">😊</span></span><span class="vibe-check-chip"><span class="emoji-face">🙁</span></span><span class="vibe-check-chip"><span class="emoji-face">😠</span></span></div></div>
                   <div class="verso-prompts-grid"><div class="reflection-prompt-block"><span class="reflection-label">4 Wide Multi-line Text Areas</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Flags &bull; Reasons to meet ]</div></div></div>
                 </div>
-                <aside class="condensed-metadata-edge"><div class="recap-header">Recap #56</div><div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#56</span></div></div></aside>
               </div>
 
               <div id="verso-57" class="entry-card-verso">
@@ -532,7 +536,6 @@
                   <div class="verso-vibe-bar"><span class="reflection-label">Vibe Check</span><div class="vibe-checkers-row"><span class="vibe-check-chip"><span class="emoji-face">😍</span></span><span class="vibe-check-chip"><span class="emoji-face">😊</span></span><span class="vibe-check-chip"><span class="emoji-face">🙁</span></span><span class="vibe-check-chip"><span class="emoji-face">😠</span></span></div></div>
                   <div class="verso-prompts-grid"><div class="reflection-prompt-block"><span class="reflection-label">4 Wide Multi-line Text Areas</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Flags &bull; Reasons to meet ]</div></div></div>
                 </div>
-                <aside class="condensed-metadata-edge"><div class="recap-header">Recap #57</div><div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#57</span></div></div></aside>
               </div>
 
               <div id="verso-58" class="entry-card-verso">
@@ -541,7 +544,6 @@
                   <div class="verso-vibe-bar"><span class="reflection-label">Vibe Check</span><div class="vibe-checkers-row"><span class="vibe-check-chip"><span class="emoji-face">😍</span></span><span class="vibe-check-chip"><span class="emoji-face">😊</span></span><span class="vibe-check-chip"><span class="emoji-face">🙁</span></span><span class="vibe-check-chip"><span class="emoji-face">😠</span></span></div></div>
                   <div class="verso-prompts-grid"><div class="reflection-prompt-block"><span class="reflection-label">4 Wide Multi-line Text Areas</span><div class="ruled-notebook-area">[ How I felt &bull; Things to try &bull; Flags &bull; Reasons to meet ]</div></div></div>
                 </div>
-                <aside class="condensed-metadata-edge"><div class="recap-header">Recap #58</div><div class="recap-data-list"><div class="recap-item"><span>ID</span><span>#58</span></div></div></aside>
               </div>
 
               <!-- Entry #59 -->
@@ -564,17 +566,6 @@
                     <div class="reflection-prompt-block"><span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span><div class="ruled-notebook-area">[ Full ruled multi-line text area ]</div></div>
                   </div>
                 </div>
-                <aside class="condensed-metadata-edge">
-                  <div class="recap-header">Recap #59</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#59</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>3rd+</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
               </div>
 
             </div>
@@ -671,6 +662,17 @@
                     <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
                     <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
                     <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
+                  </div>
+                </div>
+
+                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
+                <div class="recto-loveometer-block">
+                  <span class="recto-label">Love-o-meter (Flame Rating Scale)</span>
+                  <div class="recto-loveometer-row">
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
                   </div>
                 </div>
               </div>
@@ -797,6 +799,17 @@
                   </div>
                 </div>
 
+                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
+                <div class="recto-loveometer-block">
+                  <span class="recto-label">Love-o-meter (Flame Rating Scale)</span>
+                  <div class="recto-loveometer-row">
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
+                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
+                  </div>
+                </div>
+
                 <!-- Milestone banner at #10 -->
                 <div class="milestone-box" aria-label="Milestone 10 Reflection Banner">
                   <div class="milestone-title-badge">
@@ -833,6 +846,12 @@
 
             </div>
 
+            <!-- Bottom Right Corner Printed Dotted Tear Line -->
+            <div class="recto-bottom-tear-corner" aria-hidden="true">
+              <div class="tear-dotted-line"></div>
+              <span class="tear-corner-label"><i data-lucide="scissors"></i> TEAR</span>
+            </div>
+
             <!-- Page 1 Footer -->
             <div class="spread-bottom-note">
               <span><i data-lucide="scissors" style="width:12px; height:12px; vertical-align:middle;" aria-hidden="true"></i> PERFORATED STRIP ARCHIVE</span>
@@ -863,7 +882,6 @@
          ==================================================================== -->
     <section class="use-cases-section" aria-label="Use Cases">
       <div class="container">
-        <span class="section-tag">Real World Utility</span>
         <h2 class="section-heading">BUILT FOR REAL DATING LIVES</h2>
 
         <div class="use-cases-grid">
@@ -913,7 +931,6 @@
       <div class="container">
         <div class="specs-box">
           <div>
-            <span class="section-tag" style="text-align: left;">Specifications</span>
             <h3 style="font-family:var(--font-heading); font-size:1.35rem; color:#fff; margin-bottom:6px;">
               Designed for Your Bedside Drawer
             </h3>
@@ -958,7 +975,6 @@
          ==================================================================== -->
     <section class="faq-section" aria-label="FAQ">
       <div class="container">
-        <span class="section-tag">Quick Answers</span>
         <h2 class="section-heading">FREQUENTLY ASKED</h2>
 
         <div class="faq-list">
@@ -1056,7 +1072,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-links">
-        <a href="https://www.amazon.com/dp/B0GWC43WN4" target="_blank" rel="noopener noreferrer">Order on Amazon</a>
+        <a href="https://www.amazon.com/dp/B0GWC43WN4" target="_blank" rel="noopener noreferrer" data-track-amazon="true">Order on Amazon</a>
         <a href="#hero">Back to Top</a>
         <a href="#features">Features</a>
       </div>
