@@ -125,6 +125,58 @@
   }
 
   /**
+   * Two-Page Spread View Mode Switcher (Both / Recto / Verso)
+   */
+  function initSpreadTabs() {
+    const tabButtons = document.querySelectorAll('.spread-tab-btn');
+    const spreadContainer = document.getElementById('notebookDoubleSpread');
+
+    if (!tabButtons.length || !spreadContainer) return;
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const view = this.getAttribute('data-view');
+
+        tabButtons.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+
+        spreadContainer.classList.remove('view-recto', 'view-verso');
+        if (view === 'recto') {
+          spreadContainer.classList.add('view-recto');
+        } else if (view === 'verso') {
+          spreadContainer.classList.add('view-verso');
+        }
+      });
+    });
+  }
+
+  /**
+   * Smooth Entry Jump Navigation
+   */
+  function initEntryJumpChips() {
+    const chips = document.querySelectorAll('.entry-jump-chip');
+    chips.forEach((chip) => {
+      chip.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          
+          const siblings = this.parentElement.querySelectorAll('.entry-jump-chip');
+          siblings.forEach((s) => s.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+  }
+
+  /**
    * Initialize Lucide Icons
    */
   function initLucideIcons() {
@@ -137,6 +189,8 @@
     initLucideIcons();
     initOutboundTracking();
     initStickyMobileCta();
+    initSpreadTabs();
+    initEntryJumpChips();
   }
 
   if (document.readyState === 'loading') {
