@@ -953,12 +953,12 @@ i[data-lucide], .lucide {
   min-height: 820px;
 }
 
-.page-verso {
+.page-recto {
   border-right: 4px solid #3d341f;
   box-shadow: inset -10px 0 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
-.page-recto {
+.page-verso {
   border-left: 4px solid #3d341f;
   box-shadow: inset 10px 0 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.45);
 }
@@ -1386,9 +1386,20 @@ i[data-lucide], .lucide {
   border: 1px solid #dcd1ab;
   border-radius: 6px;
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px 1fr 132px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 680px) {
+  .entry-card-verso {
+    grid-template-columns: 48px 1fr;
+  }
+  .condensed-metadata-edge {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px dashed #cfc29b;
+  }
 }
 
 /* Large Margin Number Identifier on Left */
@@ -1494,7 +1505,7 @@ i[data-lucide], .lucide {
     #e1d3a7 20px
   );
   line-height: 20px;
-  min-height: 60px;
+  min-height: 52px;
   padding: 2px 8px;
   border: 1px solid #ded1a9;
   border-radius: 3px;
@@ -1504,6 +1515,57 @@ i[data-lucide], .lucide {
   font-style: italic;
   display: flex;
   align-items: flex-start;
+}
+
+/* Condensed Metadata Recap Block along Edge */
+.condensed-metadata-edge {
+  background: #f8f3e3;
+  border-left: 1px dashed #d7caa2;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: #3d3728;
+}
+
+.recap-header {
+  font-family: var(--font-heading);
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #635b43;
+  border-bottom: 1.5px solid #d5c697;
+  padding-bottom: 3px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.recap-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted #ded0a5;
+  padding-bottom: 2px;
+}
+
+.recap-item span:first-child {
+  font-weight: 700;
+  color: #6b6247;
+  font-size: 0.62rem;
+}
+
+.recap-item span:last-child {
+  font-weight: 800;
+  color: #1a1711;
+  font-size: 0.66rem;
 }
 
 /* Spread Footer */
