@@ -261,21 +261,56 @@ i[data-lucide], .lucide {
   flex-shrink: 0;
 }
 
+.hero-cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .hero-cta-wrapper {
+    align-items: flex-start;
+    margin: 0;
+  }
+}
+
 .cta-micro-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  font-size: 0.8rem;
-  color: var(--color-muted-text);
-  margin-top: 10px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 380px;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a8a89d;
+  margin-top: 12px;
+}
+
+@media (max-width: 440px) {
+  .cta-micro-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+  }
 }
 
 .cta-micro-row span {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.cta-micro-row span i {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-primary);
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -324,6 +359,7 @@ i[data-lucide], .lucide {
   margin-bottom: 16px;
 }
 
+/* Hero Title Entrance Animation (< 3s total) */
 .hero-title {
   font-family: var(--font-title);
   font-size: clamp(2.1rem, 5.5vw, 3.4rem);
@@ -331,15 +367,106 @@ i[data-lucide], .lucide {
   color: var(--color-white);
   margin-bottom: 14px;
   text-transform: uppercase;
+  animation: heroTitleEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes heroTitleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bright Yellow Glowing Highlight Variation (< 3s) */
 .hero-title .highlight {
+  display: inline-block;
   color: var(--color-primary);
+  animation: yellowGlowEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
+@keyframes yellowGlowEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    text-shadow: 0 0 0 rgba(245, 200, 0, 0);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.06);
+    text-shadow: 0 0 28px rgba(245, 200, 0, 0.95), 0 0 50px rgba(245, 200, 0, 0.75), 0 0 12px rgba(255, 255, 255, 0.8);
+  }
+  75% {
+    transform: scale(1);
+    text-shadow: 0 0 16px rgba(245, 200, 0, 0.7), 0 0 32px rgba(245, 200, 0, 0.35);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(245, 200, 0, 0.5);
+  }
+}
+
+/* Strikethrough Text Variation (< 3s) */
 .hero-title .strikethrough {
-  text-decoration: line-through;
-  color: #73736b;
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  animation: strikeTextMute 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.hero-title .strikethrough::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 52%;
+  height: 4px;
+  background: #ff5240;
+  box-shadow: 0 0 10px rgba(255, 82, 64, 0.7);
+  border-radius: 2px;
+  transform: translateY(-50%) rotate(-2deg);
+  width: 0;
+  animation: drawStrikeLine 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+}
+
+@keyframes drawStrikeLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    width: calc(100% + 4px);
+    opacity: 1;
+  }
+}
+
+@keyframes strikeTextMute {
+  0% {
+    color: #ffffff;
+  }
+  100% {
+    color: #78756d;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .hero-title .strikethrough,
+  .hero-title .strikethrough::after,
+  .hero-title .highlight {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-title .strikethrough::after {
+    width: calc(100% + 4px) !important;
+  }
 }
 
 .hero-subtitle {
@@ -509,21 +636,6 @@ i[data-lucide], .lucide {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.mockup-caption {
-  font-size: 0.78rem;
-  color: var(--color-muted-text);
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.mockup-caption i {
-  width: 14px;
-  height: 14px;
-  color: var(--color-primary);
-}
-
 /* --------------------------------------------------------------------------
    8. The Core Problem: REGULAR NOTEBOOK VS. BODY COUNT TRACKER
    -------------------------------------------------------------------------- */
@@ -637,16 +749,45 @@ i[data-lucide], .lucide {
 
 .comp-card.good {
   background: #191811;
-  border: 2px solid var(--color-primary);
-  box-shadow: 0 0 30px rgba(245, 200, 0, 0.22), 0 16px 40px rgba(0, 0, 0, 0.6);
+  border: 1.5px solid rgba(245, 200, 0, 0.55);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
   position: relative;
   z-index: 2;
   padding: 30px 24px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s ease;
 }
 
 @media (min-width: 920px) {
   .comp-card.good {
-    transform: scale(1.05);
+    transform: scale(1.01);
+  }
+}
+
+/* Triggered Elevation & Glowing Aura on Hover or Phone Touch */
+.comp-card.good:hover,
+.comp-card.good:focus-within,
+.comp-card.good.touch-active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 36px rgba(245, 200, 0, 0.38), 0 20px 48px rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 920px) {
+  .comp-card.good:hover,
+  .comp-card.good:focus-within,
+  .comp-card.good.touch-active {
+    transform: translateY(-6px) scale(1.05);
+  }
+}
+
+@media (max-width: 919px) {
+  .comp-card.good:hover,
+  .comp-card.good:focus-within,
+  .comp-card.good.touch-active {
+    transform: translateY(-4px) scale(1.02);
   }
 }
 
@@ -666,6 +807,14 @@ i[data-lucide], .lucide {
   letter-spacing: 0.08em;
   white-space: nowrap;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.comp-card.good:hover .comp-badge-winner,
+.comp-card.good:focus-within .comp-badge-winner,
+.comp-card.good.touch-active .comp-badge-winner {
+  box-shadow: 0 0 16px rgba(245, 200, 0, 0.8), 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: translateX(-50%) translateY(-2px);
 }
 
 .comp-card-title {

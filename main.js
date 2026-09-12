@@ -147,6 +147,27 @@
   }
 
   /**
+   * Comparison Card Touch Trigger for Mobile Devices
+   */
+  function initComparisonTouch() {
+    const winnerCard = document.querySelector('.comp-card.good');
+    if (!winnerCard) return;
+
+    let touchTimer = null;
+
+    winnerCard.addEventListener('touchstart', function () {
+      if (touchTimer) clearTimeout(touchTimer);
+      winnerCard.classList.add('touch-active');
+    }, { passive: true });
+
+    winnerCard.addEventListener('touchend', function () {
+      touchTimer = setTimeout(() => {
+        winnerCard.classList.remove('touch-active');
+      }, 1400);
+    }, { passive: true });
+  }
+
+  /**
    * Initialize Lucide Icons
    */
   function initLucideIcons() {
@@ -160,6 +181,7 @@
     initOutboundTracking();
     initStickyMobileCta();
     initEntryJumpChips();
+    initComparisonTouch();
   }
 
   if (document.readyState === 'loading') {
