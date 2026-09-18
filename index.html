@@ -37,7 +37,7 @@
   <link rel="preload" href="./droid-serif/DroidSerif-Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/cover-front.png" as="image">
   <link rel="preload" href="./assets/cover-back.png" as="image">
-  <link href="https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Droid+Sans:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons via CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -349,1219 +349,266 @@
         <p style="text-align: center; color: #a8a89f; font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
           Every single detail you actually care to record. Two full pages per encounter, printed on heavy no-bleed archival cream paper.
         </p>
+        <!-- Open Book Double Spread Container (Horizontal Side-by-Side) -->
+        <div class="notebook-spread-scroll-wrap">
+          <div id="notebookDoubleSpread" class="notebook-double-spread">
 
-        <!-- Open Book Double Spread Container -->
-        <div id="notebookDoubleSpread" class="notebook-double-spread">
-
-          <!-- ================================================================
-               PAGE 1 (RECTO): PERFORATED TEAR-OFF STRIP
-               ================================================================ -->
-          <article class="spread-page page-recto" aria-label="Page 1 Recto: Perforated Tear-off Strip">
-            <!-- Diagonal Corner Cut Line -->
-            <div class="recto-cut-corner" title="Perforated tear line">
-              <i data-lucide="scissors" aria-hidden="true"></i>
-              <span>Remove when completed</span>
-            </div>
-
-            <div class="page-header-strip">
-              <div class="page-tag-line">
-                <span>Page 1 (Recto) &bull; Perforated Strip</span>
-                <span class="meta-chip">10 NUMBERED ENTRIES</span>
+            <!-- ================================================================
+                 PAGE 1 (RECTO): AUTHENTIC BLUEPRINT LOG (Matches Screenshot 1)
+                 ================================================================ -->
+            <article class="spread-page page-recto" aria-label="Page 1 (Recto): Authentic Encounter Blueprint">
+              
+              <!-- 1. Hookup ID -->
+              <div class="bp-row bp-hookup-id-row">
+                <span class="bp-label">Hookup ID</span>
+                <div class="bp-underline"></div>
               </div>
-              <h3 class="page-main-title">PERFORATED QUICK-LOG STRIP</h3>
-              <p class="page-sub-note">
-                Tall vertical coupon/strip format. 10 complete entries with all 15 input fields, role matrix, and milestone reflection.
-              </p>
-            </div>
 
-            <!-- Quick Jump Bar for Recto Entries -->
-            <div class="entries-nav-strip">
-              <span>Jump:</span>
-              <a href="#recto-1" class="entry-jump-chip active">#1</a>
-              <a href="#recto-2" class="entry-jump-chip">#2</a>
-              <a href="#recto-3" class="entry-jump-chip">#3</a>
-              <a href="#recto-4" class="entry-jump-chip">#4</a>
-              <a href="#recto-5" class="entry-jump-chip">#5</a>
-              <a href="#recto-6" class="entry-jump-chip">#6</a>
-              <a href="#recto-7" class="entry-jump-chip">#7</a>
-              <a href="#recto-8" class="entry-jump-chip">#8</a>
-              <a href="#recto-9" class="entry-jump-chip">#9</a>
-              <a href="#recto-10" class="entry-jump-chip milestone-chip">#10 ✦</a>
-            </div>
-
-            <!-- Scrollable Entries Container (Entries 1 to 10) -->
-            <div class="page-entries-scroll">
-              <!-- Entry #1 -->
-              <div id="recto-1" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 1</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- 2. Gender, Age Range, and 4 Vibe Faces -->
+              <div class="bp-row bp-demographics-row">
+                <div class="bp-inline-field bp-field-gender">
+                  <span class="bp-label">Gender</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
+                <div class="bp-inline-field bp-field-age">
+                  <span class="bp-label">Age range</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
+                <div class="bp-vibe-faces-group" aria-label="Vibe Faces">
+                  <!-- Face 1: Hearts-in-love -->
+                  <svg class="bp-face-svg" viewBox="0 0 36 36" aria-label="In Love / Ecstatic">
+                    <circle cx="18" cy="18" r="15" stroke="#000" stroke-width="1.8" fill="none"/>
+                    <path d="M12 21c1.5 2.5 4.5 4 6 4s4.5-1.5 6-4" stroke="#000" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                    <path d="M10 14c-.6-.9-1.8-.9-1.8 0 0 .9 1.8 1.8 1.8 1.8s1.8-.9 1.8-1.8c0-.9-1.2-.9-1.8 0z" fill="#000"/>
+                    <path d="M22 14c-.6-.9-1.8-.9-1.8 0 0 .9 1.8 1.8 1.8 1.8s1.8-.9 1.8-1.8c0-.9-1.2-.9-1.8 0z" fill="#000"/>
+                    <path d="M8 8.5c-.4-.6-1.2-.6-1.2 0 0 .6 1.2 1.2 1.2 1.2s1.2-.6 1.2-1.2c0-.6-.8-.6-1.2 0z" fill="#000"/>
+                  </svg>
+                  <!-- Face 2: Happy -->
+                  <svg class="bp-face-svg" viewBox="0 0 36 36" aria-label="Happy">
+                    <circle cx="18" cy="18" r="15" stroke="#000" stroke-width="1.8" fill="none"/>
+                    <circle cx="13" cy="14" r="1.8" fill="#000"/>
+                    <circle cx="23" cy="14" r="1.8" fill="#000"/>
+                    <path d="M12 21c1.8 3 4.2 4 6 4s4.2-1 6-4" stroke="#000" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </svg>
+                  <!-- Face 3: Sad / Frown -->
+                  <svg class="bp-face-svg" viewBox="0 0 36 36" aria-label="Sad">
+                    <circle cx="18" cy="18" r="15" stroke="#000" stroke-width="1.8" fill="none"/>
+                    <circle cx="13" cy="14" r="1.8" fill="#000"/>
+                    <circle cx="23" cy="14" r="1.8" fill="#000"/>
+                    <path d="M12 24c1.8-2.5 4.2-3.2 6-3.2s4.2.7 6 3.2" stroke="#000" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </svg>
+                  <!-- Face 4: Angry -->
+                  <svg class="bp-face-svg" viewBox="0 0 36 36" aria-label="Angry">
+                    <circle cx="18" cy="18" r="15" stroke="#000" stroke-width="1.8" fill="none"/>
+                    <path d="M10 11.5l5 2.5M26 11.5l-5 2.5" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
+                    <circle cx="13" cy="16" r="1.8" fill="#000"/>
+                    <circle cx="23" cy="16" r="1.8" fill="#000"/>
+                    <path d="M13 24c1.8-2 3.8-2.5 5-2.5s3.2.5 5 2.5" stroke="#000" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </svg>
                 </div>
               </div>
 
-              <!-- Entry #2 -->
-              <div id="recto-2" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 2</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
-                </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
+              <!-- 3. Details & Queer Roles Matrix Split -->
+              <div class="bp-split-grid">
+                <!-- Left Column: @, Met in, Date -->
+                <div class="bp-split-left">
+                  <div class="bp-inline-field">
+                    <span class="bp-label">@</span>
+                    <div class="bp-underline"></div>
+                  </div>
+                  <div class="bp-inline-field">
+                    <span class="bp-label">Met in</span>
+                    <div class="bp-underline"></div>
+                  </div>
+                  <div class="bp-inline-field bp-field-date">
+                    <span class="bp-label">Date</span>
+                    <div class="bp-date-slashes-bar">
+                      <span class="bp-slash">/</span>
+                      <span class="bp-slash">/</span>
+                    </div>
+                    <div class="bp-underline"></div>
                   </div>
                 </div>
 
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
+                <!-- Right Column: 3x2 Roles Matrix + Occupation -->
+                <div class="bp-split-right">
+                  <div class="bp-roles-matrix">
+                    <div class="bp-role-item bp-label-left">
+                      <span class="bp-role-name">Top</span>
+                      <span class="bp-checkbox-box"></span>
+                    </div>
+                    <div class="bp-role-item bp-label-right">
+                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-role-name">Vers</span>
+                    </div>
+                    <div class="bp-role-item bp-label-left">
+                      <span class="bp-role-name">Weirdo</span>
+                      <span class="bp-checkbox-box"></span>
+                    </div>
+                    <div class="bp-role-item bp-label-left">
+                      <span class="bp-role-name">Bottom</span>
+                      <span class="bp-checkbox-box"></span>
+                    </div>
+                    <div class="bp-role-item bp-label-right">
+                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-role-name">Side</span>
+                    </div>
+                    <div class="bp-role-item bp-label-left">
+                      <span class="bp-role-name">In the closet</span>
+                      <span class="bp-checkbox-box"></span>
+                    </div>
                   </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
+                  <div class="bp-inline-field bp-field-occupation">
+                    <span class="bp-label">Occupation</span>
+                    <div class="bp-underline"></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Entry #3 -->
-              <div id="recto-3" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 3</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- 4. Meet counter & Never again -->
+              <div class="bp-meet-row">
+                <div class="bp-inline-field bp-field-meet-counter">
+                  <span class="bp-label">Meet counter</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
+                <div class="bp-role-item bp-never-again-item">
+                  <span class="bp-role-name">Never again</span>
+                  <span class="bp-checkbox-box"></span>
                 </div>
+              </div>
+              <div class="bp-ruled-line bp-under-meet"></div>
 
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
+              <!-- 5. Location -->
+              <div class="bp-row bp-field-location">
+                <span class="bp-label">Location</span>
+                <div class="bp-underline"></div>
+              </div>
+
+              <!-- 6. Two-Column Attributes: Body type & Vibe -->
+              <div class="bp-two-col-grid">
+                <div class="bp-col-block">
+                  <span class="bp-label">Body type</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
+                <div class="bp-col-block">
+                  <span class="bp-label">Vibe</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
               </div>
 
-              <!-- Entry #4 -->
-              <div id="recto-4" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 4</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- 7. Two-Column Attributes: Toys, gear, kinks & Substances -->
+              <div class="bp-two-col-grid">
+                <div class="bp-col-block">
+                  <span class="bp-label">Toys, gear, kinks</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
+                <div class="bp-col-block">
+                  <span class="bp-label">Substances</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
               </div>
 
-              <!-- Entry #5 -->
-              <div id="recto-5" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 5</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- 8. Two-Column Attributes: Protection & STIs, tests -->
+              <div class="bp-two-col-grid">
+                <div class="bp-col-block">
+                  <span class="bp-label">Protection</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
+                <div class="bp-col-block">
+                  <span class="bp-label">STIs, tests</span>
+                  <div class="bp-ruled-line"></div>
+                  <div class="bp-ruled-line"></div>
                 </div>
               </div>
 
-              <!-- Entry #6 -->
-              <div id="recto-6" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 6</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- 9. Perforated Tear-off Tab (Bottom-Right) -->
+              <div class="bp-perforated-corner-right" aria-label="Tear-off perforated corner">
+                <div class="bp-corner-callout">
+                  <span class="bp-handwritten-note">Remove when completed</span>
+                  <span class="bp-arrow-icon">&#10553;</span>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
+                <div class="bp-corner-cutline">
+                  <svg class="bp-cut-scissors" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+                    <line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                    <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+                  </svg>
+                  <div class="bp-dashed-diagonal-line"></div>
                 </div>
               </div>
 
-              <!-- Entry #7 -->
-              <div id="recto-7" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 7</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
-                </div>
+            </article>
 
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
+            <!-- Book Spine Stitching & Gutter -->
+            <div class="spread-spine-gutter" aria-hidden="true"></div>
 
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
+            <!-- ================================================================
+                 PAGE 2 (VERSO): AUTHENTIC DIARY & REFLECTION PROMPTS (Matches Screenshot 2)
+                 ================================================================ -->
+            <article class="spread-page page-verso" aria-label="Page 2 (Verso): Authentic Reflection Prompts">
 
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
+              <!-- Prompt 1: How I felt afterwards -->
+              <div class="bp-prompt-block">
+                <div class="bp-prompt-header">
+                  <span class="bp-label">How I felt afterwards</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
-                </div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
               </div>
 
-              <!-- Entry #8 -->
-              <div id="recto-8" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 8</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- Prompt 2: Things to try with -->
+              <div class="bp-prompt-block">
+                <div class="bp-prompt-header">
+                  <span class="bp-label">Things to try with</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
-                </div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
               </div>
 
-              <!-- Entry #9 -->
-              <div id="recto-9" class="entry-card-recto">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge">ENTRY 9</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ ___ ]</span>
+              <!-- Prompt 3: Green or red flags -->
+              <div class="bp-prompt-block">
+                <div class="bp-prompt-header">
+                  <span class="bp-label">Green or red flags</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
-                </div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
               </div>
 
-              <!-- Entry #10 -->
-              <div id="recto-10" class="entry-card-recto milestone-entry">
-                <div class="recto-entry-header">
-                  <span class="recto-counter-badge" style="background: var(--color-danger); color: #fff;">ENTRY 10</span>
-                  <span class="recto-hookup-id-tag">HOOKUP ID: [ #10 ]</span>
+              <!-- Prompt 4: Reasons (not) to meet again -->
+              <div class="bp-prompt-block">
+                <div class="bp-prompt-header">
+                  <span class="bp-label">Reasons (not) to meet again</span>
+                  <div class="bp-underline"></div>
                 </div>
-
-                <!-- Text Inputs / Lines -->
-                <div class="recto-inputs-grid">
-                  <div class="recto-field"><span class="recto-label">Gender</span><div class="recto-input-slot">[ Male / Enby / Other ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Age range</span><div class="recto-input-slot">[ Age Range ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Handle (@)</span><div class="recto-input-slot">[ @handle ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Met in</span><div class="recto-input-slot">[ Met In ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Date (/ /)</span><div class="recto-input-slot">[ &nbsp; / &nbsp; / 20 &nbsp; ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Occupation</span><div class="recto-input-slot">[ Occupation ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Location</span><div class="recto-input-slot">[ Location ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Meet counter</span><div class="recto-input-slot">[ 1st &bull; 2nd &bull; 3rd+ ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Body type</span><div class="recto-input-slot">[ Body Type ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Vibe</span><div class="recto-input-slot">[ Vibe ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Toys, gear, kinks</span><div class="recto-input-slot">[ Toys, Gear, Kinks ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Substances</span><div class="recto-input-slot">[ Substances ]</div></div>
-                  <div class="recto-field"><span class="recto-label">Protection</span><div class="recto-input-slot">[ Protection ]</div></div>
-                  <div class="recto-field"><span class="recto-label">STIs, tests</span><div class="recto-input-slot">[ STIs, Tests ]</div></div>
-                </div>
-
-                <!-- Role Checkboxes (Grid) -->
-                <div class="recto-roles-block">
-                  <span class="recto-label">Role Checkboxes (Grid)</span>
-                  <div class="recto-roles-grid">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Top</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Vers</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Bottom</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Side</span>
-                  </div>
-                </div>
-
-                <!-- Status Checkboxes -->
-                <div class="recto-status-block">
-                  <span class="recto-label">Status Checkboxes</span>
-                  <div class="recto-status-row">
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Weirdo</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> In the closet</span>
-                    <span class="recto-checkbox-pill"><i data-lucide="square" aria-hidden="true"></i> Never again</span>
-                  </div>
-                </div>
-
-                <!-- Love-o-meter (1–4 Flame Rating Scale) -->
-                <div class="recto-loveometer-block">
-                  <span class="recto-label">Love-o-meter</span>
-                  <div class="recto-loveometer-row">
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 1 Flame</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 2 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 3 Flames</span>
-                    <span class="loveometer-flame-item"><i data-lucide="flame" aria-hidden="true"></i> 4 Flames</span>
-                  </div>
-                </div>
-
-                <!-- Milestone banner at #10 -->
-                <div class="milestone-box" aria-label="Milestone 10 Reflection Banner">
-                  <div class="milestone-title-badge">
-                    <i data-lucide="award" aria-hidden="true"></i>
-                    <span>MILESTONE CHECKPOINT</span>
-                  </div>
-                  <h4 class="milestone-heading">
-                    You reached a Body Count of 10! Take a moment to reflect on your experiences:
-                  </h4>
-                  <ul class="milestone-questions">
-                    <li>
-                      <i data-lucide="check-circle" aria-hidden="true"></i>
-                      <span>Which encounter gave you the strongest physical or emotional chemistry?</span>
-                    </li>
-                    <li>
-                      <i data-lucide="check-circle" aria-hidden="true"></i>
-                      <span>Did anyone surprise you or redefine your usual type?</span>
-                    </li>
-                    <li>
-                      <i data-lucide="check-circle" aria-hidden="true"></i>
-                      <span>What boundaries, safety rules, or kinks do you want to update going forward?</span>
-                    </li>
-                    <li>
-                      <i data-lucide="check-circle" aria-hidden="true"></i>
-                      <span>Who earned a spot on repeat vs. who is permanently marked Never Again?</span>
-                    </li>
-                    <li>
-                      <i data-lucide="check-circle" aria-hidden="true"></i>
-                      <span>How has your perspective on sex, connection, and dating shifted across these 10 encounters?</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom Right Corner Printed Dotted Tear Line -->
-            <div class="recto-bottom-tear-corner" aria-hidden="true">
-              <div class="tear-dotted-line"></div>
-              <span class="tear-corner-label"><i data-lucide="scissors"></i> TEAR</span>
-            </div>
-
-            <!-- Page 1 Footer -->
-            <div class="spread-bottom-note">
-              <span><i data-lucide="scissors" style="width:12px; height:12px; vertical-align:middle;" aria-hidden="true"></i> PERFORATED STRIP ARCHIVE</span>
-              <span>PAGE 1 (RECTO)</span>
-            </div>
-          </article>
-
-          <!-- Central Book Spine Gutter -->
-          <div class="spread-spine-gutter" aria-hidden="true"></div>
-
-          <!-- ================================================================
-               PAGE 2 (VERSO): DIARY & REFLECTION LOG
-               ================================================================ -->
-          <article class="spread-page page-verso" aria-label="Page 2 Verso: Diary & Reflection Log">
-            <div class="page-header-strip">
-              <div class="page-tag-line">
-                <span>Page 2 (Verso) &bull; Reflection Log</span>
-                <span class="meta-chip">ENTRIES #50 &ndash; #59</span>
-              </div>
-              <h3 class="page-main-title">DIARY &amp; REFLECTION LOG</h3>
-              <p class="page-sub-note">
-                Back side of cards continuing index numbers. Dedicated emotional debrief, vibe checkers, and 4 wide multi-line memory areas.
-              </p>
-            </div>
-
-            <!-- Quick Jump Bar for Verso Entries -->
-            <div class="entries-nav-strip">
-              <span>Jump:</span>
-              <a href="#verso-50" class="entry-jump-chip active">#50</a>
-              <a href="#verso-51" class="entry-jump-chip">#51</a>
-              <a href="#verso-52" class="entry-jump-chip">#52</a>
-              <a href="#verso-53" class="entry-jump-chip">#53</a>
-              <a href="#verso-54" class="entry-jump-chip">#54</a>
-              <a href="#verso-55" class="entry-jump-chip">#55</a>
-              <a href="#verso-56" class="entry-jump-chip">#56</a>
-              <a href="#verso-57" class="entry-jump-chip">#57</a>
-              <a href="#verso-58" class="entry-jump-chip">#58</a>
-              <a href="#verso-59" class="entry-jump-chip">#59</a>
-            </div>
-
-            <!-- Scrollable Entries Container (Entries 50 to 59) -->
-            <div class="page-entries-scroll">
-              <!-- Entry #50 -->
-              <div id="verso-50" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">50</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #50">
-                  <div class="recap-header">Recap #50</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#50</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
+                <div class="bp-ruled-line"></div>
               </div>
 
-              <!-- Entry #51 -->
-              <div id="verso-51" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">51</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #51">
-                  <div class="recap-header">Recap #51</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#51</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Top</span></div>
-                    <div class="recap-item"><span>MEET</span><span>2nd</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
+              <!-- Perforated Tear-off Tab Backside (Bottom-Left) -->
+              <div class="bp-perforated-corner-left" aria-hidden="true">
+                <div class="bp-dashed-diagonal-line"></div>
               </div>
 
-              <!-- Entry #52 -->
-              <div id="verso-52" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">52</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
+            </article>
 
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #52">
-                  <div class="recap-header">Recap #52</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#52</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Bottom</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #53 -->
-              <div id="verso-53" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">53</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #53">
-                  <div class="recap-header">Recap #53</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#53</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Side</span></div>
-                    <div class="recap-item"><span>MEET</span><span>3rd+</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #54 -->
-              <div id="verso-54" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">54</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #54">
-                  <div class="recap-header">Recap #54</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#54</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #55 -->
-              <div id="verso-55" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">55</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #55">
-                  <div class="recap-header">Recap #55</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#55</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Top</span></div>
-                    <div class="recap-item"><span>MEET</span><span>2nd</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #56 -->
-              <div id="verso-56" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">56</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #56">
-                  <div class="recap-header">Recap #56</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#56</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Bottom</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #57 -->
-              <div id="verso-57" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">57</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #57">
-                  <div class="recap-header">Recap #57</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#57</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>3rd+</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #58 -->
-              <div id="verso-58" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">58</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #58">
-                  <div class="recap-header">Recap #58</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#58</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Side</span></div>
-                    <div class="recap-item"><span>MEET</span><span>1st</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-
-              <!-- Entry #59 -->
-              <div id="verso-59" class="entry-card-verso">
-                <div class="verso-margin-number" title="Entry Number">59</div>
-                <div class="verso-main-body">
-                  <!-- 4 Emotion/Vibe Checkers -->
-                  <div class="verso-vibe-bar">
-                    <span class="reflection-label"><i data-lucide="smile" aria-hidden="true"></i> Vibe &amp; Emotion Check</span>
-                    <div class="vibe-checkers-row">
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😍</span> Ecstatic / Love-eyes</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😊</span> Happy</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">🙁</span> Sad</span>
-                      <span class="vibe-check-chip"><i data-lucide="square" aria-hidden="true"></i><span class="emoji-face">😠</span> Angry</span>
-                    </div>
-                  </div>
-
-                  <!-- 4 Wide Multi-line Text Areas -->
-                  <div class="verso-prompts-grid">
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="sparkles" aria-hidden="true"></i> How I felt afterwards</span>
-                      <div class="ruled-notebook-area">[ Ruled space: How I felt afterwards... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flame" aria-hidden="true"></i> Things to try with</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Things to try with... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="flag" aria-hidden="true"></i> Green or red flags</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Green or red flags... ]</div>
-                    </div>
-                    <div class="reflection-prompt-block">
-                      <span class="reflection-label"><i data-lucide="calendar-check" aria-hidden="true"></i> Reasons (not) to meet again</span>
-                      <div class="ruled-notebook-area">[ Ruled space: Reasons (not) to meet again... ]</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Condensed Metadata Recap Block along Edge -->
-                <aside class="condensed-metadata-edge" aria-label="Metadata Recap #59">
-                  <div class="recap-header">Recap #59</div>
-                  <div class="recap-data-list">
-                    <div class="recap-item"><span>ID</span><span>#59</span></div>
-                    <div class="recap-item"><span>DATE</span><span>[ / / ]</span></div>
-                    <div class="recap-item"><span>@</span><span>[ _____ ]</span></div>
-                    <div class="recap-item"><span>ROLE</span><span>Vers</span></div>
-                    <div class="recap-item"><span>MEET</span><span>Repeat</span></div>
-                    <div class="recap-item"><span>SAFE</span><span>[✓] YES</span></div>
-                  </div>
-                </aside>
-              </div>
-            </div>
-
-            <!-- Page 2 Footer -->
-            <div class="spread-bottom-note">
-              <span><i data-lucide="book" style="width:12px; height:12px; vertical-align:middle;" aria-hidden="true"></i> 100% UNEDITED OFFLINE BEDROOM VAULT</span>
-              <span>PAGE 2 (VERSO)</span>
-            </div>
-          </article>
-
+          </div>
         </div>
+
+        
 
         <!-- CTA Below Spread -->
         <div style="text-align: center; margin-top: 32px;">
@@ -1793,7 +840,9 @@
     accent-color="#f5c800"
     bg-color="#fff8d6"
     title="📙 Bodycount Support"
-    placeholder="Ask anything about the journal...">
+    placeholder="Ask anything about the journal..."
+    profile-pic="./assets/logo.png"
+    avatar-url="./assets/logo.png">
   </telegram-chat-widget>
 
   <!-- Main JavaScript Engine -->

@@ -894,693 +894,416 @@ i[data-lucide], .lucide {
 }
 
 /* --------------------------------------------------------------------------
-   9. ACTUAL TWO-PAGE NOTEBOOK SPREAD (Recto & Verso Emulation)
+   9. AUTHENTIC 432x648 RECTO-VERSO NOTEBOOK SPREAD
    -------------------------------------------------------------------------- */
 .spread-showcase-section {
   padding: 56px 0;
   background: var(--color-dark);
 }
 
-/* Open Book Double Spread Container (Permanent Side-by-Side View) */
+.notebook-spread-scroll-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 18px 8px 32px;
+  scrollbar-width: thin;
+}
+
+/* Side-by-side double spread (432x648 pt aspect ratio per page) */
 .notebook-double-spread {
-  max-width: 1140px;
-  margin: 28px auto 0;
+  max-width: 960px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 12px 1fr;
+  grid-template-columns: 1fr 10px 1fr;
+  align-items: stretch;
   background: transparent;
   perspective: 1400px;
   position: relative;
 }
 
-@media (max-width: 960px) {
-  .notebook-double-spread {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .spread-spine-gutter {
-    display: none;
-  }
-}
-
-/* Spine Gutter (Book crease & stitching effect) */
+/* Book Spine Gutter */
 .spread-spine-gutter {
-  background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.25) 100%);
   position: relative;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
-  border-radius: 2px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+  border-radius: 1px;
 }
 
 .spread-spine-gutter::before {
   content: "";
   position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 5px;
+  top: 12px;
+  bottom: 12px;
+  left: 4px;
   width: 2px;
-  background: repeating-linear-gradient(to bottom, #7e7350 0, #7e7350 4px, transparent 4px, transparent 8px);
+  background: repeating-linear-gradient(to bottom, #2b2b2b 0, #2b2b2b 4px, transparent 4px, transparent 8px);
 }
 
-/* Individual Page Styling */
+/* Authentic Physical Page */
 .spread-page {
-  background: var(--color-cream);
-  color: #171717;
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  background: #ffffff;
+  color: #000000;
+  border-radius: 6px;
+  padding: 32px 26px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.25);
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 820px;
+  justify-content: flex-start;
+  aspect-ratio: 432 / 648;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .page-recto {
-  border-right: 4px solid #3d341f;
-  box-shadow: inset -10px 0 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.45);
+  border-right: 3px solid #1a1a1a;
+  box-shadow: inset -10px 0 18px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.55);
 }
 
 .page-verso {
-  border-left: 4px solid #3d341f;
-  box-shadow: inset 10px 0 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.45);
-}
-
-/* Top Diagonal Cut Line for Page 1 (Recto) */
-.recto-cut-corner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #fdf3cf;
-  border-bottom: 2px dashed #b9a877;
-  border-left: 2px dashed #b9a877;
-  padding: 6px 12px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #635737;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border-radius: 0 var(--radius-md) 0 8px;
-  z-index: 2;
-  letter-spacing: 0.04em;
-}
-
-.recto-cut-corner i {
-  width: 14px;
-  height: 14px;
-  stroke: #c24632;
-}
-
-/* Page Header & Badge */
-.page-header-strip {
-  border-bottom: 2px solid #171717;
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-
-.page-tag-line {
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #706852;
-  display: flex;
-  align-items: center;
+  border-left: 3px solid #1a1a1a;
+  box-shadow: inset 10px 0 18px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.55);
   justify-content: space-between;
+  padding-bottom: 48px;
+}
+
+/* Typography & Ruled Lines: CRISP SOLID BLACK (#000000) */
+.bp-label {
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.bp-underline {
+  flex: 1;
+  border-bottom: 1.5px solid #000000;
+  height: 1.15em;
+  min-width: 24px;
+}
+
+.page-recto .bp-ruled-line {
+  width: 100%;
+  border-bottom: 1.5px solid #000000;
+  height: 16px;
+}
+
+.page-verso .bp-ruled-line {
+  width: 100%;
+  border-bottom: 1.5px solid #000000;
+  height: 25px;
+}
+
+.bp-row {
+  display: flex;
+  align-items: flex-end;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
-.page-main-title {
-  font-family: var(--font-title);
-  font-size: 1.15rem;
-  color: #171717;
-  margin: 4px 0 2px;
-  letter-spacing: 0.02em;
+.bp-inline-field {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
 }
 
-.page-sub-note {
-  font-size: 0.74rem;
-  color: #5c584b;
-  line-height: 1.35;
+/* 1. Hookup ID */
+.bp-hookup-id-row {
+  margin-bottom: 10px;
 }
 
-/* Quick Jump Number Strip */
-.entries-nav-strip {
+/* 2. Demographics */
+.bp-demographics-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.bp-field-gender {
+  flex: 1.1;
+}
+
+.bp-field-age {
+  flex: 1.2;
+}
+
+.bp-vibe-faces-group {
   display: flex;
   align-items: center;
-  gap: 4px;
-  overflow-x: auto;
-  padding: 6px 0;
-  margin-bottom: 12px;
-  border-bottom: 1px dashed #d5c89f;
-  scrollbar-width: thin;
-}
-
-.entries-nav-strip span {
-  font-family: var(--font-heading);
-  font-size: 0.66rem;
-  font-weight: 800;
-  color: #79715b;
-  text-transform: uppercase;
-  margin-right: 4px;
+  gap: 7px;
   flex-shrink: 0;
+  margin-left: 4px;
 }
 
-.entry-jump-chip {
-  background: #f1e6c3;
-  color: #2b271d;
-  border: 1px solid #d4c597;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: all 0.15s ease;
+.bp-face-svg {
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
-.entry-jump-chip:hover,
-.entry-jump-chip.active {
-  background: #171717;
-  color: var(--color-primary);
-  border-color: #171717;
-}
-
-.entry-jump-chip.milestone-chip {
-  background: #ebd48f;
-  border-color: #d9563f;
-  color: #a32c17;
-  font-weight: 800;
-}
-
-/* Scrollable Container for Page 1 & Page 2 Entries */
-.page-entries-scroll {
-  display: flex;
-  flex-direction: column;
+/* 3. Details & Roles Split */
+.bp-split-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.35fr;
   gap: 14px;
-  overflow-y: auto;
-  max-height: 680px;
-  padding-right: 6px;
-  scrollbar-width: thin;
-  scrollbar-color: #d8cba0 transparent;
-}
-
-.page-entries-scroll::-webkit-scrollbar {
-  width: 6px;
-}
-.page-entries-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.page-entries-scroll::-webkit-scrollbar-thumb {
-  background-color: #d8cba0;
-  border-radius: 4px;
-}
-
-/* --------------------------------------------------------------------------
-   PAGE 1 (RECTO): PERFORATED QUICK-LOG ENTRY CARD
-   -------------------------------------------------------------------------- */
-.entry-card-recto {
-  background: #ffffff;
-  border: 1px solid #dcd1ab;
-  border-left: 4px solid #171717;
-  border-radius: 6px;
-  padding: 12px 14px;
-  position: relative;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-.entry-card-recto.milestone-entry {
-  border-left-color: var(--color-danger);
-  background: #fffdf7;
-}
-
-/* Header of each Recto Entry */
-.recto-entry-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1.5px solid #171717;
-  padding-bottom: 6px;
   margin-bottom: 10px;
 }
 
-.recto-counter-badge {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  background: #171717;
-  color: var(--color-primary);
-  padding: 2px 10px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-}
-
-.recto-hookup-id-tag {
-  font-family: monospace;
-  font-weight: 800;
-  font-size: 0.8rem;
-  color: #3b372c;
-  background: #f4edd2;
-  padding: 2px 8px;
-  border-radius: 4px;
-  border: 1px dashed #d5c89d;
-}
-
-/* Recto Inputs Grid (15 text fields) */
-.recto-inputs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.recto-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.recto-label {
-  font-family: var(--font-heading);
-  font-size: 0.64rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #635f52;
-  margin-bottom: 2px;
-}
-
-.recto-input-slot {
-  background: #faf7ee;
-  border: 1px dashed #cfc299;
-  border-radius: 3px;
-  padding: 4px 6px;
-  font-size: 0.72rem;
-  color: #787363;
-  min-height: 24px;
-  display: flex;
-  align-items: center;
-  font-family: monospace;
-}
-
-/* Roles Grid on Page 1 */
-.recto-roles-block {
-  background: #fbf8ee;
-  border: 1px solid #e1d6b5;
-  border-radius: 4px;
-  padding: 6px 10px;
-  margin-bottom: 8px;
-}
-
-.recto-roles-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  margin-top: 4px;
-}
-
-@media (max-width: 440px) {
-  .recto-roles-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.recto-checkbox-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #383428;
-  background: #ffffff;
-  border: 1px solid #d8cba1;
-  padding: 3px 6px;
-  border-radius: 3px;
-}
-
-.recto-checkbox-pill i {
-  width: 12px;
-  height: 12px;
-  stroke: #77715f;
-}
-
-/* Status Checkboxes on Page 1 */
-.recto-status-block {
-  background: #faf6ea;
-  border: 1px solid #e3d8b8;
-  border-radius: 4px;
-  padding: 6px 10px;
-}
-
-.recto-status-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-/* MILESTONE BANNER AT #10 */
-.milestone-box {
-  background: #171717;
-  color: #fff8d6;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-sm);
-  padding: 16px;
-  margin-top: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-}
-
-.milestone-title-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-title);
-  font-size: 0.76rem;
-  color: #171717;
-  background: var(--color-primary);
-  padding: 3px 8px;
-  border-radius: 3px;
-  margin-bottom: 8px;
-  letter-spacing: 0.05em;
-}
-
-.milestone-heading {
-  font-family: var(--font-heading);
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.35;
-  margin-bottom: 12px;
-}
-
-.milestone-questions {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.milestone-questions li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  color: #dfd8be;
-}
-
-.milestone-questions li i {
-  width: 15px;
-  height: 15px;
-  stroke: var(--color-primary);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-/* Bottom Right Corner Printed Dotted Tear Line */
-.recto-bottom-tear-corner {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 96px;
-  height: 96px;
-  overflow: hidden;
-  pointer-events: none;
-  border-radius: 0 0 var(--radius-md) 0;
-  z-index: 5;
-}
-
-.tear-dotted-line {
-  position: absolute;
-  bottom: 32px;
-  right: -25px;
-  width: 150px;
-  border-bottom: 2.5px dotted #857550;
-  transform: rotate(-45deg);
-}
-
-.tear-corner-label {
-  position: absolute;
-  bottom: 6px;
-  right: 8px;
-  font-family: var(--font-heading);
-  font-size: 0.62rem;
-  font-weight: 800;
-  color: #726747;
-  letter-spacing: 0.08em;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.tear-corner-label i {
-  width: 11px;
-  height: 11px;
-  stroke: #c24632;
-}
-
-.page-recto .spread-bottom-note {
-  padding-right: 64px;
-}
-
-/* Love-o-Meter (1-4 Flame Rating Scale) */
-.recto-loveometer-block {
-  background: #faf6ea;
-  border: 1px solid #e3d8b8;
-  border-radius: 4px;
-  padding: 6px 10px;
-  margin-top: 8px;
-}
-
-.recto-loveometer-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-.loveometer-flame-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #4a4433;
-  background: #ffffff;
-  border: 1px solid #d8cba1;
-  padding: 2px 8px;
-  border-radius: 3px;
-}
-
-.loveometer-flame-item i {
-  width: 13px;
-  height: 13px;
-  stroke: #c24632;
-  fill: #f5c800;
-}
-
-/* --------------------------------------------------------------------------
-   PAGE 2 (VERSO): DIARY & REFLECTION LOG ENTRY CARD
-   -------------------------------------------------------------------------- */
-.entry-card-verso {
-  background: #ffffff;
-  border: 1px solid #dcd1ab;
-  border-radius: 6px;
-  display: grid;
-  grid-template-columns: 56px 1fr 132px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-@media (max-width: 680px) {
-  .entry-card-verso {
-    grid-template-columns: 48px 1fr;
-  }
-  .condensed-metadata-edge {
-    grid-column: 1 / -1;
-    border-left: none;
-    border-top: 1px dashed #cfc29b;
-  }
-}
-
-/* Large Margin Number Identifier on Left */
-.verso-margin-number {
-  background: #201e19;
-  color: var(--color-primary);
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 4px;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  letter-spacing: 0.08em;
-  user-select: none;
-}
-
-/* Main Reflection Body */
-.verso-main-body {
-  padding: 12px 14px;
+.bp-split-left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* 4 Emotion / Vibe Checkers */
-.verso-vibe-bar {
-  background: #fbf7ec;
-  border: 1px solid #e4d8b9;
-  border-radius: 4px;
-  padding: 6px 10px;
+.bp-field-date {
+  position: relative;
 }
 
-.vibe-checkers-row {
+.bp-date-slashes-bar {
+  position: absolute;
+  left: 55px;
+  right: 15px;
+  bottom: 1px;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.bp-slash {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Roles Matrix (3 cols x 2 rows) */
+.bp-split-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bp-roles-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 10px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.bp-role-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bp-role-item.bp-label-left {
+  justify-content: space-between;
+}
+
+.bp-role-item.bp-label-right {
+  justify-content: flex-start;
+}
+
+.bp-role-name {
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.bp-checkbox-box {
+  width: 16px;
+  height: 16px;
+  border: 1.8px solid #000000;
+  border-radius: 2px;
+  background: transparent;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.bp-field-occupation {
+  margin-top: 2px;
+}
+
+/* 4. Meet Counter & Never Again */
+.bp-meet-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 2px;
+}
+
+.bp-field-meet-counter {
+  flex: 1;
+}
+
+.bp-never-again-item {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 4px;
 }
 
-.vibe-check-chip {
-  display: inline-flex;
+.bp-under-meet {
+  margin-bottom: 10px;
+}
+
+/* 5. Location */
+.bp-field-location {
+  margin-bottom: 10px;
+}
+
+/* 6, 7, 8: Two Column Attribute Blocks */
+.bp-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.bp-col-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-col-block .bp-label {
+  margin-bottom: 0;
+}
+
+/* 9. Bottom-Right Perforated Cut Corner */
+.bp-perforated-corner-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+}
+
+.bp-corner-callout {
+  position: absolute;
+  bottom: 36px;
+  right: 24px;
+  display: flex;
   align-items: center;
-  gap: 5px;
-  background: #ffffff;
-  border: 1px solid #d9cb9f;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #383427;
+  gap: 4px;
+  transform: rotate(-10deg);
 }
 
-.vibe-check-chip .emoji-face {
-  font-size: 0.95rem;
+.bp-handwritten-note {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.bp-arrow-icon {
+  font-size: 1.25rem;
+  color: #000000;
   line-height: 1;
 }
 
-.vibe-check-chip i {
-  width: 12px;
-  height: 12px;
-  stroke: #77705d;
+.bp-corner-cutline {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* 4 Wide Multi-line Ruled Text Areas */
-.verso-prompts-grid {
+.bp-dashed-diagonal-line {
+  position: absolute;
+  bottom: 35px;
+  right: -30px;
+  width: 140px;
+  border-bottom: 2px dashed #000000;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.bp-cut-scissors {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 18px;
+  height: 18px;
+  transform: rotate(-45deg);
+  z-index: 2;
+}
+
+/* PAGE 2 (VERSO) - Prompt Blocks */
+.bp-prompt-block {
+  margin-bottom: 18px;
+}
+
+.bp-prompt-header {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   gap: 8px;
+  margin-bottom: 0;
 }
 
-.reflection-prompt-block {
-  display: flex;
-  flex-direction: column;
+/* Verso bottom-left diagonal cut line */
+.bp-perforated-corner-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  pointer-events: none;
 }
 
-.reflection-label {
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #4b473a;
-  text-transform: uppercase;
-  margin-bottom: 2px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.bp-perforated-corner-left .bp-dashed-diagonal-line {
+  position: absolute;
+  bottom: 42px;
+  left: -35px;
+  width: 150px;
+  border-bottom: 2px dashed #000000;
+  transform: rotate(45deg);
+  transform-origin: center;
 }
 
-.reflection-label i {
-  width: 12px;
-  height: 12px;
-  stroke: #968962;
+/* --------------------------------------------------------------------------
+   Responsive Mobile Behavior: Strictly Horizontal Side-by-Side
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .notebook-spread-scroll-wrap {
+    padding: 12px 14px 28px;
+  }
+  .notebook-double-spread {
+    grid-template-columns: 350px 8px 350px !important;
+    min-width: 708px;
+  }
+  .spread-page {
+    padding: 24px 20px;
+  }
+  .bp-label {
+    font-size: 0.84rem;
+  }
+  .bp-role-name {
+    font-size: 0.72rem;
+  }
+  .bp-roles-matrix {
+    gap: 6px 6px;
+  }
+  .bp-face-svg {
+    width: 22px;
+    height: 22px;
+  }
+  .page-recto .bp-ruled-line {
+    height: 15px;
+  }
+  .page-verso .bp-ruled-line {
+    height: 22px;
+  }
 }
 
-.ruled-notebook-area {
-  background-color: #faf7ed;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 19px,
-    #e1d3a7 20px
-  );
-  line-height: 20px;
-  min-height: 52px;
-  padding: 2px 8px;
-  border: 1px solid #ded1a9;
-  border-radius: 3px;
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  color: #79715b;
-  font-style: italic;
-  display: flex;
-  align-items: flex-start;
-}
-
-/* Condensed Metadata Recap Block along Edge */
-.condensed-metadata-edge {
-  background: #f8f3e3;
-  border-left: 1px dashed #d7caa2;
-  padding: 10px 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: monospace;
-  font-size: 0.68rem;
-  color: #3d3728;
-}
-
-.recap-header {
-  font-family: var(--font-heading);
-  font-size: 0.64rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #635b43;
-  border-bottom: 1.5px solid #d5c697;
-  padding-bottom: 3px;
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
-}
-
-.recap-data-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.recap-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px dotted #ded0a5;
-  padding-bottom: 2px;
-}
-
-.recap-item span:first-child {
-  font-weight: 700;
-  color: #6b6247;
-  font-size: 0.62rem;
-}
-
-.recap-item span:last-child {
-  font-weight: 800;
-  color: #1a1711;
-  font-size: 0.66rem;
-}
-
-/* Spread Footer */
-.spread-bottom-note {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid #d9cb9e;
-  font-size: 0.72rem;
-  color: #6e6754;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
 
 /* --------------------------------------------------------------------------
    10. Social Proof / 3 Use Cases
