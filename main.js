@@ -568,49 +568,151 @@
 
   /**
    * 10b. Problem Section Heading Animation: Yellow Glow & Handwritten Underline
-   * Triggers when user scrolls near the diagnostic textbox
+   * Draws forward when scrolling down, draws backwards when scrolling up.
+   * Highly reactive to scroll approach.
    */
   function initProblemSectionAnimation() {
-    const contrastBox = document.querySelector('.problem-contrast-box');
+    const trackerWrap = document.querySelector('.problem-tracker-wrap');
     const trackerText = document.querySelector('.problem-tracker-text');
     const trackerSvg = document.querySelector('.problem-handdrawn-svg');
-    const trackerWrap = document.querySelector('.problem-tracker-wrap');
 
-    if (!contrastBox || !trackerText || !trackerSvg) return;
+    if (!trackerWrap || !trackerText || !trackerSvg) return;
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              trackerText.classList.add('glowing');
-              trackerSvg.classList.add('drawn');
-              observer.unobserve(contrastBox);
-            }
-          });
-        },
-        {
-          rootMargin: '0px 0px -40px 0px',
-          threshold: 0.15
-        }
-      );
-      observer.observe(contrastBox);
-    } else {
-      // Fallback for older browsers
-      trackerText.classList.add('glowing');
-      trackerSvg.classList.add('drawn');
-    }
+    let lastScrollY = window.scrollY;
+    let isTicking = false;
 
-    // Optional replay on click
-    if (trackerWrap) {
-      trackerWrap.addEventListener('click', () => {
-        trackerText.classList.remove('glowing');
-        trackerSvg.classList.remove('drawn');
-        void trackerWrap.offsetWidth;
+    function evaluateScroll() {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY >= lastScrollY;
+      const rect = trackerWrap.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // "Soon to come at that moment":
+      // Triggers as heading approaches the viewport from below (within bottom 12% of screen)
+      const inApproachZone = rect.top <= windowHeight * 0.88;
+      const isPastSection = rect.bottom < -80;
+
+      if (isPastSection) {
+        // Far below the heading in comparison cards: keep drawn
         trackerText.classList.add('glowing');
         trackerSvg.classList.add('drawn');
-      });
+      } else if (rect.top > windowHeight * 0.92) {
+        // Fully above section: retract backward
+        trackerText.classList.remove('glowing');
+        trackerSvg.classList.remove('drawn');
+      } else if (inApproachZone) {
+        if (isScrollingDown) {
+          // Scrolling down towards/into section: draw forward
+          trackerText.classList.add('glowing');
+          trackerSvg.classList.add('drawn');
+        } else {
+          // Scrolling UP:
+          // When moving back up towards top and heading starts moving down past mid-screen:
+          if (rect.top > windowHeight * 0.45) {
+            trackerText.classList.remove('glowing');
+            trackerSvg.classList.remove('drawn');
+          }
+        }
+      }
+
+      lastScrollY = currentScrollY;
+      isTicking = false;
     }
+
+    function onScroll() {
+      if (!isTicking) {
+        isTicking = true;
+        window.requestAnimationFrame(evaluateScroll);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    // Initial check
+    evaluateScroll();
+
+    // Replay on click
+    trackerWrap.addEventListener('click', () => {
+      trackerText.classList.remove('glowing');
+      trackerSvg.classList.remove('drawn');
+      void trackerWrap.offsetWidth;
+      trackerText.classList.add('glowing');
+      trackerSvg.classList.add('drawn');
+    });
+  }
+
+  /**
+   * 10c. Burning Fire Animation for "REAL DATING LIVES" & Floating Flame Emojis
+   */
+  function initBurningHeadingAnimation() {
+    const fireWrap = document.querySelector('.burning-fire-wrap');
+    const fireText = document.querySelector('.burning-fire-text');
+    if (!fireWrap || !fireText) return;
+
+    function eruptFlames(e) {
+      // White-hot momentary flare
+      fireText.classList.remove('flared');
+      void fireText.offsetWidth;
+      fireText.classList.add('flared');
+      setTimeout(() => fireText.classList.remove('flared'), 280);
+
+      // Haptic feedback
+      if (navigator.vibrate) {
+        try {
+          navigator.vibrate([25, 40, 25]);
+        } catch (_) {}
+      }
+
+      const rect = fireWrap.getBoundingClientRect();
+      const wrapWidth = rect.width || 200;
+      const wrapHeight = rect.height || 40;
+
+      // Erupt 18-24 flame emojis upwards across the text
+      const count = 18 + Math.floor(Math.random() * 7);
+      const isMobile = window.innerWidth <= 768;
+
+      for (let i = 0; i < count; i++) {
+        const flame = document.createElement('span');
+        flame.className = 'floating-flame-emoji';
+        flame.textContent = '🔥';
+        flame.setAttribute('aria-hidden', 'true');
+
+        // Distribute nicely along the text
+        const posX = Math.random() * Math.max(10, wrapWidth - 26);
+        const posY = Math.random() * (wrapHeight * 0.6);
+
+        const dx = (Math.random() - 0.5) * (isMobile ? 70 : 120);
+        const dy = -(130 + Math.random() * (isMobile ? 120 : 190));
+        const scale = 0.85 + Math.random() * 1.1;
+        const rot = (Math.random() - 0.5) * 55;
+        const duration = 0.85 + Math.random() * 0.65;
+        const delay = Math.random() * 0.18;
+
+        flame.style.left = `${posX}px`;
+        flame.style.top = `${posY}px`;
+        flame.style.setProperty('--flame-dx', `${dx}px`);
+        flame.style.setProperty('--flame-dy', `${dy}px`);
+        flame.style.setProperty('--flame-scale', scale.toFixed(2));
+        flame.style.setProperty('--flame-rot', `${rot.toFixed(1)}deg`);
+        flame.style.setProperty('--flame-duration', `${duration.toFixed(2)}s`);
+        flame.style.animationDelay = `${delay.toFixed(2)}s`;
+
+        fireWrap.appendChild(flame);
+
+        setTimeout(() => {
+          flame.remove();
+        }, (duration + delay + 0.15) * 1000);
+      }
+    }
+
+    fireWrap.addEventListener('click', eruptFlames);
+    fireWrap.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        eruptFlames();
+      }
+    });
   }
 
   /**
@@ -781,6 +883,7 @@
     initSpreadCalloutPills();
     initHeroAnimations();
     initProblemSectionAnimation();
+    initBurningHeadingAnimation();
     initSpreadInteractions();
     initCookieConsent();
     scheduleDeferredChatWidget();
