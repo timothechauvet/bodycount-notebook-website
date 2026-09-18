@@ -8,7 +8,7 @@
      - Neutral Text:    #ecece6 / #9e9e94
    Typography:
      - Titles:   'Borsok', Impact, sans-serif
-     - Headings: 'Droid Sans', 'Droid Serif', sans-serif
+     - Headings: 'Open Sans', -apple-system, sans-serif
      - Body:     'Open Sans', -apple-system, sans-serif
    ========================================================================== */
 
@@ -20,22 +20,6 @@
   src: url('./borsok/boorsok.otf') format('opentype'),
        url('./borsok/boorsok.ttf') format('truetype');
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('./droid-serif/DroidSerif-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Droid Serif';
-  src: url('./droid-serif/DroidSerif.ttf') format('truetype');
-  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -57,8 +41,8 @@
   --color-white: #ffffff;
 
   --font-title: 'Borsok', Impact, -apple-system, sans-serif;
-  --font-heading: 'Droid Sans', 'Droid Serif', Georgia, sans-serif;
-  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -433,6 +417,27 @@ i[data-lucide], .lucide {
   width: 16px;
   height: 16px;
   stroke: var(--color-primary);
+}
+
+.hero-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-primary);
+  display: inline-block;
+  animation: eyebrowPulse 2s ease-in-out infinite;
+}
+
+@keyframes eyebrowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
 }
 
 .hero-title {
@@ -955,53 +960,69 @@ i[data-lucide], .lucide {
 .hero-spread-preview-chip {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 52px;
+  position: relative;
+  z-index: 5;
   background: #1e1e1e;
-  border: 1.5px solid #333333;
+  border: 1.5px solid #363636;
   border-radius: var(--radius-md);
-  padding: 8px 14px;
+  padding: 10px 16px;
   text-decoration: none;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
 .hero-spread-preview-chip:hover {
   border-color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(245, 200, 0, 0.25);
+  box-shadow: 0 10px 28px rgba(245, 200, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .hero-spread-preview-chip {
+    margin-top: 36px;
+    padding: 8px 12px;
+    gap: 10px;
+  }
 }
 
 .mini-spread-thumb {
-  width: 90px;
-  height: 52px;
+  width: 108px;
+  height: 56px;
   background: #ede3d1;
   border: 1px solid #c9bda5;
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 4px 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
 }
 
 .mini-thumb-header {
   display: flex;
   justify-content: space-between;
-  font-size: 0.54rem;
+  align-items: center;
+  font-size: 0.52rem;
   font-weight: 700;
   color: #222;
   border-bottom: 0.5px solid #888;
   padding-bottom: 2px;
+  line-height: 1;
 }
 
 .mini-thumb-body {
   display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mini-thumb-tags {
+  display: flex;
   align-items: center;
   gap: 3px;
-  font-size: 0.46rem;
-  font-weight: 700;
-  color: #111;
 }
 
 .mini-tag {
@@ -1009,11 +1030,33 @@ i[data-lucide], .lucide {
   padding: 1px 3px;
   border-radius: 2px;
   border: 0.5px solid #888;
+  font-size: 0.44rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+
+.mini-thumb-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.mini-rating-label {
+  font-size: 0.44rem;
+  font-weight: 700;
+  color: #555;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .mini-flame {
-  font-size: 0.52rem;
-  letter-spacing: -1px;
+  font-size: 0.54rem;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  letter-spacing: 1px;
 }
 
 .mini-spread-info {
@@ -2560,7 +2603,9 @@ telegram-chat-widget {
   color: var(--color-primary);
 }
 
-.cookie-notice-banner {
+.cookie-notice-banner,
+#cookie-banner,
+.cookie-banner {
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -2588,7 +2633,9 @@ telegram-chat-widget {
 }
 
 @media (max-width: 640px) {
-  .cookie-notice-banner {
+  .cookie-notice-banner,
+  #cookie-banner,
+  .cookie-banner {
     left: 12px;
     right: 12px;
     bottom: 78px;
@@ -2624,7 +2671,8 @@ telegram-chat-widget {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .cookie-btn-primary {
@@ -2634,6 +2682,8 @@ telegram-chat-widget {
   font-size: 0.78rem;
   font-weight: 800;
   border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
@@ -2649,11 +2699,25 @@ telegram-chat-widget {
   font-size: 0.78rem;
   font-weight: 600;
   border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
   transition: background 0.15s ease;
 }
 
 .cookie-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.16);
+}
+
+.cookie-btn-decline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #c4c4bc;
+}
+
+.cookie-btn-decline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Modal Overlay & Card */

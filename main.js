@@ -21,7 +21,7 @@
    */
   const EXPERIMENT_ANGLES = {
     utility: {
-      eyebrow: 'THE OFFLINE DATING JOURNAL',
+      eyebrow: 'ZERO CLOUD • BEDSIDE HOOKUP LOG',
       headline: 'REMEMBER THE <span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span> <span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>',
       subhead: 'A physical journal for logging 60 encounters without keeping intimate notes in your phone.',
       bullets: [
@@ -123,8 +123,13 @@
 
     console.debug(`[MBCT Analytics] ${eventName}:`, payload);
 
-    // Meta Pixel Event
-    if (typeof window.fbq === 'function') {
+    // Meta Pixel Event (Suppressed if user or extension declined cookies)
+    let isConsentDeclined = false;
+    try {
+      isConsentDeclined = localStorage.getItem('mbct_cookie_consent_v1') === 'declined';
+    } catch (e) {}
+
+    if (typeof window.fbq === 'function' && !window['fbq-disabled'] && !isConsentDeclined) {
       try {
         window.fbq('trackCustom', eventName, payload);
       } catch (err) {
@@ -174,8 +179,13 @@
         // Fire compliant AmazonOutboundClick event (Never fire Purchase!)
         trackEvent('AmazonOutboundClick', payload);
 
-        // Also track standard InitiateCheckout as intentional lead conversion
-        if (typeof window.fbq === 'function') {
+        // Also track standard InitiateCheckout as intentional lead conversion (if consented)
+        let isConsentDeclined = false;
+        try {
+          isConsentDeclined = localStorage.getItem('mbct_cookie_consent_v1') === 'declined';
+        } catch (e) {}
+
+        if (typeof window.fbq === 'function' && !window['fbq-disabled'] && !isConsentDeclined) {
           try {
             window.fbq('track', 'InitiateCheckout', {
               content_name: 'My Body Count Tracker',
@@ -247,7 +257,7 @@
     document.body.setAttribute('data-experiment-variant', activeAngle);
 
     // Apply Angle Eyebrow
-    const eyebrowEl = document.querySelector('.hero-eyebrow span');
+    const eyebrowEl = document.querySelector('.hero-eyebrow-text') || document.querySelector('.hero-eyebrow span:not(.hero-eyebrow-dot)');
     if (eyebrowEl && angleData.eyebrow) {
       eyebrowEl.textContent = angleData.eyebrow;
     }
@@ -632,8 +642,9 @@
    * 12. RGPD / GDPR Cookie Consent & Privacy Modal Handler
    */
   function initCookieConsent() {
-    const banner = document.getElementById('cookieNoticeBanner');
-    const acceptBtn = document.getElementById('cookieAcceptBtn');
+    const banner = document.getElementById('cookie-banner') || document.getElementById('cookieNoticeBanner') || document.querySelector('.cookie-banner');
+    const acceptBtn = document.getElementById('cookieAcceptBtn') || document.querySelector('.cookie-btn-accept');
+    const declineBtn = document.getElementById('cookieDeclineBtn') || document.querySelector('.cookie-btn-decline');
     const learnMoreBtn = document.getElementById('cookieLearnMoreBtn');
     const openModalBtn = document.getElementById('openCookieModalBtn');
     const modal = document.getElementById('cookieModal');
@@ -641,20 +652,49 @@
     const dismissModalBtn = document.getElementById('cookieModalDismissBtn');
 
     const STORAGE_KEY = 'mbct_cookie_consent_v1';
+    let consent = null;
+    try {
+      consent = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {}
 
-    if (banner && localStorage.getItem(STORAGE_KEY) === 'accepted') {
+    // If previously declined, disable Meta Pixel immediately
+    if (consent === 'declined') {
+      window['fbq-disabled'] = true;
+    }
+
+    // Hide banner if already decided
+    if (banner && (consent === 'accepted' || consent === 'declined')) {
       banner.style.display = 'none';
     }
 
-    if (acceptBtn && banner) {
+    function hideBanner() {
+      if (!banner) return;
+      banner.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 260);
+    }
+
+    if (acceptBtn) {
       acceptBtn.addEventListener('click', () => {
-        localStorage.setItem(STORAGE_KEY, 'accepted');
-        banner.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-        banner.style.opacity = '0';
-        banner.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          banner.style.display = 'none';
-        }, 260);
+        try {
+          localStorage.setItem(STORAGE_KEY, 'accepted');
+        } catch (e) {}
+        hideBanner();
+        trackEvent('CookieConsentAccepted');
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, 'declined');
+        } catch (e) {}
+        window['fbq-disabled'] = true;
+        hideBanner();
+        trackEvent('CookieConsentDeclined');
       });
     }
 

@@ -8,16 +8,14 @@
   <meta name="description"
     content="The physical 6x9 offline journal to rate, review, and chronicle 60 encounters without intimate notes in your phone. 120 pages. Sold on Amazon with discreet packaging.">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://timothechauvet.github.io/bodycount-notebook-website/">
-
   <!-- Open Graph / Meta Ads / Facebook / WhatsApp -->
   <meta property="og:type" content="product">
   <meta property="og:site_name" content="My Body Count Tracker">
   <meta property="og:title" content="My Body Count Tracker | 6x9 Physical Hookup Journal">
   <meta property="og:description"
     content="Physical 6x9 journal with 60 encounter spreads, structured checkboxes, Love-o-meter, and reflection prompts. Available on Amazon.">
-  <meta property="og:url" content="https://timothechauvet.github.io/bodycount-notebook-website/">
-  <meta property="og:image" content="https://timothechauvet.github.io/bodycount-notebook-website/assets/og-image.png">
+  <meta property="og:url" content="./">
+  <meta property="og:image" content="./assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="My Body Count Tracker 6x9 Journal Cover Preview">
@@ -27,20 +25,19 @@
   <meta name="twitter:title" content="My Body Count Tracker | 6x9 Physical Hookup Journal">
   <meta name="twitter:description"
     content="A physical 6x9 journal for tracking 60 encounters with structured checklists and reflection prompts. Available on Amazon.">
-  <meta name="twitter:image" content="https://timothechauvet.github.io/bodycount-notebook-website/assets/og-image.png">
+  <meta name="twitter:image" content="./assets/og-image.png">
 
   <!-- Favicon & Touch Icon -->
   <link rel="icon" type="image/png" href="./assets/logo.png">
   <link rel="apple-touch-icon" href="./assets/logo.png">
 
-  <!-- Preconnect & Fonts -->
+  <!-- Preconnect & Fonts: Standardized to Open Sans for all body text & Borsok for titles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="./borsok/boorsok.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="./droid-serif/DroidSerif-Bold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="./assets/cover-front.png" as="image">
   <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Droid+Sans:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
     rel="stylesheet">
 
   <!-- Lucide Icons via CDN -->
@@ -59,21 +56,29 @@
     };
   </script>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code with Consent Guard -->
   <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-
     (function() {
+      // Check if user or cookie extension declined cookies
+      try {
+        if (localStorage.getItem('mbct_cookie_consent_v1') === 'declined') {
+          window['fbq-disabled'] = true;
+          return;
+        }
+      } catch (e) {}
+
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
       const urlParams = new URLSearchParams(window.location.search);
       const activePixelId = urlParams.get('pixel_id') || window.MBCT_CONFIG.pixelId;
       if (activePixelId && activePixelId !== 'YOUR_PIXEL_ID') {
@@ -83,15 +88,15 @@
     })();
   </script>
 
-  <!-- Product Schema.org JSON-LD (Factual, Compliant, No Unvalidated Ratings/Prices) -->
+  <!-- Product Schema.org JSON-LD (Factual, Compliant, Relative URLs) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "My Body Count Tracker",
     "image": [
-      "https://timothechauvet.github.io/bodycount-notebook-website/assets/cover-front.png",
-      "https://timothechauvet.github.io/bodycount-notebook-website/assets/og-image.png"
+      "./assets/cover-front.png",
+      "./assets/og-image.png"
     ],
     "description": "Physical 6x9 journal with 120 pages and 60 encounter spreads. Features structured checkboxes, Love-o-Meter, and reflection prompts.",
     "brand": {
@@ -117,7 +122,7 @@
   <div class="sticky-top-stack">
     <aside class="announcement-bar" role="region" aria-label="Product Information Banner">
       <i data-lucide="book-open" aria-hidden="true"></i>
-      <span><strong>60 Encounter Spreads (120 Pages)</strong> &bull; Ships in Discreet Amazon Packaging</span>
+      <span><strong>60 Encounter Spreads (120 Pages)</strong> &bull; Ships in a Plain Amazon Box</span>
     </aside>
 
     <!-- Site Navigation -->
@@ -145,8 +150,8 @@
         <!-- Hero Left Column -->
         <div class="hero-content">
           <div class="hero-eyebrow">
-            <i data-lucide="shield-check" aria-hidden="true"></i>
-            <span>THE OFFLINE DATING JOURNAL</span>
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            <span class="hero-eyebrow-text">ZERO CLOUD &bull; BEDSIDE HOOKUP LOG</span>
           </div>
 
           <h1 class="hero-title" id="heroHeadline">
@@ -185,7 +190,7 @@
 
             <div class="cta-micro-row">
               <span><i data-lucide="truck" aria-hidden="true"></i> Ships via Amazon</span>
-              <span><i data-lucide="shield-check" aria-hidden="true"></i> Discreet Packaging</span>
+              <span><i data-lucide="package" aria-hidden="true"></i> Plain Amazon Box</span>
               <span><i data-lucide="lock" aria-hidden="true"></i> Secure Amazon Checkout</span>
             </div>
           </div>
@@ -220,18 +225,23 @@
             </div>
           </div>
 
-          <!-- Quick Interior Spread Preview Badge -->
+          <!-- Quick Interior Spread Preview Badge with Clean Row Layout -->
           <a href="#features" class="hero-spread-preview-chip" aria-label="See inside the 60 encounter spreads">
             <div class="mini-spread-thumb" aria-hidden="true">
               <div class="mini-thumb-header">
-                <span class="mini-thumb-id">Log #01</span>
+                <span class="mini-thumb-id">Encounter #01</span>
                 <span class="mini-thumb-date">/ /</span>
               </div>
               <div class="mini-thumb-body">
-                <span class="mini-tag">Top</span>
-                <span class="mini-tag">Vers</span>
-                <span class="mini-tag">Bottom</span>
-                <span class="mini-flame">🔥🔥🔥🔥</span>
+                <div class="mini-thumb-tags">
+                  <span class="mini-tag">Top</span>
+                  <span class="mini-tag">Vers</span>
+                  <span class="mini-tag">Bottom</span>
+                </div>
+                <div class="mini-thumb-rating">
+                  <span class="mini-rating-label">Rating:</span>
+                  <span class="mini-flame">🔥🔥🔥🔥</span>
+                </div>
               </div>
             </div>
             <div class="mini-spread-info">
@@ -239,6 +249,7 @@
               <span class="mini-spread-sub">See 60-Encounter Layout &darr;</span>
             </div>
           </a>
+        </div>
       </div>
     </section>
 
@@ -541,7 +552,7 @@
             <span>Check Current Price on Amazon</span>
           </a>
           <p style="color:#adada3; font-size:0.82rem; margin-top:10px;">
-            Available on Amazon &bull; Discreet packaging
+            Available on Amazon &bull; Ships in a plain Amazon box
           </p>
         </div>
       </div>
@@ -558,7 +569,7 @@
 
         <div class="problem-contrast-box">
           <p>
-            Phone notes mix intimate memories with daily grocery lists, while blank notebooks require drawing layouts by hand. This tracker gives you pre-printed, structured encounter pages.
+            Your Notes app is one accidental screen-share away from disaster. And nobody has the energy to bullet-journal a hookup at 3 AM. We built the exact checkboxes, ratings, and prompts you actually need.
           </p>
         </div>
 
@@ -700,12 +711,12 @@
             </div>
           </div>
 
-          <!-- Discreet Packaging Card -->
+          <!-- Plain Amazon Box Card -->
           <div class="discreet-shield">
-            <i data-lucide="shield-check" aria-hidden="true"></i>
-            <h4>Discreet Amazon Packaging</h4>
+            <i data-lucide="package" aria-hidden="true"></i>
+            <h4>Ships In A Plain Amazon Box</h4>
             <p>
-              Shipped directly by Amazon in standard boxes or padded mailers. No product titles or descriptions appear on the outside label.
+              Arrives in standard, nondescript Amazon cardboard boxes or mailers. No product titles or sensitive keywords appear on the outside label.
             </p>
           </div>
         </div>
@@ -723,11 +734,11 @@
           <div class="faq-row">
             <details>
               <summary>
-                <span>Is Amazon delivery discreet?</span>
+                <span>Will anyone know what is inside the package?</span>
                 <i data-lucide="chevron-down" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                Yes. Amazon ships this product in standard, nondescript delivery packaging (boxes or mailers) with standard shipping labels.
+                No. It ships directly from Amazon in standard brown boxes or padded mailers. The shipping label contains only your address and standard delivery barcodes.
               </div>
             </details>
           </div>
@@ -780,7 +791,7 @@
             <span>Check Current Price on Amazon</span>
           </a>
           <p style="color:#adada3; font-size:0.82rem; margin-top:10px;">
-            Available on Amazon &bull; Discreet packaging
+            Available on Amazon &bull; Ships in a plain Amazon box
           </p>
         </div>
       </div>
@@ -820,8 +831,8 @@
     </div>
   </footer>
 
-  <!-- RGPD / GDPR Cookie Notice Banner -->
-  <aside id="cookieNoticeBanner" class="cookie-notice-banner" role="region" aria-label="Privacy & Cookie Preferences">
+  <!-- RGPD / GDPR Cookie Notice Banner (Compatible with "I still don't care about cookies") -->
+  <aside id="cookie-banner" class="cookie-banner cookie-notice-banner" role="region" aria-label="Cookie consent" data-nosnippet="true">
     <div class="cookie-banner-inner">
       <div class="cookie-banner-content">
         <span class="cookie-banner-emoji" aria-hidden="true">🍪</span>
@@ -831,7 +842,8 @@
       </div>
       <div class="cookie-banner-actions">
         <button id="cookieLearnMoreBtn" class="cookie-btn-secondary" type="button">Details &amp; RGPD</button>
-        <button id="cookieAcceptBtn" class="cookie-btn-primary" type="button">Accept &amp; Close</button>
+        <button id="cookieDeclineBtn" class="cookie-btn-secondary cookie-btn-decline" type="button" aria-label="Decline cookies">Decline</button>
+        <button id="cookieAcceptBtn" class="cookie-btn-primary cookie-btn-accept" type="button" aria-label="Accept cookies">Accept</button>
       </div>
     </div>
   </aside>
