@@ -145,7 +145,7 @@
           </div>
 
           <h1 class="hero-title">
-            THE PHYSICAL HOOKUP JOURNAL YOU WILL ACTUALLY USE
+            THE PHYSICAL <span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUP JOURNAL</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span> YOU WILL <span class="hero-underline-wrap"><span class="hero-underline-text">ACTUALLY USE</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </h1>
 
           <p class="hero-subtitle">
@@ -224,9 +224,10 @@
          ==================================================================== -->
     <section id="features" class="spread-showcase-section" aria-label="Inside Every Spread">
       <div class="container">
-        <h2 class="section-heading">BUILT FOR THE DETAILS YOU ACTUALLY WANT TO REMEMBER</h2>
-        <p style="text-align: center; color: #a8a89f; font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
-          60 seconds tonight. The useful details tomorrow. Two full pages per encounter, printed on heavy no-bleed archival paper.
+        <h2 class="section-heading">WHAT ARE YOU GETTING IN THIS NOTEBOOK</h2>
+        <p class="section-subheading">BUILT FOR THE DETAILS YOU ACTUALLY WANT TO REMEMBER</p>
+        <p class="spread-humor-comment">
+          <span>You could write it down yourself in Notes... or feel the real notebook experience.</span>
         </p>
         <!-- Open Book Double Spread Container (Horizontal Side-by-Side) -->
         <div class="notebook-spread-scroll-wrap">
@@ -253,11 +254,11 @@
                   <span class="bp-label">Age range</span>
                   <div class="bp-underline"></div>
                 </div>
-                <div class="bp-vibe-faces-group" aria-label="Vibe Faces">
-                  <span class="bp-face-chip" title="In Love / Ecstatic"><i data-lucide="smile-plus" aria-hidden="true"></i></span>
-                  <span class="bp-face-chip" title="Happy"><i data-lucide="smile" aria-hidden="true"></i></span>
-                  <span class="bp-face-chip" title="Meh / Neutral"><i data-lucide="meh" aria-hidden="true"></i></span>
-                  <span class="bp-face-chip" title="Angry / Bad"><i data-lucide="angry" aria-hidden="true"></i></span>
+                <div class="bp-vibe-faces-group" role="radiogroup" aria-label="Vibe Faces">
+                  <span class="bp-face-chip" data-vibe="in-love" role="radio" aria-checked="false" tabindex="0" title="In Love / Ecstatic"><i data-lucide="smile-plus" aria-hidden="true"></i></span>
+                  <span class="bp-face-chip" data-vibe="happy" role="radio" aria-checked="false" tabindex="0" title="Happy"><i data-lucide="smile" aria-hidden="true"></i></span>
+                  <span class="bp-face-chip" data-vibe="meh" role="radio" aria-checked="false" tabindex="0" title="Meh / Neutral"><i data-lucide="meh" aria-hidden="true"></i></span>
+                  <span class="bp-face-chip" data-vibe="angry" role="radio" aria-checked="false" tabindex="0" title="Angry / Bad"><i data-lucide="angry" aria-hidden="true"></i></span>
                 </div>
               </div>
 
@@ -288,27 +289,27 @@
                   <div class="bp-roles-matrix">
                     <div class="bp-role-item bp-label-left">
                       <span class="bp-role-name">Top</span>
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                     </div>
                     <div class="bp-role-item bp-label-right">
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                       <span class="bp-role-name">Vers</span>
                     </div>
                     <div class="bp-role-item bp-label-left">
                       <span class="bp-role-name">Weirdo</span>
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                     </div>
                     <div class="bp-role-item bp-label-left">
                       <span class="bp-role-name">Bottom</span>
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                     </div>
                     <div class="bp-role-item bp-label-right">
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                       <span class="bp-role-name">Side</span>
                     </div>
                     <div class="bp-role-item bp-label-left">
                       <span class="bp-role-name">In the closet</span>
-                      <span class="bp-checkbox-box"></span>
+                      <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
                     </div>
                   </div>
                   <div class="bp-inline-field bp-field-occupation">
@@ -319,17 +320,19 @@
               </div>
 
               <!-- 4. Meet counter & Never again -->
-              <div class="bp-meet-row">
-                <div class="bp-inline-field bp-field-meet-counter">
-                  <span class="bp-label">Meet counter</span>
-                  <div class="bp-underline"></div>
+              <div class="bp-block-meet">
+                <div class="bp-meet-row">
+                  <div class="bp-inline-field bp-field-meet-counter">
+                    <span class="bp-label">Meet counter</span>
+                    <div class="bp-underline"></div>
+                  </div>
+                  <div class="bp-role-item bp-never-again-item">
+                    <span class="bp-role-name">Never again</span>
+                    <span class="bp-checkbox-box" role="checkbox" aria-checked="false" tabindex="0"></span>
+                  </div>
                 </div>
-                <div class="bp-role-item bp-never-again-item">
-                  <span class="bp-role-name">Never again</span>
-                  <span class="bp-checkbox-box"></span>
-                </div>
+                <div class="bp-ruled-line bp-under-meet"></div>
               </div>
-              <div class="bp-ruled-line bp-under-meet"></div>
 
               <!-- 5. Location -->
               <div class="bp-row bp-field-location">

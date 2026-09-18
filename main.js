@@ -176,12 +176,161 @@
     }
   }
 
+  /**
+   * Hero Headline Animations: Kiss, Blush & Hand-Drawn Underline
+   */
+  function initHeroAnimations() {
+    const kissWrap = document.querySelector('.hero-kiss-wrap');
+    const kissStamp = document.querySelector('.hero-kiss-stamp');
+    const kissText = document.querySelector('.hero-kiss-text');
+    const underlineSvg = document.querySelector('.hero-handdrawn-svg');
+
+    // Trigger on load after brief delay
+    setTimeout(() => {
+      if (kissStamp) kissStamp.classList.add('kissed');
+      if (kissText) kissText.classList.add('blushing');
+    }, 380);
+
+    setTimeout(() => {
+      if (underlineSvg) underlineSvg.classList.add('drawn');
+    }, 850);
+
+    // Interactive replay on kiss click
+    if (kissWrap && kissStamp && kissText) {
+      kissWrap.addEventListener('click', () => {
+        kissStamp.classList.remove('kissed');
+        kissText.classList.remove('blushing');
+        void kissStamp.offsetWidth;
+        void kissText.offsetWidth;
+        kissStamp.classList.add('kissed');
+        kissText.classList.add('blushing');
+
+        const heart = document.createElement('span');
+        heart.className = 'bp-reaction-floater';
+        heart.textContent = '💋';
+        heart.style.position = 'absolute';
+        heart.style.right = '0';
+        heart.style.top = '-10px';
+        kissWrap.appendChild(heart);
+        setTimeout(() => heart.remove(), 750);
+      });
+    }
+
+    // Interactive replay on underline click
+    const underlineWrap = document.querySelector('.hero-underline-wrap');
+    if (underlineWrap && underlineSvg) {
+      underlineWrap.addEventListener('click', () => {
+        underlineSvg.classList.remove('drawn');
+        void underlineSvg.offsetWidth;
+        underlineSvg.classList.add('drawn');
+      });
+    }
+  }
+
+  /**
+   * Tactile Appllama-style Spread Interactions:
+   * Clickable Checkboxes & Vibe Face Chips with floating reactions
+   */
+  function initSpreadInteractions() {
+    // 1. Checkboxes
+    const checkContainers = document.querySelectorAll('.bp-role-item, .bp-never-again-item');
+    checkContainers.forEach((item) => {
+      const box = item.querySelector('.bp-checkbox-box');
+      if (!box) return;
+
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isChecked = box.classList.toggle('checked');
+        box.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+
+        // Haptic feedback if available
+        if (navigator.vibrate) navigator.vibrate(10);
+
+        // Spawn 4 micro particle dots if checked
+        if (isChecked) {
+          const angles = [0, 90, 180, 270];
+          angles.forEach((deg) => {
+            const rad = (deg * Math.PI) / 180;
+            const dot = document.createElement('span');
+            dot.className = 'bp-particle-dot';
+            dot.style.setProperty('--tx', `${Math.cos(rad) * 14}px`);
+            dot.style.setProperty('--ty', `${Math.sin(rad) * 14}px`);
+            dot.style.top = '6px';
+            dot.style.left = '6px';
+            box.appendChild(dot);
+            setTimeout(() => dot.remove(), 450);
+          });
+        }
+      });
+
+      // Keyboard accessibility
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          item.click();
+        }
+      });
+    });
+
+    // 2. Vibe Face Chips
+    const faceGroups = document.querySelectorAll('.bp-vibe-faces-group');
+    const vibeEmojis = {
+      'in-love': '💖',
+      'happy': '✨',
+      'meh': '💬',
+      'angry': '🔥'
+    };
+
+    faceGroups.forEach((group) => {
+      const chips = group.querySelectorAll('.bp-face-chip');
+      chips.forEach((chip) => {
+        chip.addEventListener('click', function (e) {
+          e.preventDefault();
+          const wasSelected = this.classList.contains('selected');
+
+          // Deselect all in this group
+          chips.forEach((c) => {
+            c.classList.remove('selected');
+            c.setAttribute('aria-checked', 'false');
+          });
+
+          // Toggle selection
+          if (!wasSelected) {
+            this.classList.add('selected');
+            this.setAttribute('aria-checked', 'true');
+
+            // Haptic
+            if (navigator.vibrate) navigator.vibrate(15);
+
+            // Spawn floating reaction emoji
+            const vibeKey = this.getAttribute('data-vibe') || 'happy';
+            const floater = document.createElement('span');
+            floater.className = 'bp-reaction-floater';
+            floater.textContent = vibeEmojis[vibeKey] || '✨';
+            this.appendChild(floater);
+            setTimeout(() => floater.remove(), 750);
+          }
+        });
+
+        // Keyboard accessibility
+        chip.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+    });
+  }
+
   function init() {
     initLucideIcons();
     initOutboundTracking();
     initStickyMobileCta();
     initEntryJumpChips();
     initComparisonTouch();
+    initHeroAnimations();
+    initSpreadInteractions();
   }
 
   if (document.readyState === 'loading') {
