@@ -256,12 +256,6 @@
     document.body.setAttribute('data-experiment-angle', activeAngle);
     document.body.setAttribute('data-experiment-variant', activeAngle);
 
-    // Apply Angle Eyebrow
-    const eyebrowEl = document.querySelector('.hero-eyebrow-text') || document.querySelector('.hero-eyebrow span:not(.hero-eyebrow-dot)');
-    if (eyebrowEl && angleData.eyebrow) {
-      eyebrowEl.textContent = angleData.eyebrow;
-    }
-
     // Apply Headline or custom query override
     const headlineEl = document.getElementById('heroHeadline');
     if (headlineEl) {
@@ -388,24 +382,10 @@
   }
 
   /**
-   * 8. Spread Callout Pills Click Guidance
+   * 8. Spread Callout Highlights (Static Informational Tags)
    */
   function initSpreadCalloutPills() {
-    const pills = document.querySelectorAll('.spread-callout-pill');
-    pills.forEach((pill) => {
-      pill.addEventListener('click', function () {
-        const target = this.getAttribute('data-target');
-        pills.forEach((p) => p.classList.remove('active'));
-        this.classList.add('active');
-
-        const spreadEl = document.getElementById('notebookDoubleSpread');
-        if (spreadEl) {
-          spreadEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        trackEvent('SpreadCalloutClicked', { callout: target });
-      });
-    });
+    // Pure informational callouts without interactive link jumping
   }
 
   /**

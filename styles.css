@@ -794,6 +794,7 @@ i[data-lucide], .lucide {
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   color: #cfcfc4;
   line-height: 1.5;
+  margin-top: 24px;
   margin-bottom: 24px;
   max-width: 520px;
   margin-left: auto;
@@ -1112,25 +1113,94 @@ i[data-lucide], .lucide {
 }
 
 .problem-contrast-box {
-  background: rgba(217, 86, 63, 0.08);
-  border-left: 3px solid var(--color-danger);
-  padding: 16px 20px;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin: 0 auto 28px;
-  max-width: 760px;
+  background: rgba(26, 20, 20, 0.88);
+  border: 1px solid rgba(217, 86, 63, 0.35);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin: 0 auto 32px;
+  max-width: 820px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
 }
 
-.problem-contrast-box p {
-  font-size: 1rem;
-  line-height: 1.55;
-  color: #fff8d6;
-  margin-bottom: 8px;
+.problem-contrast-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-danger);
+  border-radius: 4px 0 0 4px;
 }
 
-.problem-contrast-box p:last-child {
-  margin-bottom: 0;
-  color: var(--color-primary);
+.issue-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.issue-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(217, 86, 63, 0.16);
+  border: 1px solid rgba(217, 86, 63, 0.45);
+  color: #ff7e67;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.issue-pill i {
+  width: 14px;
+  height: 14px;
+  stroke: #ff7e67;
+}
+
+.issue-status-badge {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888880;
+}
+
+.issue-box-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.issue-lead {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.issue-sub {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: #d8d8ce;
+  line-height: 1.55;
+  margin: 0;
 }
 
 .comparison-grid {
@@ -1370,8 +1440,6 @@ i[data-lucide], .lucide {
   padding: 7px 14px;
   border-radius: var(--radius-full);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-  cursor: pointer;
   user-select: none;
 }
 
@@ -1379,14 +1447,6 @@ i[data-lucide], .lucide {
   width: 15px;
   height: 15px;
   stroke: var(--color-primary);
-}
-
-.spread-callout-pill:hover,
-.spread-callout-pill.active {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  transform: translateY(-2px);
-  background: #25241b;
 }
 
 /* Mobile Zoom Button & Action */
@@ -2249,7 +2309,7 @@ i[data-lucide], .lucide {
 @media (min-width: 768px) {
   .specs-box {
     grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
+    align-items: stretch;
   }
 }
 
@@ -2287,8 +2347,13 @@ i[data-lucide], .lucide {
   background: linear-gradient(135deg, #222015 0%, #171716 100%);
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-sm);
-  padding: 18px;
+  padding: 24px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .discreet-shield i {
@@ -2563,11 +2628,21 @@ i[data-lucide], .lucide {
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
   margin-bottom: 10px;
 }
 
-.footer-links a:hover {
+.footer-links a {
+  color: #888880;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover,
+.footer-cookie-btn:hover {
   color: var(--color-primary);
 }
 
