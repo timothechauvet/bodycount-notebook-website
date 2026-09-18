@@ -195,24 +195,55 @@
       if (underlineSvg) underlineSvg.classList.add('drawn');
     }, 850);
 
-    // Interactive replay on kiss click
+    // Interactive replay on kiss click: lips icon flies to and kisses the cursor!
     if (kissWrap && kissStamp && kissText) {
-      kissWrap.addEventListener('click', () => {
+      let isAnimating = false;
+
+      kissWrap.addEventListener('click', (e) => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const wrapRect = kissWrap.getBoundingClientRect();
+        const clickX = e.clientX - wrapRect.left;
+        const clickY = e.clientY - wrapRect.top;
+
+        // Reset any resting float animation
         kissStamp.classList.remove('kissed');
+        kissStamp.style.animation = 'none';
+        kissStamp.style.transition = 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+        // Swoop to cursor and smack
+        kissStamp.style.left = `${clickX}px`;
+        kissStamp.style.top = `${clickY}px`;
+        kissStamp.style.transform = 'translate(-50%, -50%) scale(1.65) rotate(-18deg)';
+        kissStamp.style.opacity = '1';
+
+        // Re-blush the text
         kissText.classList.remove('blushing');
-        void kissStamp.offsetWidth;
         void kissText.offsetWidth;
-        kissStamp.classList.add('kissed');
         kissText.classList.add('blushing');
 
-        const heart = document.createElement('span');
-        heart.className = 'bp-reaction-floater';
-        heart.textContent = '💋';
-        heart.style.position = 'absolute';
-        heart.style.right = '0';
-        heart.style.top = '-10px';
-        kissWrap.appendChild(heart);
-        setTimeout(() => heart.remove(), 750);
+        // Tactile haptic if supported
+        if (navigator.vibrate) navigator.vibrate(18);
+
+        // Quick spring snap onto the exact cursor point
+        setTimeout(() => {
+          kissStamp.style.transform = 'translate(-50%, -50%) scale(1.05) rotate(-8deg)';
+        }, 160);
+
+        // After kiss smack, smoothly return to top-right resting place
+        setTimeout(() => {
+          kissStamp.style.transition = 'all 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+          kissStamp.style.left = '';
+          kissStamp.style.top = '';
+          kissStamp.style.transform = '';
+          setTimeout(() => {
+            kissStamp.style.transition = '';
+            kissStamp.style.animation = '';
+            kissStamp.classList.add('kissed');
+            isAnimating = false;
+          }, 450);
+        }, 650);
       });
     }
 

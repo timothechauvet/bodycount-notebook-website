@@ -12,6 +12,6 @@
   },
   "homepage": "https://github.com/timothechauvet/bodycount-notebook-website#readme",
   "dependencies": {
-    "js-chat-telegram-widget": "^1.1.0"
+    "js-chat-telegram-widget": "^1.2.0"
   }
 }
