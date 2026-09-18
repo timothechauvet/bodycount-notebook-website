@@ -383,7 +383,7 @@ i[data-lucide], .lucide {
    6. Hero Section
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: 32px 0 44px;
+  padding: 24px 0 34px;
   background: radial-gradient(circle at 50% 20%, rgba(245, 200, 0, 0.06) 0%, transparent 65%);
 }
 
@@ -411,28 +411,38 @@ i[data-lucide], .lucide {
   }
 }
 
+.hero-eyebrow,
 .social-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(245, 200, 0, 0.1);
-  border: 1px solid rgba(245, 200, 0, 0.3);
-  padding: 5px 12px;
+  gap: 8px;
+  background: rgba(245, 200, 0, 0.12);
+  border: 1px solid rgba(245, 200, 0, 0.4);
+  padding: 6px 14px;
   border-radius: var(--radius-full);
+  font-family: var(--font-heading);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 16px;
 }
 
-/* Hero Title Entrance Animation (< 3s total) */
+.hero-eyebrow i {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-primary);
+}
+
 .hero-title {
   font-family: var(--font-title);
-  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
-  line-height: 1.05;
+  font-size: clamp(1.65rem, 6vw, 3.4rem);
+  line-height: 1.08;
   color: var(--color-white);
   margin-bottom: 14px;
   text-transform: uppercase;
+  word-break: break-word;
   animation: heroTitleEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -579,6 +589,12 @@ i[data-lucide], .lucide {
   position: relative;
   display: inline-block;
   white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .hero-underline-wrap {
+    white-space: normal;
+  }
 }
 
 .hero-underline-text {
@@ -935,11 +951,97 @@ i[data-lucide], .lucide {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Quick Hero Spread Preview Chip */
+.hero-spread-preview-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  background: #1e1e1e;
+  border: 1.5px solid #333333;
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero-spread-preview-chip:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 200, 0, 0.25);
+}
+
+.mini-spread-thumb {
+  width: 90px;
+  height: 52px;
+  background: #ede3d1;
+  border: 1px solid #c9bda5;
+  border-radius: 4px;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.mini-thumb-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.54rem;
+  font-weight: 700;
+  color: #222;
+  border-bottom: 0.5px solid #888;
+  padding-bottom: 2px;
+}
+
+.mini-thumb-body {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.46rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.mini-tag {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 1px 3px;
+  border-radius: 2px;
+  border: 0.5px solid #888;
+}
+
+.mini-flame {
+  font-size: 0.52rem;
+  letter-spacing: -1px;
+}
+
+.mini-spread-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.mini-spread-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.mini-spread-sub {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 /* --------------------------------------------------------------------------
-   8. The Core Problem: REGULAR NOTEBOOK VS. BODY COUNT TRACKER
+   8. The Core Problem: PHONE NOTES VS. BLANK NOTEBOOK VS. THIS TRACKER
    -------------------------------------------------------------------------- */
 .problem-section {
-  padding: 50px 0;
+  padding: 38px 0;
   background: #1a1a1a;
   border-top: 1px solid var(--color-dark-border);
   border-bottom: 1px solid var(--color-dark-border);
@@ -1196,15 +1298,221 @@ i[data-lucide], .lucide {
    9. AUTHENTIC 432x648 RECTO-VERSO NOTEBOOK SPREAD
    -------------------------------------------------------------------------- */
 .spread-showcase-section {
-  padding: 56px 0;
+  padding: 40px 0;
   background: var(--color-dark);
+}
+
+/* 3 Visual Callouts Bar */
+.spread-callouts-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px auto 16px;
+  max-width: 800px;
+  padding: 0 12px;
+}
+
+.spread-callout-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #202020;
+  border: 1px solid #363636;
+  color: #ecece6;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.spread-callout-pill i {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-primary);
+}
+
+.spread-callout-pill:hover,
+.spread-callout-pill.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  background: #25241b;
+}
+
+/* Mobile Zoom Button & Action */
+.spread-mobile-zoom-action {
+  display: none;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 768px) {
+  .spread-mobile-zoom-action {
+    display: flex;
+  }
+}
+
+.spread-zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #232323;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  min-height: 44px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.spread-zoom-btn:hover,
+.spread-zoom-btn:active {
+  background: #2d2919;
+  transform: scale(0.98);
+}
+
+.spread-zoom-btn i {
+  width: 17px;
+  height: 17px;
+}
+
+/* Spread Zoom Lightbox Modal */
+.spread-zoom-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.spread-zoom-modal-overlay[hidden] {
+  display: none !important;
+}
+
+.spread-zoom-card {
+  background: #1a1a1a;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  animation: zoomModalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes zoomModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.spread-zoom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.spread-zoom-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.spread-zoom-close {
+  background: transparent;
+  border: none;
+  color: #bbb;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spread-zoom-close:hover {
+  color: #fff;
+}
+
+.spread-zoom-body {
+  padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.spread-zoom-preview-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.spread-zoom-page-view {
+  background: #ede3d1;
+  color: #111;
+  padding: 18px 16px;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.zoom-page-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #111;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.zoom-page-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #222;
+}
+
+.spread-zoom-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #2d2d2d;
+  text-align: center;
 }
 
 .notebook-spread-scroll-wrap {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 18px 8px 32px;
+  padding: 14px 8px 28px;
   scrollbar-width: thin;
 }
 
@@ -1786,7 +2094,7 @@ i[data-lucide], .lucide {
    10. Social Proof / 3 Use Cases
    -------------------------------------------------------------------------- */
 .use-cases-section {
-  padding: 50px 0;
+  padding: 38px 0;
   background: #141414;
   border-top: 1px solid var(--color-dark-border);
   border-bottom: 1px solid var(--color-dark-border);
@@ -1856,20 +2164,32 @@ i[data-lucide], .lucide {
   margin-bottom: 14px;
 }
 
-.use-case-quote {
-  font-style: italic;
-  font-size: 0.82rem;
-  color: var(--color-cream);
-  padding-left: 10px;
-  border-left: 2px solid var(--color-primary);
+.use-case-fact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-top: auto;
+  padding: 8px 12px;
+  background: rgba(245, 200, 0, 0.08);
+  border: 1px solid rgba(245, 200, 0, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.use-case-fact i {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-primary);
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
    11. Discreet Shipping & Specs
    -------------------------------------------------------------------------- */
 .specs-section {
-  padding: 44px 0;
+  padding: 38px 0;
   background: var(--color-dark);
 }
 
@@ -1952,7 +2272,7 @@ i[data-lucide], .lucide {
    12. Minimal FAQ Accordion (Quick & Eased Animations)
    -------------------------------------------------------------------------- */
 .faq-section {
-  padding: 48px 0;
+  padding: 38px 0;
   background: #141414;
 }
 
@@ -2049,11 +2369,11 @@ i[data-lucide], .lucide {
 }
 
 @keyframes faq-expand {
-  0% {
+  from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-4px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -2062,7 +2382,7 @@ i[data-lucide], .lucide {
 .faq-answer {
   padding: 0 18px 16px;
   font-size: 0.88rem;
-  color: #bfbfb0;
+  color: #adada2;
   line-height: 1.48;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 10px;
@@ -2072,7 +2392,7 @@ i[data-lucide], .lucide {
    13. High-Contrast Footer CTA
    -------------------------------------------------------------------------- */
 .footer-cta-section {
-  padding: 56px 0;
+  padding: 40px 0;
   background: radial-gradient(circle at 50% 50%, #241f10 0%, #171717 85%);
   border-top: 2px solid var(--color-primary);
   text-align: center;
@@ -2156,14 +2476,15 @@ i[data-lucide], .lucide {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 9px 15px;
+  padding: 11px 18px;
   background: var(--color-primary);
   color: var(--color-dark);
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   text-transform: uppercase;
   border-radius: var(--radius-sm);
   white-space: nowrap;
+  min-height: 44px;
 }
 
 .sticky-btn svg {
@@ -2461,5 +2782,49 @@ telegram-chat-widget {
   padding: 14px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   16. Accessibility, Touch Targets & Reduced Motion Compliance
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2.5px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.cta-button,
+.comp-cta-btn,
+.header-cta-desktop {
+  min-height: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .book-3d {
+    animation: none !important;
+    transform: rotateX(8deg) rotateY(25deg) !important;
+  }
+  .hero-kiss-stamp,
+  .devil-avatar {
+    animation: none !important;
+  }
+  .hero-handdrawn-svg path {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}
+
+/* Telegram live support chat widget responsive docking */
+@media (max-width: 768px) {
+  telegram-chat-widget {
+    bottom: 76px !important;
+    right: 14px !important;
+    z-index: 90 !important;
+  }
 }
 
