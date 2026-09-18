@@ -598,8 +598,8 @@ i[data-lucide], .lucide {
 }
 
 .hero-handdrawn-svg path {
-  stroke-dasharray: 450;
-  stroke-dashoffset: 450;
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
   transition: stroke-dashoffset 0.85s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
