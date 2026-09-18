@@ -195,7 +195,7 @@
       if (underlineSvg) underlineSvg.classList.add('drawn');
     }, 850);
 
-    // Interactive replay on kiss click: lips icon flies to and kisses the cursor!
+    // Interactive replay on kiss click: lips icon flies super fast to cursor, goes extra big (especially on mobile), and spawns a floating heart!
     if (kissWrap && kissStamp && kissText) {
       let isAnimating = false;
 
@@ -207,15 +207,20 @@
         const clickX = e.clientX - wrapRect.left;
         const clickY = e.clientY - wrapRect.top;
 
+        // Check if on mobile / narrow screen
+        const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+        const targetScale = isMobile ? 2.45 : 1.95;
+
         // Reset any resting float animation
         kissStamp.classList.remove('kissed');
         kissStamp.style.animation = 'none';
-        kissStamp.style.transition = 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        // Ultra-snappy Appllama spring curve: very quick swoop (130ms)
+        kissStamp.style.transition = 'left 0.13s cubic-bezier(0.2, 1, 0.3, 1), top 0.13s cubic-bezier(0.2, 1, 0.3, 1), transform 0.13s cubic-bezier(0.34, 1.56, 0.64, 1)';
 
-        // Swoop to cursor and smack
+        // Swoop right onto cursor coordinates and grow BIG
         kissStamp.style.left = `${clickX}px`;
         kissStamp.style.top = `${clickY}px`;
-        kissStamp.style.transform = 'translate(-50%, -50%) scale(1.65) rotate(-18deg)';
+        kissStamp.style.transform = `translate(-50%, -50%) scale(${targetScale}) rotate(-14deg)`;
         kissStamp.style.opacity = '1';
 
         // Re-blush the text
@@ -223,17 +228,27 @@
         void kissText.offsetWidth;
         kissText.classList.add('blushing');
 
-        // Tactile haptic if supported
-        if (navigator.vibrate) navigator.vibrate(18);
+        // Tactile haptic feedback
+        if (navigator.vibrate) navigator.vibrate([15, 30, 20]);
 
-        // Quick spring snap onto the exact cursor point
-        setTimeout(() => {
-          kissStamp.style.transform = 'translate(-50%, -50%) scale(1.05) rotate(-8deg)';
-        }, 160);
+        // Spawn a small temporary floating heart rising up from the kiss point
+        const heart = document.createElement('span');
+        heart.className = 'kiss-floating-heart';
+        heart.textContent = '💖';
+        heart.style.left = `${clickX}px`;
+        heart.style.top = `${clickY}px`;
+        kissWrap.appendChild(heart);
+        setTimeout(() => heart.remove(), 700);
 
-        // After kiss smack, smoothly return to top-right resting place
+        // Quick kiss smack bounce at 130ms
         setTimeout(() => {
-          kissStamp.style.transition = 'all 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+          kissStamp.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          kissStamp.style.transform = `translate(-50%, -50%) scale(${targetScale * 0.85}) rotate(-6deg)`;
+        }, 130);
+
+        // Smoothly fly back to top-right resting corner after smack (starts at 380ms)
+        setTimeout(() => {
+          kissStamp.style.transition = 'all 0.38s cubic-bezier(0.16, 1, 0.3, 1)';
           kissStamp.style.left = '';
           kissStamp.style.top = '';
           kissStamp.style.transform = '';
@@ -242,8 +257,8 @@
             kissStamp.style.animation = '';
             kissStamp.classList.add('kissed');
             isAnimating = false;
-          }, 450);
-        }, 650);
+          }, 380);
+        }, 400);
       });
     }
 
