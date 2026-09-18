@@ -1143,7 +1143,7 @@ i[data-lucide], .lucide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 26px 24px 34px;
+  padding: 24px 24px 84px; /* Ample breathing room above corner cut tab */
 }
 
 .page-verso {
@@ -1152,7 +1152,7 @@ i[data-lucide], .lucide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 26px 24px 44px;
+  padding: 24px 24px 84px;
 }
 
 /* Typography & Ruled Lines: CRISP SOLID BLACK (#000000) */
@@ -1185,7 +1185,7 @@ i[data-lucide], .lucide {
 .page-recto .bp-ruled-line {
   width: 100%;
   border-bottom: 1.5px solid #000000;
-  height: 22px;
+  height: 17px;
 }
 
 .bp-block-meet {
@@ -1544,8 +1544,8 @@ i[data-lucide], .lucide {
 
 .bp-corner-callout {
   position: absolute;
-  bottom: 36px;
-  right: 24px;
+  bottom: 26px;
+  right: 22px;
   display: flex;
   align-items: center;
   gap: 4px;
