@@ -1174,7 +1174,7 @@ i[data-lucide], .lucide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px 24px 84px; /* Ample breathing room above corner cut tab */
+  padding: 34px 28px 76px; /* Balanced top & bottom margins matching physical notebook */
 }
 
 .page-verso {
@@ -1183,7 +1183,7 @@ i[data-lucide], .lucide {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px 24px 84px;
+  padding: 34px 28px 76px;
 }
 
 /* Typography & Ruled Lines: CRISP SOLID BLACK (#000000) */
@@ -1575,11 +1575,11 @@ i[data-lucide], .lucide {
 
 .bp-corner-callout {
   position: absolute;
-  bottom: 26px;
-  right: 22px;
+  bottom: 28px;
+  right: 24px;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   transform: rotate(-10deg);
 }
 
@@ -1591,10 +1591,12 @@ i[data-lucide], .lucide {
   white-space: nowrap;
 }
 
-.bp-arrow-icon {
-  font-size: 1.25rem;
-  color: #000000;
-  line-height: 1;
+.bp-arrow-svg {
+  width: 24px;
+  height: 18px;
+  stroke: #000000;
+  flex-shrink: 0;
+  display: block;
 }
 
 .bp-corner-cutline {
@@ -1610,15 +1612,15 @@ i[data-lucide], .lucide {
   bottom: 35px;
   right: -30px;
   width: 140px;
-  border-bottom: 2px dashed #000000;
+  border-bottom: 2px dotted #000000;
   transform: rotate(-45deg);
   transform-origin: center;
 }
 
 .bp-cut-scissors {
   position: absolute;
-  bottom: 24px;
-  right: 24px;
+  bottom: 25px;
+  right: 25px;
   width: 18px;
   height: 18px;
   transform: rotate(-45deg);
@@ -1652,7 +1654,7 @@ i[data-lucide], .lucide {
   bottom: 42px;
   left: -35px;
   width: 150px;
-  border-bottom: 2px dashed #000000;
+  border-bottom: 2px dotted #000000;
   transform: rotate(45deg);
   transform-origin: center;
 }
