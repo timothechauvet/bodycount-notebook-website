@@ -195,7 +195,7 @@
       if (underlineSvg) underlineSvg.classList.add('drawn');
     }, 850);
 
-    // Interactive replay on kiss click: lips icon flies super fast to cursor, goes extra big (especially on mobile), and spawns a floating heart!
+    // Interactive replay on kiss click: lips icon flies super fast to cursor, goes extra big (on both laptop and mobile), and spawns a floating heart!
     if (kissWrap && kissStamp && kissText) {
       let isAnimating = false;
 
@@ -203,25 +203,33 @@
         if (isAnimating) return;
         isAnimating = true;
 
-        const wrapRect = kissWrap.getBoundingClientRect();
-        const clickX = e.clientX - wrapRect.left;
-        const clickY = e.clientY - wrapRect.top;
-
-        // Check if on mobile / narrow screen
-        const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
-        const targetScale = isMobile ? 2.45 : 1.95;
-
-        // Reset any resting float animation
+        // Ensure resting position is cleanly established
         kissStamp.classList.remove('kissed');
         kissStamp.style.animation = 'none';
-        // Ultra-snappy Appllama spring curve: very quick swoop (130ms)
-        kissStamp.style.transition = 'left 0.13s cubic-bezier(0.2, 1, 0.3, 1), top 0.13s cubic-bezier(0.2, 1, 0.3, 1), transform 0.13s cubic-bezier(0.34, 1.56, 0.64, 1)';
-
-        // Swoop right onto cursor coordinates and grow BIG
-        kissStamp.style.left = `${clickX}px`;
-        kissStamp.style.top = `${clickY}px`;
-        kissStamp.style.transform = `translate(-50%, -50%) scale(${targetScale}) rotate(-14deg)`;
+        kissStamp.style.transition = 'none';
         kissStamp.style.opacity = '1';
+        kissStamp.style.transform = 'scale(1) rotate(-10deg)';
+        void kissStamp.offsetWidth;
+
+        // Measure resting center of stamp
+        const stampRect = kissStamp.getBoundingClientRect();
+        const stampCenterX = stampRect.left + stampRect.width / 2;
+        const stampCenterY = stampRect.top + stampRect.height / 2;
+
+        // Target coordinates = exact click position
+        const targetX = e.clientX;
+        const targetY = e.clientY;
+
+        const deltaX = targetX - stampCenterX;
+        const deltaY = targetY - stampCenterY;
+
+        // Scale factor: big on mobile and laptop
+        const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+        const targetScale = isMobile ? 2.6 : 2.2;
+
+        // 1. Snappy Appllama spring curve: very quick swoop to cursor (130ms)
+        kissStamp.style.transition = 'transform 0.13s cubic-bezier(0.2, 1, 0.3, 1)';
+        kissStamp.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${targetScale}) rotate(-14deg)`;
 
         // Re-blush the text
         kissText.classList.remove('blushing');
@@ -231,34 +239,36 @@
         // Tactile haptic feedback
         if (navigator.vibrate) navigator.vibrate([15, 30, 20]);
 
-        // Spawn a small temporary floating heart rising up from the kiss point
+        // Spawn a small temporary floating heart rising up from the click point
+        const wrapRect = kissWrap.getBoundingClientRect();
         const heart = document.createElement('span');
         heart.className = 'kiss-floating-heart';
         heart.textContent = '💖';
-        heart.style.left = `${clickX}px`;
-        heart.style.top = `${clickY}px`;
+        heart.style.left = `${e.clientX - wrapRect.left}px`;
+        heart.style.top = `${e.clientY - wrapRect.top}px`;
         kissWrap.appendChild(heart);
         setTimeout(() => heart.remove(), 700);
 
-        // Quick kiss smack bounce at 130ms
+        // 2. Smack compression bounce at 130ms
         setTimeout(() => {
-          kissStamp.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)';
-          kissStamp.style.transform = `translate(-50%, -50%) scale(${targetScale * 0.85}) rotate(-6deg)`;
+          kissStamp.style.transition = 'transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          kissStamp.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${targetScale * 0.88}) rotate(-6deg)`;
         }, 130);
 
-        // Smoothly fly back to top-right resting corner after smack (starts at 380ms)
+        // 3. Smooth, fast swoop back to original resting place (at 300ms)
         setTimeout(() => {
-          kissStamp.style.transition = 'all 0.38s cubic-bezier(0.16, 1, 0.3, 1)';
-          kissStamp.style.left = '';
-          kissStamp.style.top = '';
-          kissStamp.style.transform = '';
+          kissStamp.style.transition = 'transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)';
+          kissStamp.style.transform = 'scale(1) rotate(-10deg)';
+
+          // 4. Resume gentle ambient float after swoop completes seamlessly
           setTimeout(() => {
             kissStamp.style.transition = '';
             kissStamp.style.animation = '';
-            kissStamp.classList.add('kissed');
+            kissStamp.style.transform = '';
+            kissStamp.classList.add('floating');
             isAnimating = false;
-          }, 380);
-        }, 400);
+          }, 290);
+        }, 300);
       });
     }
 
