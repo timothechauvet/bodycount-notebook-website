@@ -567,6 +567,53 @@
   }
 
   /**
+   * 10b. Problem Section Heading Animation: Yellow Glow & Handwritten Underline
+   * Triggers when user scrolls near the diagnostic textbox
+   */
+  function initProblemSectionAnimation() {
+    const contrastBox = document.querySelector('.problem-contrast-box');
+    const trackerText = document.querySelector('.problem-tracker-text');
+    const trackerSvg = document.querySelector('.problem-handdrawn-svg');
+    const trackerWrap = document.querySelector('.problem-tracker-wrap');
+
+    if (!contrastBox || !trackerText || !trackerSvg) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              trackerText.classList.add('glowing');
+              trackerSvg.classList.add('drawn');
+              observer.unobserve(contrastBox);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.15
+        }
+      );
+      observer.observe(contrastBox);
+    } else {
+      // Fallback for older browsers
+      trackerText.classList.add('glowing');
+      trackerSvg.classList.add('drawn');
+    }
+
+    // Optional replay on click
+    if (trackerWrap) {
+      trackerWrap.addEventListener('click', () => {
+        trackerText.classList.remove('glowing');
+        trackerSvg.classList.remove('drawn');
+        void trackerWrap.offsetWidth;
+        trackerText.classList.add('glowing');
+        trackerSvg.classList.add('drawn');
+      });
+    }
+  }
+
+  /**
    * 11. Deferred Telegram Live Support Chat Widget (Priority 7, Rule 42)
    */
   function scheduleDeferredChatWidget() {
@@ -733,6 +780,7 @@
     initSpreadZoomModal();
     initSpreadCalloutPills();
     initHeroAnimations();
+    initProblemSectionAnimation();
     initSpreadInteractions();
     initCookieConsent();
     scheduleDeferredChatWidget();
