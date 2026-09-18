@@ -620,7 +620,7 @@ i[data-lucide], .lucide {
 
 .spread-humor-comment {
   max-width: 680px;
-  margin: 0 auto 30px;
+  margin: 36px auto 0;
   display: flex;
   justify-content: center;
   padding: 0 16px;
@@ -688,6 +688,25 @@ i[data-lucide], .lucide {
 
 .devil-speech-bubble .devil-quote {
   font-style: italic;
+}
+
+.glow-purple {
+  color: #d980fa;
+  font-weight: 900;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(217, 128, 250, 0.9), 0 0 20px rgba(186, 40, 217, 0.75), 0 0 32px rgba(186, 40, 217, 0.5);
+  display: inline-block;
+  animation: purpleGlowPulse 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes purpleGlowPulse {
+  0% {
+    text-shadow: 0 0 8px rgba(217, 128, 250, 0.8), 0 0 16px rgba(186, 40, 217, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 14px rgba(217, 128, 250, 1), 0 0 26px rgba(186, 40, 217, 0.9), 0 0 38px rgba(186, 40, 217, 0.6);
+  }
 }
 
 /* Strikethrough Text Variation (< 3s) */
@@ -1814,13 +1833,13 @@ i[data-lucide], .lucide {
 }
 
 .badge-clean {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  background: rgba(255, 149, 0, 0.15);
+  color: #ffaa33;
 }
 
 .badge-gift {
-  background: rgba(217, 86, 63, 0.15);
-  color: #ff7660;
+  background: rgba(255, 92, 138, 0.18);
+  color: #ff5c8a;
 }
 
 .use-case-title {
@@ -2086,12 +2105,13 @@ i[data-lucide], .lucide {
 }
 
 .deal-pill {
-  background: var(--color-danger);
+  background: linear-gradient(90deg, #ff5c8a 0%, #e6396e 100%);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 800;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(255, 92, 138, 0.35);
 }
 
 /* --------------------------------------------------------------------------
