@@ -379,6 +379,66 @@
     });
   }
 
+  /**
+   * RGPD / GDPR Cookie Consent & Privacy Modal Handler
+   */
+  function initCookieConsent() {
+    const banner = document.getElementById('cookieNoticeBanner');
+    const acceptBtn = document.getElementById('cookieAcceptBtn');
+    const learnMoreBtn = document.getElementById('cookieLearnMoreBtn');
+    const openModalBtn = document.getElementById('openCookieModalBtn');
+    const modal = document.getElementById('cookieModal');
+    const closeModalBtn = document.getElementById('closeCookieModalBtn');
+    const dismissModalBtn = document.getElementById('cookieModalDismissBtn');
+
+    const STORAGE_KEY = 'mbct_cookie_consent_v1';
+
+    // Hide banner if user previously consented
+    if (banner && localStorage.getItem(STORAGE_KEY) === 'accepted') {
+      banner.style.display = 'none';
+    }
+
+    if (acceptBtn && banner) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem(STORAGE_KEY, 'accepted');
+        banner.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        banner.style.opacity = '0';
+        banner.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          banner.style.display = 'none';
+        }, 260);
+      });
+    }
+
+    function openModal() {
+      if (!modal) return;
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    if (learnMoreBtn) learnMoreBtn.addEventListener('click', openModal);
+    if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (dismissModalBtn) dismissModalBtn.addEventListener('click', closeModal);
+
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hasAttribute('hidden')) {
+          closeModal();
+        }
+      });
+    }
+  }
+
   function init() {
     initLucideIcons();
     initOutboundTracking();
@@ -387,6 +447,7 @@
     initComparisonTouch();
     initHeroAnimations();
     initSpreadInteractions();
+    initCookieConsent();
   }
 
   if (document.readyState === 'loading') {

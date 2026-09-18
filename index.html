@@ -808,6 +808,7 @@
           data-track-amazon="true">Order on Amazon</a>
         <a href="#hero">Back to Top</a>
         <a href="#features">Features</a>
+        <button id="openCookieModalBtn" class="footer-cookie-btn" type="button">Cookie Policy (RGPD)</button>
       </div>
       <p>
         &copy; 2026 My Body Count Tracker. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its
@@ -815,6 +816,75 @@
       </p>
     </div>
   </footer>
+
+  <!-- RGPD / GDPR Cookie Notice Banner -->
+  <aside id="cookieNoticeBanner" class="cookie-notice-banner" role="region" aria-label="Privacy & Cookie Preferences">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-content">
+        <span class="cookie-banner-emoji" aria-hidden="true">🍪</span>
+        <p class="cookie-banner-text">
+          We use cookies and local storage to run our <strong>bottom-right customer support chat widget</strong> and measure marketing traffic via Meta Pixel.
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button id="cookieLearnMoreBtn" class="cookie-btn-secondary" type="button">Details &amp; RGPD</button>
+        <button id="cookieAcceptBtn" class="cookie-btn-primary" type="button">Accept &amp; Close</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RGPD Cookie Details Modal -->
+  <div id="cookieModal" class="cookie-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle" hidden>
+    <div class="cookie-modal-card">
+      <div class="cookie-modal-header">
+        <h3 id="cookieModalTitle" class="cookie-modal-title">Cookie &amp; Privacy Policy (RGPD)</h3>
+        <button id="closeCookieModalBtn" class="cookie-modal-close" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="cookie-modal-body">
+        <p>
+          In accordance with the General Data Protection Regulation (RGPD/GDPR), here is full transparency regarding the cookies and local storage tokens used on this website:
+        </p>
+        <div class="cookie-table-wrap">
+          <table class="cookie-details-table">
+            <thead>
+              <tr>
+                <th>Cookie / Token</th>
+                <th>Provider</th>
+                <th>Purpose</th>
+                <th>Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>tg_chat_token_ð Bodycount</code><br><code>tg_chat_token</code></td>
+                <td>Telegram Chat Widget (Bottom-right)</td>
+                <td>Maintains your live customer chat session and conversation continuity anonymously.</td>
+                <td>Session / Persistent</td>
+              </tr>
+              <tr>
+                <td><code>CookieAutoDeleteBrowsingDataCleanup</code></td>
+                <td>Browser Session Cleanup</td>
+                <td>Maintains user cleanup and session state flags.</td>
+                <td>Session</td>
+              </tr>
+              <tr>
+                <td><code>_fbp</code> / Meta Pixel</td>
+                <td>Meta Platforms (Facebook / Instagram)</td>
+                <td>Measures outbound checkout traffic and ad conversion performance anonymously.</td>
+                <td>90 days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cookie-modal-note">
+          <strong>Physical Privacy Note:</strong> The Body Count Tracker journal itself is 100% offline, analog, and zero-digital. No hookup logs, entries, or personal names are ever stored or processed online.
+        </p>
+      </div>
+      <div class="cookie-modal-footer">
+        <button id="cookieModalDismissBtn" class="cookie-btn-primary" type="button">Understood</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Telegram Live Support Chat Widget -->
   <script type="module" src="https://unpkg.com/js-chat-telegram-widget/dist/index.mjs"></script>
