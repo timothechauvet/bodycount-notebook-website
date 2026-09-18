@@ -22,7 +22,7 @@
   const EXPERIMENT_ANGLES = {
     utility: {
       eyebrow: 'ZERO CLOUD • BEDSIDE HOOKUP LOG',
-      headline: 'REMEMBER THE <span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span> <span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>',
+      headline: '<span class="hero-title-line line-1">REMEMBER THE</span> <span class="hero-title-line line-2"><span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span></span> <span class="hero-title-line line-3"><span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></span>',
       subhead: 'A physical journal for logging 60 encounters without keeping intimate notes in your phone.',
       bullets: [
         '60 encounters / 120 pages',
@@ -473,6 +473,49 @@
         });
       });
     });
+
+    // Mobile 3D Page Flip Interaction
+    const doubleSpread = document.getElementById('notebookDoubleSpread');
+    const flipBtn = document.getElementById('spreadFlipBtn');
+    const flipBtnText = document.getElementById('spreadFlipBtnText');
+    const pageBadge = document.getElementById('spreadPageBadge');
+
+    if (doubleSpread && flipBtn) {
+      function togglePageFlip() {
+        const isFlipped = doubleSpread.classList.toggle('flipped');
+        flipBtn.classList.toggle('is-flipped', isFlipped);
+
+        if (isFlipped) {
+          if (flipBtnText) flipBtnText.innerHTML = '&larr; Flip Page (Blueprint)';
+          if (pageBadge) pageBadge.textContent = 'Page 2 / 2';
+        } else {
+          if (flipBtnText) flipBtnText.innerHTML = 'Flip Page (Reflections) &rarr;';
+          if (pageBadge) pageBadge.textContent = 'Page 1 / 2';
+        }
+
+        if (navigator.vibrate) {
+          try {
+            navigator.vibrate(20);
+          } catch (_) {}
+        }
+      }
+
+      flipBtn.addEventListener('click', togglePageFlip);
+
+      // On mobile, also allow tapping the spread card directly to flip
+      const spreadPages = doubleSpread.querySelectorAll('.spread-page');
+      spreadPages.forEach((page) => {
+        page.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            // Do not flip if interacting with an inner interactive control
+            if (e.target.closest('.bp-role-item, .bp-never-again-item, .bp-face-chip, a, button')) {
+              return;
+            }
+            togglePageFlip();
+          }
+        });
+      });
+    }
   }
 
   /**

@@ -150,14 +150,9 @@
         <!-- Hero Left Column -->
         <div class="hero-content">
           <h1 class="hero-title" id="heroHeadline">
-            REMEMBER THE <span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUPS</span><span
-                class="hero-kiss-stamp" aria-hidden="true">💋</span></span> <span
-              class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg
-                class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none" aria-hidden="true">
-                <path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
-              </svg></span>
+            <span class="hero-title-line line-1">REMEMBER THE</span>
+            <span class="hero-title-line line-2"><span class="hero-kiss-wrap"><span class="hero-kiss-text">HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span></span>
+            <span class="hero-title-line line-3"><span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></span>
           </h1>
 
           <p class="hero-subtitle" id="heroSubhead">
@@ -254,24 +249,16 @@
         <div class="spread-callouts-bar" aria-label="Key spread highlights">
           <div class="spread-callout-pill">
             <i data-lucide="check-square" aria-hidden="true"></i>
-            <span>Fast Checkboxes</span>
+            <span>Checkboxes</span>
           </div>
           <div class="spread-callout-pill">
             <i data-lucide="list-filter" aria-hidden="true"></i>
-            <span>Detailed Memory Fields</span>
+            <span>Memory Fields</span>
           </div>
           <div class="spread-callout-pill">
             <i data-lucide="flag" aria-hidden="true"></i>
-            <span>Reflection / Red Flags</span>
+            <span>Reflections</span>
           </div>
-        </div>
-
-        <!-- Mobile Tap to Enlarge Trigger -->
-        <div class="spread-mobile-zoom-action">
-          <button id="enlargeSpreadBtn" class="spread-zoom-btn" type="button" aria-label="Tap to view enlarged high-detail spread">
-            <i data-lucide="maximize-2" aria-hidden="true"></i>
-            <span>Tap to Enlarge Spread</span>
-          </button>
         </div>
 
         <!-- Open Book Double Spread Container (Horizontal Side-by-Side) -->
@@ -519,6 +506,15 @@
           </div>
         </div>
 
+        <!-- Mobile Flip Control Bar (Only on narrow screens/mobile) -->
+        <div class="spread-flip-control-bar" aria-label="Page flip controls">
+          <button id="spreadFlipBtn" class="spread-flip-btn" type="button" aria-label="Flip page to see reverse">
+            <i data-lucide="rotate-cw" class="flip-icon" aria-hidden="true"></i>
+            <span id="spreadFlipBtnText">Flip Page (Reflections) &rarr;</span>
+            <span class="spread-page-badge" id="spreadPageBadge">Page 1 / 2</span>
+          </button>
+        </div>
+
         <!-- Sneaky Devil Comment Below the Spread -->
         <div class="spread-humor-comment">
           <div class="spread-devil-badge">
@@ -558,6 +554,9 @@
 
         <!-- Problem Diagnostic Callout -->
         <div class="problem-contrast-box">
+          <div class="issue-urgency-badge" aria-label="Urgent Warning" title="Urgent Warning">
+            <i data-lucide="alert-triangle" aria-hidden="true"></i>
+          </div>
           <div class="issue-box-content">
             <h3 class="issue-lead">
               Your Notes app is one accidental screen-share away from disaster.
