@@ -694,7 +694,11 @@
     if (!fireWrap || !fireText) return;
 
     function eruptFlames(e) {
-      // White-hot momentary flare
+      // Allow clean text selection without triggering animation when highlighting text
+      const selection = window.getSelection ? window.getSelection().toString() : '';
+      if (selection.trim().length > 0) return;
+
+      // Momentary warm flare
       fireText.classList.remove('flared');
       void fireText.offsetWidth;
       fireText.classList.add('flared');
