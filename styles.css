@@ -280,37 +280,97 @@ i[data-lucide], .lucide {
 .cta-micro-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 380px;
-  gap: 8px;
-  font-size: 0.78rem;
+  max-width: 520px;
+  gap: 14px 26px;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: #a8a89d;
-  margin-top: 12px;
+  color: #b2b2a6;
+  margin-top: 16px;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 899px) {
   .cta-micro-row {
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 14px;
+    gap: 10px 22px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .cta-micro-row span {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   white-space: nowrap;
   line-height: 1;
 }
 
-.cta-micro-row span i {
-  width: 14px;
-  height: 14px;
+.cta-micro-row span i,
+.cta-micro-row span svg {
+  width: 15px;
+  height: 15px;
   stroke: var(--color-primary);
   flex-shrink: 0;
+}
+
+/* Hero Proof Points & Price Row */
+.hero-proof-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 18px 0 16px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #deded4;
+}
+
+@media (max-width: 899px) {
+  .hero-proof-bullets {
+    align-items: center;
+  }
+}
+
+.hero-proof-bullets span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-proof-bullets span i,
+.hero-proof-bullets span svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.hero-price-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 899px) {
+  .hero-price-row {
+    justify-content: center;
+  }
+}
+
+.hero-price-row .price-strike {
+  font-size: 1.05rem;
+  color: #7a7a72;
+  text-decoration: line-through;
+}
+
+.hero-price-row .price-live {
+  font-family: var(--font-title);
+  font-size: 2.1rem;
+  color: var(--color-primary);
+  line-height: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -939,13 +999,14 @@ i[data-lucide], .lucide {
   background: repeating-linear-gradient(to bottom, #2b2b2b 0, #2b2b2b 4px, transparent 4px, transparent 8px);
 }
 
-/* Authentic Physical Page */
+/* Authentic Physical Page (Warm Brownish Kraft/Cream Paper) */
 .spread-page {
-  background: #ffffff;
+  background: #ede4d4;
+  background: linear-gradient(145deg, #f0e8da 0%, #ede3d1 50%, #e7dcce 100%);
   color: #000000;
   border-radius: 6px;
   padding: 32px 26px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(0, 0, 0, 0.35);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -956,13 +1017,13 @@ i[data-lucide], .lucide {
 }
 
 .page-recto {
-  border-right: 3px solid #1a1a1a;
-  box-shadow: inset -10px 0 18px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.55);
+  border-right: 2.5px solid #281f18;
+  box-shadow: inset -12px 0 22px rgba(60, 42, 25, 0.08), 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
 .page-verso {
-  border-left: 3px solid #1a1a1a;
-  box-shadow: inset 10px 0 18px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.55);
+  border-left: 2.5px solid #281f18;
+  box-shadow: inset 12px 0 22px rgba(60, 42, 25, 0.08), 0 16px 40px rgba(0, 0, 0, 0.65);
   justify-content: space-between;
   padding-bottom: 48px;
 }
@@ -1033,14 +1094,36 @@ i[data-lucide], .lucide {
 .bp-vibe-faces-group {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   flex-shrink: 0;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
-.bp-face-svg {
+.bp-face-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #000000;
+  background: rgba(0, 0, 0, 0.03);
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.bp-face-chip:hover {
+  transform: scale(1.12);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.bp-face-chip i,
+.bp-face-chip svg {
+  width: 17px;
+  height: 17px;
+  stroke: #000000;
+  stroke-width: 2;
   display: block;
 }
 
