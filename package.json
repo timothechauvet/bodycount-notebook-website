@@ -1,0 +1,17 @@
+{
+  "name": "bodycount-notebook-website",
+  "version": "1.0.0",
+  "description": "> A mobile-first static landing page for **My Body Count Tracker** (`ASIN: B0GWC43WN4`) on Amazon. Designed for high-conversion paid traffic (Meta Ads, TikTok, Google Ads) with sub-500ms initial paint performance, native Meta Pixel integration, interactive 3D hardcover mockup, and automated GitHub Actions deployment.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "npx serve ."
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/timothechauvet/bodycount-notebook-website/issues"
+  },
+  "homepage": "https://github.com/timothechauvet/bodycount-notebook-website#readme",
+  "dependencies": {
+    "js-chat-telegram-widget": "^1.0.1"
+  }
+}

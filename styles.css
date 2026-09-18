@@ -2005,3 +2005,18 @@ i[data-lucide], .lucide {
 .footer-links a:hover {
   color: var(--color-primary);
 }
+
+/* --------------------------------------------------------------------------
+   16. Customer Support Chat Widget
+   -------------------------------------------------------------------------- */
+telegram-chat-widget {
+  --tg-font: var(--font-body);
+}
+
+@media (max-width: 640px) {
+  /* Elevate launcher above the mobile sticky purchase bar */
+  telegram-chat-widget {
+    bottom: 74px !important;
+  }
+}
+
