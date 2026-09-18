@@ -255,20 +255,20 @@
           kissStamp.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${targetScale * 0.88}) rotate(-6deg)`;
         }, 130);
 
-        // 3. Smooth, fast swoop back to original resting place (at 300ms)
+        // 3. Smooth, fast swoop directly back to original resting place (scale down to 1)
         setTimeout(() => {
-          kissStamp.style.transition = 'transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)';
+          kissStamp.style.transition = 'transform 0.26s cubic-bezier(0.25, 1, 0.5, 1)';
           kissStamp.style.transform = 'scale(1) rotate(-10deg)';
 
-          // 4. Resume gentle ambient float after swoop completes seamlessly
+          // 4. Resume gentle ambient float without any expansion
           setTimeout(() => {
             kissStamp.style.transition = '';
             kissStamp.style.animation = '';
             kissStamp.style.transform = '';
             kissStamp.classList.add('floating');
             isAnimating = false;
-          }, 290);
-        }, 300);
+          }, 270);
+        }, 280);
       });
     }
 
