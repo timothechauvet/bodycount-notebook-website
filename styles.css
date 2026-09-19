@@ -1649,19 +1649,19 @@ i[data-lucide], .lucide {
 }
 
 .blueprint-kicker {
-  display: inline-block;
+  display: block;
   font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 3.8vw, 1.85rem);
-  font-weight: 900;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 8px;
+  color: #ffffff;
+  margin: 0 0 10px;
 }
 
 .blueprint-title {
   font-family: var(--font-title);
-  font-size: clamp(1.15rem, 3.2vw, 1.55rem);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
   color: #ffffff;
   margin: 0;
   letter-spacing: 0.02em;

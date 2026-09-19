@@ -23,7 +23,7 @@
     utility: {
       eyebrow: '60 ENCOUNTERS • ZERO CLOUD SYNC',
       headline: '<span class="hero-title-line line-1"><span class="hero-kiss-wrap"><span class="hero-kiss-text">REMEMBER THE HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span></span> <span class="hero-title-line line-2"><span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></span>',
-      subhead: 'Names blur. Details disappear. And six months later, “Alex 🔥” tells you absolutely nothing. My Body Count Tracker gives every hookup a place to remember what happened, how it felt, and whether you\'d do it again.',
+      subhead: 'Names blur. Details disappear.<br>And six months later, “Alex 🔥” tells you absolutely nothing.<br><br>My Body Count Tracker gives every hookup a place to remember what happened, how it felt, and whether you\'d do it again.',
       bullets: [
         '60 encounters. No app. No cloud. Just the receipts.'
       ]
@@ -266,7 +266,7 @@
     // Apply Subtitle
     const subheadEl = document.getElementById('heroSubhead');
     if (subheadEl && angleData.subhead) {
-      subheadEl.textContent = angleData.subhead;
+      subheadEl.innerHTML = angleData.subhead;
     }
 
     // Apply Bullets
