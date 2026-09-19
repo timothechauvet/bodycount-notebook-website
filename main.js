@@ -953,11 +953,25 @@
   }
 
   /**
+   * Temporary Dismissal of Announcement Bar
+   */
+  function initAnnouncementBarDismissal() {
+    const closeBtn = document.getElementById('announcementCloseBtn');
+    const bar = document.getElementById('announcementBar');
+    if (closeBtn && bar) {
+      closeBtn.addEventListener('click', () => {
+        bar.classList.add('is-dismissed');
+      });
+    }
+  }
+
+  /**
    * Main Bootstrapper
    */
   function init() {
     initExperimentation();
     initLucideIcons();
+    initAnnouncementBarDismissal();
     initOutboundTracking();
     initScrollDepthTracking();
     initFaqTracking();

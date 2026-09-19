@@ -119,9 +119,14 @@
 <body>
   <!-- Sticky Top Stack (Announcement Bar & Site Navigation) -->
   <div class="sticky-top-stack">
-    <aside class="announcement-bar" role="region" aria-label="Product Information Banner">
-      <i data-lucide="book-open" aria-hidden="true"></i>
-      <span><strong>My Body Count Tracker</strong> &bull; The Hookup Field Guide for Men Who Date Men &bull; Ships Discreetly on Amazon</span>
+    <aside class="announcement-bar" id="announcementBar" role="region" aria-label="Product Information Banner">
+      <div class="announcement-content">
+        <i data-lucide="book-open" aria-hidden="true"></i>
+        <span><strong>My Body Count Tracker</strong> &bull; The Hookup Field Guide for Men Who Date Men &bull; Ships Discreetly on Amazon</span>
+      </div>
+      <button class="announcement-close-btn" id="announcementCloseBtn" type="button" aria-label="Dismiss banner">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
     </aside>
 
     <!-- Site Navigation -->
@@ -302,7 +307,7 @@
         </div>
 
         <div id="interiorBlueprint" class="spread-blueprint-header">
-          <h2 class="blueprint-kicker">WHAT'S INSIDE</h2>
+          <h2 class="blueprint-kicker">CHECK IT OUT</h2>
           <p class="blueprint-title">THE IMPORTANT DETAILS.<br><span style="color: var(--color-primary);">AND THE QUESTIONABLE ONES.</span></p>
         </div>
 
@@ -869,7 +874,7 @@
       <div class="container">
         <h2 class="footer-cta-title">60 HOOKUPS. ZERO CLOUD SYNC.</h2>
         <p style="color:#d8d8ce; font-size:1.05rem; margin-bottom:20px;">
-          The good ones, the weird ones, and the ones Future You deserves a warning about.
+          The good ones, the weird ones, and the ones <em>Future You</em> deserves a warning about.
         </p>
 
         <div>
