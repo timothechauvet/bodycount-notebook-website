@@ -1650,9 +1650,8 @@ i[data-lucide], .lucide {
 
 .blueprint-kicker {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-title);
   font-size: clamp(1.4rem, 4vw, 2rem);
-  font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
