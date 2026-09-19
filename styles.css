@@ -691,7 +691,7 @@ i[data-lucide], .lucide {
   text-align: center;
   font-family: var(--font-title);
   font-size: clamp(1rem, 2.3vw, 1.35rem);
-  color: var(--color-primary);
+  color: #ffffff;
   letter-spacing: 0.5px;
   margin-top: -8px;
   margin-bottom: 12px;
@@ -1651,12 +1651,12 @@ i[data-lucide], .lucide {
 .blueprint-kicker {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: clamp(1.3rem, 3.8vw, 1.85rem);
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .blueprint-title {
@@ -1665,6 +1665,12 @@ i[data-lucide], .lucide {
   color: #ffffff;
   margin: 0;
   letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.job-icon-wrap .job-emoji {
+  font-size: 1.45rem;
+  line-height: 1;
 }
 
 #interiorBlueprint {
