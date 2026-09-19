@@ -1689,23 +1689,13 @@ i[data-lucide], .lucide {
 
 .spread-blueprint-header {
   text-align: center;
-  margin: 20px auto 16px;
-  max-width: 600px;
-}
-
-.blueprint-kicker {
-  display: block;
-  font-family: var(--font-title);
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0 0 10px;
+  margin: 32px auto 20px;
+  max-width: 650px;
 }
 
 .blueprint-title {
   font-family: var(--font-title);
-  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  font-size: clamp(1.3rem, 3.8vw, 1.85rem);
   color: #ffffff;
   margin: 0;
   letter-spacing: 0.02em;
