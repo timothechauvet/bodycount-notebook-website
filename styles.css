@@ -497,9 +497,9 @@ i[data-lucide], .lucide {
     font-size: 1.18em;
   }
   .hero-kiss-stamp {
-    font-size: 2rem;
+    font-size: 1.85rem;
     top: -16px;
-    left: -2px;
+    left: 16px;
     right: auto;
   }
 }
@@ -1211,15 +1211,14 @@ i[data-lucide], .lucide {
   background: rgba(26, 20, 20, 0.88);
   border: 1px solid rgba(217, 86, 63, 0.35);
   border-radius: var(--radius-md);
-  padding: 22px 26px;
-  margin: 0 auto 32px;
-  max-width: 820px;
+  padding: 16px 22px;
+  margin: 0 auto 30px;
+  max-width: 580px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
   position: relative;
   text-align: left;
 }
