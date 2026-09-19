@@ -335,7 +335,8 @@ i[data-lucide], .lucide {
 
 @media (max-width: 899px) {
   .hero-proof-bullets {
-    align-items: center;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
@@ -496,9 +497,9 @@ i[data-lucide], .lucide {
     font-size: 1.18em;
   }
   .hero-kiss-stamp {
-    font-size: 2.6rem;
-    top: -26px;
-    left: -18px;
+    font-size: 2rem;
+    top: -16px;
+    left: -2px;
     right: auto;
   }
 }
@@ -2583,7 +2584,7 @@ i[data-lucide], .lucide {
 
 @media (max-width: 768px) {
   .spread-showcase-section {
-    overflow-x: clip;
+    overflow: hidden;
   }
 
   .spread-flip-control-bar {
@@ -2598,19 +2599,20 @@ i[data-lucide], .lucide {
   }
 
   .spread-flip-btn {
-    max-width: calc(100vw - 32px);
+    max-width: min(340px, calc(100vw - 32px));
+    width: 100%;
     box-sizing: border-box;
   }
 
   .notebook-spread-scroll-wrap {
     padding: 8px 0 16px;
-    overflow-x: clip !important;
-    overflow-y: visible !important;
+    overflow: hidden !important;
     width: 100%;
-    max-width: 100%;
+    max-width: 100vw;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
   }
 
@@ -2618,13 +2620,15 @@ i[data-lucide], .lucide {
     display: block !important;
     position: relative;
     width: 100%;
-    max-width: min(340px, calc(100vw - 32px));
-    margin: 0 auto;
-    aspect-ratio: 432 / 648;
+    max-width: min(340px, calc(100vw - 32px)) !important;
+    margin: 0 auto !important;
+    height: 560px !important;
+    aspect-ratio: auto !important;
     perspective: 1200px;
     grid-template-columns: none !important;
     min-width: 0 !important;
     box-sizing: border-box;
+    overflow: visible;
   }
 
   .spread-spine-gutter {
@@ -2644,11 +2648,13 @@ i[data-lucide], .lucide {
     transform-style: preserve-3d;
     transition: transform 0.65s cubic-bezier(0.34, 1.25, 0.64, 1), box-shadow 0.65s ease;
     cursor: pointer;
-    padding: 22px 18px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .page-recto {
+    padding: 16px 14px 78px 14px !important;
+    justify-content: space-between;
     transform: rotateY(0deg);
     z-index: 3;
     pointer-events: auto;
@@ -2656,6 +2662,8 @@ i[data-lucide], .lucide {
   }
 
   .page-verso {
+    padding: 18px 16px 72px 16px !important;
+    justify-content: space-between;
     transform: rotateY(180deg);
     z-index: 2;
     pointer-events: none;
@@ -2674,24 +2682,73 @@ i[data-lucide], .lucide {
     pointer-events: auto;
   }
 
-  .bp-label {
-    font-size: 0.8rem;
+  .bp-perforated-corner-right {
+    width: 125px;
+    height: 65px;
   }
-  .bp-role-name {
-    font-size: 0.68rem;
+
+  .bp-corner-callout {
+    bottom: 10px;
+    right: 22px;
+    transform: rotate(-10deg);
+    gap: 4px;
   }
-  .bp-roles-matrix {
-    gap: 4px 4px;
+
+  .bp-handwritten-note {
+    font-size: 0.78rem;
   }
-  .bp-face-svg {
-    width: 20px;
-    height: 20px;
+
+  .bp-arrow-svg {
+    width: 16px;
+    height: 12px;
   }
-  .page-recto .bp-ruled-line {
+
+  .bp-dashed-diagonal-line {
+    bottom: 20px;
+    right: -25px;
+    width: 95px;
+  }
+
+  .bp-cut-scissors {
+    bottom: 13px;
+    right: 13px;
+    width: 13px;
     height: 13px;
   }
+
+  .bp-perforated-corner-left {
+    width: 65px;
+    height: 65px;
+  }
+
+  .bp-perforated-corner-left .bp-dashed-diagonal-line {
+    bottom: 20px;
+    left: -25px;
+    width: 90px;
+  }
+
+  .page-verso .bp-prompt-block {
+    margin-bottom: 12px;
+  }
+
+  .bp-label {
+    font-size: 0.78rem;
+  }
+  .bp-role-name {
+    font-size: 0.66rem;
+  }
+  .bp-roles-matrix {
+    gap: 3px 4px;
+  }
+  .bp-face-svg {
+    width: 19px;
+    height: 19px;
+  }
+  .page-recto .bp-ruled-line {
+    height: 12px;
+  }
   .page-verso .bp-ruled-line {
-    height: 18px;
+    height: 16px;
   }
 }
 
@@ -3128,6 +3185,11 @@ i[data-lucide], .lucide {
   box-shadow: 0 2px 6px rgba(255, 92, 138, 0.35);
 }
 
+.text-white {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
 /* --------------------------------------------------------------------------
    14. Mobile Sticky Bottom Bar
    -------------------------------------------------------------------------- */
@@ -3139,10 +3201,11 @@ i[data-lucide], .lucide {
   background: rgba(23, 23, 23, 0.98);
   border-top: 1.5px solid var(--color-primary);
   padding: 10px 16px;
+  padding-right: 76px;
   z-index: 99;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
   box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.6);
   transform: translateY(110%);
@@ -3154,16 +3217,11 @@ i[data-lucide], .lucide {
 }
 
 .sticky-title {
-  font-family: var(--font-title);
-  font-size: 0.88rem;
-  color: #fff;
-  line-height: 1.1;
+  display: none;
 }
 
 .sticky-price {
-  font-size: 0.75rem;
-  color: var(--color-primary);
-  font-weight: 700;
+  display: none;
 }
 
 .sticky-btn {
@@ -3239,11 +3297,11 @@ telegram-chat-widget {
   --tg-font: var(--font-body);
 }
 
-@media (max-width: 640px) {
-  /* Elevate launcher above the mobile sticky purchase bar */
+@media (max-width: 768px) {
+  /* Dock launcher in the right space reserved by the sticky purchase bar */
   telegram-chat-widget {
-    bottom: 86px !important;
-    right: 16px !important;
+    bottom: 10px !important;
+    right: 14px !important;
     z-index: 120 !important;
   }
 }
@@ -3551,8 +3609,8 @@ telegram-chat-widget {
 /* Telegram live support chat widget responsive docking */
 @media (max-width: 768px) {
   telegram-chat-widget {
-    bottom: 86px !important;
-    right: 16px !important;
+    bottom: 10px !important;
+    right: 14px !important;
     z-index: 120 !important;
   }
 }

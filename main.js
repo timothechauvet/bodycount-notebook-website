@@ -765,13 +765,10 @@
   /**
    * 10d. Section 2 Animations:
    * - "WHICH ALEX?": Coming-going left-to-right coloring sweep triggered when at screen center
-   * - "BEAUTIFULLY ORGANIZED": Hand-drawn SVG underline triggered on scroll approach
    */
   function initSection2Animations() {
     const alexWrap = document.querySelector('.which-alex-wrap');
     const alexText = document.querySelector('.which-alex-text');
-    const organizedWrap = document.querySelector('.organized-underline-wrap');
-    const organizedSvg = document.querySelector('.organized-handdrawn-svg');
 
     function checkScroll() {
       const windowHeight = window.innerHeight;
@@ -789,16 +786,6 @@
           alexText.classList.remove('sweeping');
         }
       }
-
-      // Check Organized Underline Draw
-      if (organizedWrap && organizedSvg) {
-        const orgRect = organizedWrap.getBoundingClientRect();
-        if (orgRect.top <= windowHeight * 0.90) {
-          organizedSvg.classList.add('drawn');
-        } else if (orgRect.top > windowHeight * 0.95) {
-          organizedSvg.classList.remove('drawn');
-        }
-      }
     }
 
     window.addEventListener('scroll', checkScroll, { passive: true });
@@ -810,14 +797,6 @@
         alexText.classList.remove('sweeping');
         void alexText.offsetWidth;
         alexText.classList.add('sweeping');
-      });
-    }
-
-    if (organizedWrap && organizedSvg) {
-      organizedWrap.addEventListener('click', () => {
-        organizedSvg.classList.remove('drawn');
-        void organizedSvg.offsetWidth;
-        organizedSvg.classList.add('drawn');
       });
     }
   }
