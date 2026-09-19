@@ -1664,6 +1664,30 @@ i[data-lucide], .lucide {
   letter-spacing: 0.02em;
 }
 
+#interiorBlueprint {
+  scroll-margin-top: 86px;
+}
+
+.tag-hot {
+  color: #ffa502;
+  font-weight: 700;
+}
+
+.tag-weird {
+  color: #9cb8d3;
+  font-weight: 700;
+}
+
+.tag-red-flags {
+  color: #ff4757;
+  font-weight: 700;
+}
+
+.tag-green-flags {
+  color: #2ed573;
+  font-weight: 700;
+}
+
 /* --------------------------------------------------------------------------
    Section 2 Interactive Highlights: Which Alex Sweep & Drawn Underline
    -------------------------------------------------------------------------- */
@@ -2558,18 +2582,35 @@ i[data-lucide], .lucide {
 }
 
 @media (max-width: 768px) {
+  .spread-showcase-section {
+    overflow-x: clip;
+  }
+
   .spread-flip-control-bar {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
     margin: 16px auto 0;
     position: relative;
     z-index: 10;
+    box-sizing: border-box;
+  }
+
+  .spread-flip-btn {
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
   }
 
   .notebook-spread-scroll-wrap {
-    padding: 8px 12px 14px;
-    overflow: visible !important;
+    padding: 8px 0 16px;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
     width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     box-sizing: border-box;
   }
 
@@ -2577,12 +2618,13 @@ i[data-lucide], .lucide {
     display: block !important;
     position: relative;
     width: 100%;
-    max-width: 350px;
+    max-width: min(340px, calc(100vw - 32px));
     margin: 0 auto;
     aspect-ratio: 432 / 648;
-    perspective: 1600px;
+    perspective: 1200px;
     grid-template-columns: none !important;
     min-width: 0 !important;
+    box-sizing: border-box;
   }
 
   .spread-spine-gutter {
