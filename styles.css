@@ -496,12 +496,6 @@ i[data-lucide], .lucide {
   .hero-kiss-wrap {
     font-size: 1.18em;
   }
-  .hero-kiss-stamp {
-    font-size: 1.85rem;
-    top: -16px;
-    left: 16px;
-    right: auto;
-  }
 }
 
 @keyframes heroTitleEntrance {
@@ -586,6 +580,15 @@ i[data-lucide], .lucide {
   opacity: 1;
   transform: scale(1) rotate(-12deg);
   animation: kissFloat 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .hero-kiss-stamp {
+    font-size: 1.85rem !important;
+    top: -18px !important;
+    left: 4px !important;
+    right: auto !important;
+  }
 }
 
 /* Appllama-style Floating Kiss Heart */
@@ -2619,9 +2622,9 @@ i[data-lucide], .lucide {
     display: block !important;
     position: relative;
     width: 100%;
-    max-width: min(340px, calc(100vw - 32px)) !important;
+    max-width: min(356px, calc(100vw - 20px)) !important;
     margin: 0 auto !important;
-    height: 560px !important;
+    height: 570px !important;
     aspect-ratio: auto !important;
     perspective: 1200px;
     grid-template-columns: none !important;
@@ -2652,21 +2655,160 @@ i[data-lucide], .lucide {
   }
 
   .page-recto {
-    padding: 16px 14px 78px 14px !important;
+    padding: 16px 12px 80px 12px !important;
     justify-content: space-between;
     transform: rotateY(0deg);
     z-index: 3;
     pointer-events: auto;
     border-right: none;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevent any internal element from pushing out of the right edge */
+  .page-recto > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .bp-demographics-row {
+    gap: 5px !important;
+    align-items: flex-end !important;
+  }
+
+  .bp-field-gender,
+  .bp-field-age {
+    min-width: 0 !important;
+  }
+
+  .bp-field-gender .bp-label,
+  .bp-field-age .bp-label {
+    font-size: 0.70rem !important;
+  }
+
+  .bp-field-gender .bp-underline,
+  .bp-field-age .bp-underline {
+    min-width: 10px !important;
+  }
+
+  .bp-vibe-faces-group {
+    gap: 3px !important;
+    margin-left: 2px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .bp-face-chip {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .bp-face-chip i,
+  .bp-face-chip svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .bp-split-grid {
+    grid-template-columns: 0.8fr 1.4fr !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+  }
+
+  .bp-split-left {
+    min-width: 0 !important;
+    gap: 7px !important;
+  }
+
+  .bp-split-left .bp-label {
+    font-size: 0.72rem !important;
+  }
+
+  .bp-split-left .bp-inline-field {
+    gap: 3px !important;
+  }
+
+  .bp-date-slashes-bar {
+    left: 36px !important;
+    right: 4px !important;
+  }
+
+  .bp-split-right {
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .bp-roles-matrix {
+    display: grid !important;
+    grid-template-columns: auto auto auto !important;
+    gap: 3px 3px !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .bp-role-item {
+    gap: 2px !important;
+    min-width: 0 !important;
+  }
+
+  .bp-role-name {
+    font-size: 0.58rem !important;
+    letter-spacing: -0.03em !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  .bp-checkbox-box {
+    width: 13px !important;
+    height: 13px !important;
+    border-width: 1.4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .bp-checkbox-box.checked::after {
+    font-size: 9px !important;
+  }
+
+  .bp-field-occupation {
+    gap: 4px !important;
+    margin-top: 3px !important;
+  }
+
+  .bp-field-occupation .bp-label {
+    font-size: 0.70rem !important;
+  }
+
+  .bp-meet-row {
+    gap: 6px !important;
+  }
+
+  .bp-field-meet-counter .bp-label {
+    font-size: 0.72rem !important;
+  }
+
+  .bp-never-again-item .bp-role-name {
+    font-size: 0.70rem !important;
+  }
+
+  .bp-field-location .bp-label {
+    font-size: 0.72rem !important;
+  }
+
+  .bp-two-col-grid {
+    gap: 8px !important;
+  }
+
+  .bp-two-col-grid .bp-label {
+    font-size: 0.70rem !important;
   }
 
   .page-verso {
-    padding: 18px 16px 72px 16px !important;
+    padding: 18px 14px 72px 14px !important;
     justify-content: space-between;
     transform: rotateY(180deg);
     z-index: 2;
     pointer-events: none;
     border-left: none;
+    box-sizing: border-box !important;
   }
 
   .notebook-double-spread.flipped .page-recto {
@@ -2731,17 +2873,11 @@ i[data-lucide], .lucide {
   }
 
   .bp-label {
-    font-size: 0.78rem;
-  }
-  .bp-role-name {
-    font-size: 0.66rem;
-  }
-  .bp-roles-matrix {
-    gap: 3px 4px;
+    font-size: 0.76rem;
   }
   .bp-face-svg {
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
   }
   .page-recto .bp-ruled-line {
     height: 12px;
