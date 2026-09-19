@@ -586,7 +586,7 @@
 
         setTimeout(() => {
           kissStamp.style.transition = 'transform 0.26s cubic-bezier(0.25, 1, 0.5, 1)';
-          kissStamp.style.transform = 'scale(1) rotate(-10deg)';
+          kissStamp.style.transform = 'scale(1) rotate(-12deg)';
 
           setTimeout(() => {
             kissStamp.style.transition = '';
@@ -763,6 +763,66 @@
   }
 
   /**
+   * 10d. Section 2 Animations:
+   * - "WHICH ALEX?": Coming-going left-to-right coloring sweep triggered when at screen center
+   * - "BEAUTIFULLY ORGANIZED": Hand-drawn SVG underline triggered on scroll approach
+   */
+  function initSection2Animations() {
+    const alexWrap = document.querySelector('.which-alex-wrap');
+    const alexText = document.querySelector('.which-alex-text');
+    const organizedWrap = document.querySelector('.organized-underline-wrap');
+    const organizedSvg = document.querySelector('.organized-handdrawn-svg');
+
+    function checkScroll() {
+      const windowHeight = window.innerHeight;
+      const screenMid = windowHeight / 2;
+
+      // Check Which Alex Center Sweep
+      if (alexWrap && alexText) {
+        const rect = alexWrap.getBoundingClientRect();
+        const midY = rect.top + rect.height / 2;
+        // Text is at center of screen (within +/- 22% of screen center)
+        const isAtCenter = Math.abs(midY - screenMid) < windowHeight * 0.22;
+        if (isAtCenter) {
+          alexText.classList.add('sweeping');
+        } else {
+          alexText.classList.remove('sweeping');
+        }
+      }
+
+      // Check Organized Underline Draw
+      if (organizedWrap && organizedSvg) {
+        const orgRect = organizedWrap.getBoundingClientRect();
+        if (orgRect.top <= windowHeight * 0.90) {
+          organizedSvg.classList.add('drawn');
+        } else if (orgRect.top > windowHeight * 0.95) {
+          organizedSvg.classList.remove('drawn');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll, { passive: true });
+    checkScroll();
+
+    if (alexWrap && alexText) {
+      alexWrap.addEventListener('click', () => {
+        alexText.classList.remove('sweeping');
+        void alexText.offsetWidth;
+        alexText.classList.add('sweeping');
+      });
+    }
+
+    if (organizedWrap && organizedSvg) {
+      organizedWrap.addEventListener('click', () => {
+        organizedSvg.classList.remove('drawn');
+        void organizedSvg.offsetWidth;
+        organizedSvg.classList.add('drawn');
+      });
+    }
+  }
+
+  /**
    * 11. Deferred Telegram Live Support Chat Widget (Priority 7, Rule 42)
    */
   function scheduleDeferredChatWidget() {
@@ -929,6 +989,7 @@
     initSpreadZoomModal();
     initSpreadCalloutPills();
     initHeroAnimations();
+    initSection2Animations();
     initProblemSectionAnimation();
     initBurningHeadingAnimation();
     initSpreadInteractions();
