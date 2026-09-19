@@ -27,7 +27,7 @@
       bullets: [
         'Track 60 encounters, remember who was worth texting again',
         'Zero cloud sync &mdash; keep the receipts offline',
-        'Extremely judgmental checkboxes for Top / Vers / Bottom / Side'
+        'Extremely judgmental checkboxes'
       ]
     },
     privacy: {
@@ -77,7 +77,7 @@
       try {
         const stored = sessionStorage.getItem(`mbct_${key}`) || localStorage.getItem(`mbct_${key}`);
         if (stored) attribution[key] = stored;
-      } catch (e) {}
+      } catch (e) { }
     });
 
     // 2. Overwrite with fresh incoming URL params if present
@@ -88,7 +88,7 @@
         try {
           sessionStorage.setItem(`mbct_${key}`, val);
           localStorage.setItem(`mbct_${key}`, val);
-        } catch (e) {}
+        } catch (e) { }
       }
     });
 
@@ -127,7 +127,7 @@
     let isConsentDeclined = false;
     try {
       isConsentDeclined = localStorage.getItem('mbct_cookie_consent_v1') === 'declined';
-    } catch (e) {}
+    } catch (e) { }
 
     if (typeof window.fbq === 'function' && !window['fbq-disabled'] && !isConsentDeclined) {
       try {
@@ -149,7 +149,7 @@
     // Custom DOM Event for tests/monitoring
     try {
       window.dispatchEvent(new CustomEvent(`mbct:${eventName}`, { detail: payload }));
-    } catch (e) {}
+    } catch (e) { }
   }
 
   /**
@@ -183,7 +183,7 @@
         let isConsentDeclined = false;
         try {
           isConsentDeclined = localStorage.getItem('mbct_cookie_consent_v1') === 'declined';
-        } catch (e) {}
+        } catch (e) { }
 
         if (typeof window.fbq === 'function' && !window['fbq-disabled'] && !isConsentDeclined) {
           try {
@@ -191,7 +191,7 @@
               content_name: 'My Body Count Tracker',
               placement: placement
             });
-          } catch (e) {}
+          } catch (e) { }
         }
       });
     });
@@ -496,7 +496,7 @@
         if (navigator.vibrate) {
           try {
             navigator.vibrate(20);
-          } catch (_) {}
+          } catch (_) { }
         }
       }
 
@@ -708,7 +708,7 @@
       if (navigator.vibrate) {
         try {
           navigator.vibrate([25, 40, 25]);
-        } catch (_) {}
+        } catch (_) { }
       }
 
       const rect = fireWrap.getBoundingClientRect();
@@ -870,7 +870,7 @@
     let consent = null;
     try {
       consent = localStorage.getItem(STORAGE_KEY);
-    } catch (e) {}
+    } catch (e) { }
 
     // If previously declined, disable Meta Pixel immediately
     if (consent === 'declined') {
@@ -896,7 +896,7 @@
       acceptBtn.addEventListener('click', () => {
         try {
           localStorage.setItem(STORAGE_KEY, 'accepted');
-        } catch (e) {}
+        } catch (e) { }
         hideBanner();
         trackEvent('CookieConsentAccepted');
       });
@@ -906,7 +906,7 @@
       declineBtn.addEventListener('click', () => {
         try {
           localStorage.setItem(STORAGE_KEY, 'declined');
-        } catch (e) {}
+        } catch (e) { }
         window['fbq-disabled'] = true;
         hideBanner();
         trackEvent('CookieConsentDeclined');
