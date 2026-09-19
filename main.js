@@ -22,32 +22,26 @@
   const EXPERIMENT_ANGLES = {
     utility: {
       eyebrow: '60 ENCOUNTERS • ZERO CLOUD SYNC',
-      headline: '<span class="hero-title-line line-1"><span class="hero-kiss-wrap"><span class="hero-kiss-text">YOUR HOOKUP HISTORY</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span></span> <span class="hero-title-line line-2">DESERVES BETTER THAN</span> <span class="hero-title-line line-3"><span class="hero-underline-wrap"><span class="hero-underline-text">A NOTES APP</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></span>',
-      subhead: 'The physical hookup journal for gays, bi guys, and anyone fluent in Top / Vers / Bottom.',
+      headline: '<span class="hero-title-line line-1"><span class="hero-kiss-wrap"><span class="hero-kiss-text">REMEMBER THE HOOKUPS</span><span class="hero-kiss-stamp" aria-hidden="true">💋</span></span></span> <span class="hero-title-line line-2"><span class="hero-underline-wrap"><span class="hero-underline-text">WORTH REMEMBERING</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></span>',
+      subhead: 'Names blur. Details disappear. And six months later, “Alex 🔥” tells you absolutely nothing. My Body Count Tracker gives every hookup a place to remember what happened, how it felt, and whether you\'d do it again.',
       bullets: [
-        'Track 60 encounters, remember who was worth texting again',
-        'Zero cloud sync &mdash; keep the receipts offline',
-        'Extremely judgmental checkboxes'
+        '60 encounters. No app. No cloud. Just the receipts.'
       ]
     },
     privacy: {
       eyebrow: '100% OFFLINE BEDSIDE JOURNAL',
       headline: 'KEEP YOUR INTIMATE NOTES <span class="hero-underline-wrap"><span class="hero-underline-text">OFF YOUR PHONE</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>',
-      subhead: 'A discreet physical tracker for your bedside drawer. Zero cloud sync, zero shared screen worries.',
+      subhead: 'Names blur. Details disappear. A physical hookup journal for your bedside drawer with zero cloud sync and zero accidental screen-share risk.',
       bullets: [
-        '60 private paper spreads',
-        'No iCloud, no app, no passwords',
-        'Bedside 6x9 archival cream paper'
+        '60 encounters. No app. No cloud. Just the receipts.'
       ]
     },
     gift: {
-      eyebrow: 'AN UNHINGEDLY GOOD GIFT',
+      eyebrow: 'ALSO A VERY GAY GIFT',
       headline: 'YOUR PRIVATE ARCHIVE OF <span class="hero-underline-wrap"><span class="hero-underline-text">BAD DECISIONS</span><svg class="hero-handdrawn-svg" viewBox="0 0 250 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13C45 4 148 3 246 11C192 16 88 17 28 14" stroke="var(--color-primary)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>',
-      subhead: 'Birthdays. Bachelor parties. Secret Santa. For the friend who says "I am taking a break from dating" every Thursday.',
+      subhead: 'For birthdays, newly single friends, bachelor parties, Secret Santa, or the friend whose dating stories already require a spreadsheet.',
       bullets: [
-        '60 encounters. Enough room for a slut era, not enough room for Berlin.',
-        'Extremely judgmental checkboxes and ratings',
-        'Guaranteed laughter, zero cloud sync'
+        '60 encounters. No app. No cloud. Just the receipts.'
       ]
     }
   };
@@ -277,10 +271,13 @@
 
     // Apply Bullets
     const bulletsEl = document.getElementById('heroBullets');
-    if (bulletsEl && angleData.bullets && angleData.bullets.length === 3) {
+    if (bulletsEl && angleData.bullets && angleData.bullets.length > 0) {
       bulletsEl.innerHTML = angleData.bullets
         .map((b) => `<span><i data-lucide="check-circle-2" aria-hidden="true"></i> ${b}</span>`)
         .join('\n');
+      if (typeof window.lucide !== 'undefined' && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
     }
   }
 
