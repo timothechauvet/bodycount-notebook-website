@@ -16,6 +16,30 @@
 
   const BASE_AMAZON_URL = CONFIG.amazonUrl || 'https://www.amazon.com/dp/B0GWC43WN4';
 
+  let openAIConsent = false;
+  let openAIInitialized = false;
+
+  function setOpenAIConsent(accepted) {
+    openAIConsent = accepted;
+    try {
+      if (accepted && !window.oaiq) {
+        const queue = function () { queue.q.push(arguments); };
+        queue.q = [];
+        window.oaiq = queue;
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
+        document.head.appendChild(script);
+      }
+      if (typeof window.oaiq !== 'function') return;
+      window.oaiq('consent', accepted);
+      if (accepted && !openAIInitialized) {
+        window.oaiq('init', { pixelId: '9cpqGhaJW3TcFLmyLdqNyA', debug: false });
+        openAIInitialized = true;
+      }
+    } catch (e) { }
+  }
+
   /**
    * Experimentation Angles & Variant Copy
    */
@@ -172,6 +196,13 @@
 
         // Fire compliant AmazonOutboundClick event (Never fire Purchase!)
         trackEvent('AmazonOutboundClick', payload);
+
+        // "Click on Amazon button" conversion; no purchase or personal data.
+        if (openAIConsent && typeof window.oaiq === 'function') {
+          try {
+            window.oaiq('measure', 'checkout_started', { type: 'contents' });
+          } catch (e) { }
+        }
 
         // Also track standard InitiateCheckout as intentional lead conversion (if consented)
         let isConsentDeclined = false;
@@ -869,6 +900,8 @@
       consent = localStorage.getItem(STORAGE_KEY);
     } catch (e) { }
 
+    setOpenAIConsent(consent === 'accepted');
+
     // If previously declined, disable Meta Pixel immediately
     if (consent === 'declined') {
       window['fbq-disabled'] = true;
@@ -894,6 +927,7 @@
         try {
           localStorage.setItem(STORAGE_KEY, 'accepted');
         } catch (e) { }
+        setOpenAIConsent(true);
         hideBanner();
         trackEvent('CookieConsentAccepted');
       });
@@ -904,6 +938,7 @@
         try {
           localStorage.setItem(STORAGE_KEY, 'declined');
         } catch (e) { }
+        setOpenAIConsent(false);
         window['fbq-disabled'] = true;
         hideBanner();
         trackEvent('CookieConsentDeclined');

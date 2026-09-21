@@ -81,3 +81,13 @@ npx serve .
      ```
 2. **UTM Parameter Preservation**:
    - Any query parameters on the landing page (`utm_source`, `utm_medium`, `tag`, etc.) are automatically appended to the Amazon outbound link.
+
+## OpenAI Ads conversions
+
+The public pixel ID `9cpqGhaJW3TcFLmyLdqNyA` is initialized asynchronously after cookie acceptance. Each of the eight Amazon links sends `checkout_started` with `{ type: 'contents' }` for the Ads Manager conversion named **Click on Amazon button**. This measures outbound intent, not a completed Amazon purchase. Debug logging is disabled. Declining suppresses events; the SDK consent API also handles withdrawal. No pre-consent clicks are replayed.
+
+This is a browser-pixel integration only: no CAPI endpoint or API key is needed. Never put API keys in this static site, including environment files served with it. Optional CAPI would require a separate server and server-side secret storage.
+
+To verify after deployment, accept cookies, click an Amazon CTA, and inspect the browser Network panel for an event to `bzr.openai.com`, then confirm receipt in Ads Manager. In a fresh browser session before accepting, or after declining, the OpenAI SDK should not load. Local checks validate the event wiring with a stub SDK; live receipt and attribution still require Ads Manager verification.
+
+Reference: [OpenAI Measurement Pixel](https://developers.openai.com/ads/measurement-pixel).
