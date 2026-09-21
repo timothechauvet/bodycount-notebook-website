@@ -1,7 +1,7 @@
-# Native controls — use the platform's, wire them right
+# Native controls, use the platform's, wire them right
 
 A native-feeling app is mostly assembled from controls the OS already ships.
-Rebuild a control only when the design genuinely diverges — and then match the
+Rebuild a control only when the design genuinely diverges, and then match the
 platform's timing and haptics so it still reads as native.
 
 ## Control selection table
@@ -9,10 +9,10 @@ platform's timing and haptics so it still reads as native.
 | Need | iOS | Android | Package |
 |---|---|---|---|
 | Toggle | Switch | Material Switch | `react-native` `Switch` (renders native on both) |
-| Single choice, 2–5 options | Segmented control | Tabs / segmented buttons | `@react-native-segmented-control/segmented-control` |
+| Single choice, 2-5 options | Segmented control | Tabs / segmented buttons | `@react-native-segmented-control/segmented-control` |
 | Value in a range | Slider | Material Slider | `@react-native-community/slider` |
 | Date / time | Wheel or inline calendar | Material pickers | `@react-native-community/datetimepicker` (`display="inline"` for calendars on iOS) |
-| Contextual actions | Context menu (long-press/tap) | Popup menu | `zeego` (native menus on both) — never a JS dropdown for item actions |
+| Contextual actions | Context menu (long-press/tap) | Popup menu | `zeego` (native menus on both), never a JS dropdown for item actions |
 | Destructive confirm | Action sheet | Bottom sheet / dialog | `ActionSheetIOS` via `@expo/react-native-action-sheet` |
 | Bottom sheet content | Detented sheet | Bottom sheet | `@gorhom/bottom-sheet` (see notes) |
 | Search | Nav-bar integrated search | SearchView | Expo Router `headerSearchBarOptions` |
@@ -47,19 +47,19 @@ bare tap-to-delete.
 ## Bottom sheets
 
 - Detents should be content-derived (`enableDynamicSizing`) or the platform
-  set (medium/large) — arbitrary 37%/63% detents feel arbitrary.
+  set (medium/large), arbitrary 37%/63% detents feel arbitrary.
 - The sheet's drag must hand off to inner scroll correctly: use the
   library's provided `BottomSheetScrollView`/`BottomSheetFlashList`, never a
   plain ScrollView inside.
 - Backdrop: fade in with sheet position (`interpolate` on `animatedIndex`),
   tap-to-dismiss, and dim to the platform's standard (~40% black).
-- Keyboard: `keyboardBlurBehavior="restore"`, and test with the keyboard up —
+- Keyboard: `keyboardBlurBehavior="restore"`, and test with the keyboard up, 
   half the bottom-sheet bugs in the wild are keyboard interactions.
 
 ## Forms and inputs
 
 - Labels above fields, not placeholders-as-labels.
-- `keyboardType`, `autoComplete`, `textContentType` on every input — enables
+- `keyboardType`, `autoComplete`, `textContentType` on every input, enables
   autofill and the right keyboard. `textContentType="oneTimeCode"` for OTPs.
 - Return-key chaining: `returnKeyType="next"` + focus the next field;
   final field submits.
@@ -72,9 +72,9 @@ bare tap-to-delete.
 
 - Stack for drill-in, tabs for top-level destinations, modal for
   self-contained tasks. Do not put a back-navigable flow inside a modal deeper
-  than 2 steps — use a stack inside the modal with its own header.
+  than 2 steps, use a stack inside the modal with its own header.
 - iOS: swipe-back must always work (don't block the interactive pop gesture).
-- Tab bars: 3–5 items, SF Symbols with the filled variant for the active tab,
+- Tab bars: 3-5 items, SF Symbols with the filled variant for the active tab,
   labels always on (icon-only tab bars fail recognition tests).
 - Deep links: every screen reachable by URL via Expo Router's file routes.
 

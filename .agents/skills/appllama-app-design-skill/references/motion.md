@@ -1,4 +1,4 @@
-# Motion — Reanimated patterns that read as native
+# Motion, Reanimated patterns that read as native
 
 Motion quality is judged in the first 10 seconds of using an app. This file is
 the working reference for gesture-driven and system-driven animation.
@@ -8,7 +8,7 @@ the working reference for gesture-driven and system-driven animation.
 | Family | Driver | Curve | Examples |
 |---|---|---|---|
 | **Responsive** (user is touching it) | Gesture position/velocity | Spring, seeded with gesture velocity | Sheet drag, swipe-to-dismiss, pull-to-refresh, card pan |
-| **Narrative** (system initiated) | Time | `withTiming`, ease-out, 150–350 ms | Screen entrances, fades, reveals, toasts |
+| **Narrative** (system initiated) | Time | `withTiming`, ease-out, 150-350 ms | Screen entrances, fades, reveals, toasts |
 
 Mixing them up is the #1 tell of non-native motion: a sheet that closes on a
 fixed 300 ms timing after a fling feels dead; a button that springs for 800 ms
@@ -19,7 +19,7 @@ on tap feels like a toy.
 ```ts
 // The designer form (duration is perceptual): critically damped, no oscillation
 const SNAP = { duration: 400, dampingRatio: 1 };
-// Playful: one soft overshoot — use sparingly (celebrations, mascots)
+// Playful: one soft overshoot, use sparingly (celebrations, mascots)
 const POP = { duration: 400, dampingRatio: 0.8 };
 
 offset.set(withSpring(dest, { ...SNAP, velocity: event.velocityY }));
@@ -42,9 +42,9 @@ const pan = Gesture.Pan()
 
 Rules:
 - Never read/write React state inside `onChange`. `scheduleOnRN` only at
-  gesture end, for navigation/effects — and read/write shared values with
+  gesture end, for navigation/effects, and read/write shared values with
   `.get()`/`.set()`, never during render.
-- Thresholds combine **distance OR velocity** — a fast flick from 10 px away
+- Thresholds combine **distance OR velocity**, a fast flick from 10 px away
   must dismiss.
 - Interruptible: starting a new gesture mid-spring must grab the current
   animated value, not the destination.
@@ -60,9 +60,9 @@ Rules:
 ```
 
 - Stagger list entrances by index (`delay(index * 40)`), cap the stagger at
-  ~8 items — beyond that, enter as a block.
+  ~8 items, beyond that, enter as a block.
 - Exits are always faster than entrances (~0.7×).
-- `layout` transitions on containers whose children reorder/resize — this is
+- `layout` transitions on containers whose children reorder/resize, this is
   what makes filter chips, expanding cards, and reordering lists feel expensive.
 
 ## Shared-element feel without shared elements
@@ -108,6 +108,6 @@ requirement, not a nice-to-have.
   20 list items.
 - Never allocate inside a worklet's hot path (no `.map`, no object spread per
   frame).
-- If a transition stutters: profile first (see performance.md) — the usual
+- If a transition stutters: profile first (see performance.md), the usual
   culprits are a JS-thread stall from a heavy render committed mid-animation,
   or an image decode on the UI thread.

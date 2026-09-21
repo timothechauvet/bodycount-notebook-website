@@ -1,21 +1,21 @@
 # Research methods: flows, elements, and how to study like a director
 
-## Flow research — study journeys, not screenshots
+## Flow research, study journeys, not screenshots
 
 Flows are where conversion and retention actually live. Use them when the
 question is "how do winners structure X?" rather than "what does X look
 like?".
 
-1. `list_flows(query="onboarding")` — or browse the taxonomy — to find the
+1. `list_flows(query="onboarding")`, or browse the taxonomy, to find the
    exact flow names and their footprint (screens/apps counts tell you how
    universal a flow is).
-2. `get_flow_apps(flow="Paywall")` — the apps that contain it, top revenue
+2. `get_flow_apps(flow="Paywall")`, the apps that contain it, top revenue
    first, each with its screen count *inside that flow*. A 9-screen paywall
    flow from a $2M/mo app is a masterclass; read it.
-3. `list_app_screens(app_id=…, flow=…)` — the flow itself, in order. Study
-   3–5 apps' versions of the same flow side by side and chart the common
+3. `list_app_screens(app_id=…, flow=…)`, the flow itself, in order. Study
+   3-5 apps' versions of the same flow side by side and chart the common
    spine: step count, what each step asks vs. gives, where friction is
-   deliberately placed, where it's removed — and what each step *is*
+   deliberately placed, where it's removed, and what each step *is*
    (a pushed screen, a modal with its own steps, a sheet, an overlay),
    which the videos show better than stills. Winners are consistent about
    presentation; that grammar is part of the spec.
@@ -25,15 +25,15 @@ personalization, permission timing), Paywall (placement, trial framing,
 price anchoring), Welcome (first 5 seconds), plus the category's signature
 flows (Food Logging, Workout Session, Habit Check-in, …).
 
-## Element research — how winners build one component
+## Element research, how winners build one component
 
 When the question is component-level ("how should our tab bar / progress
 indicator / CTA look?"):
 
-1. `list_ui_elements()` once — the ~38 family catalog with counts and top
+1. `list_ui_elements()` once, the ~38 family catalog with counts and top
    variants (Bottom Tab Bar, Rounded Primary CTA, Top Progress Bar, Skip
    Text Link, …).
-2. `get_element_screens(element=…)` — real screens carrying that family.
+2. `get_element_screens(element=…)`, real screens carrying that family.
    Pin a `variant` to narrow to one specific treatment.
 3. Also usable as a filter: `search_screens(query=…, element=…)` combines
    content and component ("stats screens that use a Floating Bottom Nav").
@@ -44,7 +44,7 @@ active-state treatments, how many items, what gets an icon vs. text.
 ## Study discipline (what separates research from tourism)
 
 - **Question first.** Every pass answers a named question from your current
-  task — "how long is onboarding here", "what does a winning paywall carry".
+  task, "how long is onboarding here", "what does a winning paywall carry".
   Knowing the question is what turns screens into a spec.
 - **See everything, in order.** Walk the full screen list of an app you're
   studying and look at every image; the journey is the unit of design, and
@@ -62,8 +62,8 @@ active-state treatments, how many items, what gets an icon vs. text.
 ## Working with the member's own curation
 
 `list_my_boards()` shows boards the member built on appllama.io;
-`get_board(board_id)` reads any of them — screens boards return full screen
+`get_board(board_id)` reads any of them, screens boards return full screen
 payloads with media, apps boards return app profiles, flows boards return
 (app, flow) pairs ready for `list_app_screens`. An apps board also works as
 a `search_apps(board_id=…)` base. Their taste is a requirement, not a
-suggestion — when a board exists for the task, start from it.
+suggestion, when a board exists for the task, start from it.

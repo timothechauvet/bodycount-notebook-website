@@ -1,4 +1,4 @@
-# Performance — measure, fix, re-measure
+# Performance, measure, fix, re-measure
 
 Perceived quality is half design, half frame rate. This reference is the
 method; never optimize on vibes.
@@ -27,7 +27,7 @@ Measure the target interaction, not tree depth.
   only its consumers.
 - React Compiler: enable once profiling shows cascading re-renders; it
   replaces most manual memoization. Watch for bailouts (mutations, non-plain
-  patterns) — a bailed-out hot component silently loses the win.
+  patterns), a bailed-out hot component silently loses the win.
 - `useDeferredValue` for expensive derived UI (filter results, search
   highlighting) behind fast-changing inputs.
 
@@ -46,7 +46,7 @@ store), commit to state on submit/debounce.
 - Hermes: check bundle compression guidance for your RN version (mmap).
 - Inspect the bundle when it grows: `npx react-native bundle … --dev false`
   then `source-map-explorer`. Barrel imports (`import { x } from '@/components'`)
-  are the classic silent bloat — import from the source file.
+  are the classic silent bloat, import from the source file.
 
 ## Memory
 
@@ -61,7 +61,7 @@ store), commit to state on submit/debounce.
 - Anything janky mid-gesture: confirm the animation runs as a worklet on the
   UI thread; a single `runOnJS` in `onChange` is enough to ruin it.
 - Heavy screens committed during a transition stall the JS thread and hitch
-  even UI-thread animations — defer the destination screen's expensive work
+  even UI-thread animations, defer the destination screen's expensive work
   until `InteractionManager.runAfterInteractions` / after the transition ends.
 
 ## Budgets to hold

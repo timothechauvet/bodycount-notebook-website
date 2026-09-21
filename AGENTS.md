@@ -40,7 +40,7 @@ git push origin main
 
 2. **Proportional 120-Page 3D Mockup**:
    - The book is 120 pages (60 leaves of 6×9″ paper), measuring ~0.28″ thick.
-   - In CSS 3D space, depth must be ~12px (`translateZ(6px)` / `translateZ(-6px)`), NOT an overly thick 30–40px book.
+   - In CSS 3D space, depth must be ~12px (`translateZ(6px)` / `translateZ(-6px)`), NOT an overly thick 30-40px book.
    - Auto-spins 360° continuously on mobile and desktop without manual toggle clutter.
 
 3. **Abstract & Confidential Interior Spread**:
@@ -62,7 +62,7 @@ git push origin main
      - `Protection`, `STIs, tests`
      - `Meet counter`
      - `Never again`
-     - `Love-o-meter` (1–4 Flame rating scale)
+     - `Love-o-meter` (1-4 Flame rating scale)
      - `Corner scratch` perforated tab
 
 4. **Zero-Framework Performance**:

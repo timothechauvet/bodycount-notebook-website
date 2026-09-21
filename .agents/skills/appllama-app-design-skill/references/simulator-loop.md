@@ -1,4 +1,4 @@
-# The simulator loop — verification checklist & device matrix
+# The simulator loop, verification checklist & device matrix
 
 A screen is finished when it survives this checklist on a real simulator, not
 when the code compiles. Budget as many loop iterations as it takes; the goal
@@ -6,15 +6,15 @@ is "cannot find a flaw", not "looks fine".
 
 ## Loop mechanics
 
-1. Launch on the iOS Simulator (primary) — `npx expo start` + `i`, or your
+1. Launch on the iOS Simulator (primary), `npx expo start` + `i`, or your
    dev build. Android emulator second.
 2. Screenshot the screen (simctl: `xcrun simctl io booted screenshot s.png`,
-   or your agent's screenshot tool). **Open the screenshot and study it** —
+   or your agent's screenshot tool). **Open the screenshot and study it**, 
    do not trust memory of what you wrote.
 3. Interact: tap every control, type overlong text, background/foreground the
    app, rotate if supported.
 4. For motion: screen-record the ENTIRE flow
-   (`xcrun simctl io booted recordVideo m.mov`) — not just the hero
+   (`xcrun simctl io booted recordVideo m.mov`), not just the hero
    transition. Watch it at full speed for feel, then scrub frame by frame.
    Stills cannot catch a one-frame flash, a dropped spring, or a keyboard
    jump-cut; only the recording can.
@@ -22,7 +22,7 @@ is "cannot find a flaw", not "looks fine".
    looks; regressions hide in batches.
 
 If a UI-testing tool (e.g. Maestro) is available, script the flow's happy
-path once it stabilizes — taps, assertions, screenshots — so later changes
+path once it stabilizes, taps, assertions, screenshots, so later changes
 re-verify for free.
 
 ## Per-screen checklist
@@ -49,7 +49,7 @@ re-verify for free.
       cancelling mid-gesture settles cleanly
 - [ ] Frame-by-frame: no pop at animation start/end, no double-render flash,
       no one-frame white/wrong-theme/wrong-color frames during transitions
-- [ ] Every modal/sheet cycle recorded: present, drag, dismiss, cancel —
+- [ ] Every modal/sheet cycle recorded: present, drag, dismiss, cancel, 
       smooth in both directions
 - [ ] Keyboard appear AND dismiss recorded: layout glides with it, focused
       input stays visible, nothing jump-cuts or reflows after settling
@@ -68,7 +68,7 @@ re-verify for free.
 **State**
 - [ ] Background the app mid-flow → return: state intact
 - [ ] Kill and relaunch: persisted state restores, ephemeral state resets
-- [ ] Offline: actions queue or fail loudly — never silently
+- [ ] Offline: actions queue or fail loudly, never silently
 
 ## Device matrix (minimum)
 

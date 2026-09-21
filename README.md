@@ -1,4 +1,4 @@
-# My Body Count Tracker — High-Converting Static Landing Page
+# My Body Count Tracker, High-Converting Static Landing Page
 
 > A mobile-first static landing page for **My Body Count Tracker** (`ASIN: B0GWC43WN4`) on Amazon. Designed for high-conversion paid traffic (Meta Ads, TikTok, Google Ads) with sub-500ms initial paint performance, native Meta Pixel integration, interactive 3D hardcover mockup, and automated GitHub Actions deployment.
 
@@ -17,7 +17,7 @@
    - Eliminated text clutter while keeping the essential conversion hooks:
      - **Hero**: Hook headline, 4.9/5 star badge, and primary Amazon CTA.
      - **The Core Problem**: 2-sentence contrast between chaotic phone notes apps and intentional physical logging, paired with a visual comparison table.
-     - **The 5 Interior Tools**: Name & Vibe logging, Love-o-Meter (1–4 flames), Repeat Tally, Safety Checklist, and Tear-Off Corner.
+     - **The 5 Interior Tools**: Name & Vibe logging, Love-o-Meter (1-4 flames), Repeat Tally, Safety Checklist, and Tear-Off Corner.
      - **3 Use Cases**: Private & Offline, Dating App Cleanser, Legendary Gag Gift.
      - **Discreet Packaging Guarantee**: Directly addresses privacy concerns.
      - **FAQ**: Native accessible accordion.

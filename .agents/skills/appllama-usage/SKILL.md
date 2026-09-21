@@ -1,6 +1,6 @@
 ---
 name: appllama-usage
-description: Use the Appllama MCP (mcp.appllama.io) well — research real top-grossing mobile apps, their screens, flows, and UI elements, then build from what you learn. Load when the Appllama MCP is connected and the task involves building a mobile app or screen, researching app design patterns, studying onboarding/paywall/feature flows, improving an existing screen, or whenever an appllama_* / search_apps / list_app_screens tool is available. Covers the tool map, pagination, expiring media, and the full build-from-research playbooks.
+description: Use the Appllama MCP (mcp.appllama.io) well, research real top-grossing mobile apps, their screens, flows, and UI elements, then build from what you learn. Load when the Appllama MCP is connected and the task involves building a mobile app or screen, researching app design patterns, studying onboarding/paywall/feature flows, improving an existing screen, or whenever an appllama_* / search_apps / list_app_screens tool is available. Covers the tool map, pagination, expiring media, and the full build-from-research playbooks.
 license: MIT
 metadata:
   author: Appllama (appllama.io)
@@ -9,39 +9,39 @@ metadata:
 
 # Appllama Usage Skill
 
-Appllama is the design library of top-grossing mobile apps — their real
+Appllama is the design library of top-grossing mobile apps, their real
 screens, flows, and UI patterns, with revenue and download context. The MCP
 puts that library in an agent's hands: **not just a research tool, a builder's
 tool.** You study what already wins, then you build something better.
 
 Pair this skill with **appllama-app-design-skill** for every design/implementation
-step — this skill tells you what to study; that one tells you how to build.
+step, this skill tells you what to study; that one tells you how to build.
 
 ## Ground rules (read first)
 
-1. **Start with `get_credits` — it's free.** It tells you the balance,
+1. **Start with `get_credits`, it's free.** It tells you the balance,
    limits, and reset date. Pro includes 1,500 credits a month (they reset in
    full on the 1st, UTC); every other call spends 1 credit.
-2. **Go deep.** Design language lives in the whole journey, not a sample —
+2. **Go deep.** Design language lives in the whole journey, not a sample, 
    walk every screen of the apps that matter for the task, images included.
    That is exactly what the library is for. The one thing that's against the
    terms is harvesting: sweeping the catalog to extract the dataset itself
    rather than to answer a real task. That isn't research, and it's detected
    server-side.
 3. **Media URLs expire in ~1 hour.** Download/view what you study promptly.
-   If links died mid-task, re-request that page for fresh ones — screen ids
+   If links died mid-task, re-request that page for fresh ones, screen ids
    are durable, links are not.
 4. **Ignore the watermark.** Every Appllama image and video carries a small
    Appllama watermark in the top-left corner. It is provenance, not part of
-   the screen — don't let it skew your read of that corner (status bar,
+   the screen, don't let it skew your read of that corner (status bar,
    back button, title), and never reproduce it in anything you build.
 5. **Pagination is sequential.** Every list response carries `next_cursor`;
-   pass it back to continue. You cannot jump to page N — and a cursor only
+   pass it back to continue. You cannot jump to page N, and a cursor only
    works for the same query that minted it. If a cursor errors, drop it and
    restart from page one.
 6. **If you hit a rate limit, wait it out.** The per-minute and per-day
    limits sit far above real research; on the rare hit, wait the stated
-   time — don't retry-hammer.
+   time, don't retry-hammer.
 7. **Errors are instructions.** Tool errors are written to be acted on
    (expired cursor → restart; out of credits → tell the user their credits
    reset on the 1st and they can request more in Settings → Usage).
@@ -65,7 +65,7 @@ step — this skill tells you what to study; that one tells you how to build.
 
 **The screen_ref handshake:** members can click "Copy Screen ID" on any
 screen at appllama.io and paste it to you. It looks like
-`1393061654/spl_9i075` — feed it straight to
+`1393061654/spl_9i075`, feed it straight to
 `get_screen(screen_ref=...)` and you're looking at exactly the screen they
 mean, plus its closest siblings across the library.
 
@@ -83,7 +83,7 @@ without that loop is decoration.
 
 ## Local reference boards
 
-When you pull screens for study, save them into a local working structure —
+When you pull screens for study, save them into a local working structure, 
 links expire in about an hour, but your notes and downloads don't:
 
 ```
@@ -96,6 +96,6 @@ research/
     patterns.md        # cross-app synthesis: the category's design language
 ```
 
-Download the screens as you study them — synthesis happens with the images
+Download the screens as you study them, synthesis happens with the images
 side by side, not from metadata. Notes and screen IDs are durable; re-fetch
 a fresh link from the ID if you ever need the pixels again.
