@@ -48,7 +48,7 @@
   <!-- Landing Page & Tracking Configuration -->
   <script>
     window.MBCT_CONFIG = window.MBCT_CONFIG || {
-      pixelId: 'YOUR_PIXEL_ID', // Replaceable via deployment or URL ?pixel_id=
+      pixelId: '1088818753763837', // Replaceable via deployment or URL ?pixel_id=
       amazonAsin: 'B0GWC43WN4',
       amazonUrl: 'https://www.amazon.com/dp/B0GWC43WN4',
       defaultAngle: 'utility'
@@ -83,6 +83,7 @@
       if (activePixelId && activePixelId !== 'YOUR_PIXEL_ID') {
         fbq('init', activePixelId);
         fbq('track', 'PageView');
+        window.__MBCT_META_PIXEL_INITIALIZED = true;
       }
     })();
   </script>
